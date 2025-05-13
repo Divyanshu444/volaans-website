@@ -1,0 +1,101 @@
+/* Style for full-width heading with no negative space */
+.service1-section-area .service-header.heading1.text-center h2.text-anime-style-3 {
+  width: 100% !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font-size: 3.5vw !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  margin: 0 auto !important;
+  padding: 0 10px !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  display: block !important;
+  max-width: 100% !important;
+  margin-bottom: 40px !important;
+}
+
+@media (max-width: 1200px) {
+  .service1-section-area .service-header.heading1.text-center h2.text-anime-style-3 {
+    font-size: 4vw !important;
+    margin-bottom: 35px !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .service1-section-area .service-header.heading1.text-center h2.text-anime-style-3 {
+    font-size: 5vw !important;
+    line-height: 1.3 !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .service1-section-area .service-header.heading1.text-center h2.text-anime-style-3 {
+    font-size: 6vw !important;
+    line-height: 1.3 !important;
+    margin-bottom: 25px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .service1-section-area .service-header.heading1.text-center h2.text-anime-style-3 {
+    font-size: 7.5vw !important;
+    line-height: 1.2 !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+.service1-section-area .col-lg-5.m-auto {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+  margin: 0 auto !important;
+}
+
+.service1-section-area .service-header.heading1.text-center {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto 50px auto !important;
+}
+
+/* Apply to similar elements in index2.html as well */
+.heading2 h2.text-anime-style-3 {
+  width: 100% !important;
+  white-space: normal !important;
+  text-align: center !important;
+  font-size: 3.5vw !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  margin: 0 auto 40px auto !important;
+  padding: 0 10px !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  display: block !important;
+}
+
+@media (max-width: 992px) {
+  .heading2 h2.text-anime-style-3 {
+    font-size: 5vw !important;
+    margin-bottom: 30px !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .heading2 h2.text-anime-style-3 {
+    font-size: 7vw !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+/* Extra spacing for section headers */
+.service-header, .portfolio-header, .team-header, .testimonial-header, .vl-blog-1-section-box {
+  margin-bottom: 40px !important;
+}
+
+@media (max-width: 768px) {
+  .service-header, .portfolio-header, .team-header, .testimonial-header, .vl-blog-1-section-box {
+    margin-bottom: 30px !important;
+  }
+} 
