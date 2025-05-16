@@ -13261,7 +13261,7 @@ Location:
   padding: 24px;
 }
 .blog-details-section-area .blog-others-sidebar .comments-boxarea.box2 {
-  margin: 0 0 0 30px;
+  margin: 0 0 0 0px;
 }
 @media (max-width: 767px) {
   .blog-details-section-area .blog-others-sidebar .comments-boxarea.box2 {

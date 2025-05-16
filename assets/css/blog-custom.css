@@ -1,0 +1,185 @@
+/* Enhanced Blog Styling */
+
+/* Blog content styling */
+.vl-blog-details-text {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+}
+
+.vl-blog-details-text h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #232323;
+    border-left: 4px solid #1d6ce2;
+    padding-left: 15px;
+}
+
+.vl-blog-details-text h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.vl-blog-details-text p {
+    margin-bottom: 18px;
+}
+
+.vl-blog-details-text ul {
+    padding-left: 5px;
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+
+.vl-blog-details-text ul li {    margin-bottom: 12px;    position: relative;    list-style-type: none;    padding-left: 28px;    line-height: 1.6;    color: #ffffff;    font-weight: 500;}
+
+.vl-blog-details-text ul li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #1d6ce2;
+    box-shadow: 0 0 0 2px rgba(29, 108, 226, 0.2);
+}
+
+.vl-blog-details-text strong {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+/* Blog tags styling */
+.vl-blog-details-tags a {
+    display: inline-block;
+    background-color: #f5f8ff;
+    color: #1d6ce2;
+    padding: 6px 14px;
+    margin: 5px 3px;
+    border-radius: 4px;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.vl-blog-details-tags a:hover {
+    background-color: #1d6ce2;
+    color: #fff;
+}
+
+/* Blog metadata styling */
+.list-author {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.list-author li a {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.list-author li a:hover {
+    color: #1d6ce2;
+}
+
+.list-author li a img {
+    margin-right: 6px;
+}
+
+/* Featured image styling */
+.vl-blog-detail-img img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.vl-blog-detail-img img:hover {
+    transform: scale(1.02);
+}
+
+/* Title styling */
+.vl-blog-details-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 20px;
+    color: #232323;
+}
+
+/* Blockquote styling */
+.vl-blog-details-text blockquote {
+    background-color: #f8faff;
+    border-left: 4px solid #1d6ce2;
+    padding: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* Code block styling */
+.vl-blog-details-text pre {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-family: monospace;
+    margin: 20px 0;
+}
+
+/* Related posts styling */
+.vl-blog-1-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.vl-blog-1-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Recent posts in sidebar */
+.recent-posts .img1 img {
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.recent-posts .img1 img:hover {
+    transform: scale(1.05);
+}
+
+.recent-posts .content-area a {
+    font-weight: 600;
+    color: #333;
+    transition: color 0.3s ease;
+    display: block;
+    line-height: 1.4;
+}
+
+.recent-posts .content-area a:hover {
+    color: #1d6ce2;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .vl-blog-details-title {
+        font-size: 26px;
+    }
+    
+    .vl-blog-details-text h3 {
+        font-size: 22px;
+    }
+    
+    .vl-blog-details-text h4 {
+        font-size: 18px;
+    }
+} 
