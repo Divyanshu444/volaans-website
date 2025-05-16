@@ -289,6 +289,7 @@
           <div class="btn-area1" data-aos="fade-up" data-aos-duration="1100">
             <a href="testimonial.html" class="vl-btn1" style="overflow: hidden;">View Testimonials</a>
           </div>
+          
         </div>
       </div>
     </div>
@@ -296,10 +297,13 @@
 </div>
  <div class="spa"></div>
 
+<!-- Adding additional spacing here -->
+<div class="space50"></div>
+
 <div class="counter-section-area">
   <div class="container">
       <div class="row">
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="counter-box">
                   <h2><span class="counter">150</span>+</h2>
                   <div class="space18"></div>
@@ -307,7 +311,7 @@
               </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="counter-box">
                   <h2><span class="counter">100</span>+</h2>
                   <div class="space18"></div>
@@ -315,7 +319,7 @@
               </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="counter-box">
                   <h2><span class="counter">200</span>+</h2>
                   <div class="space18"></div>
@@ -323,7 +327,7 @@
               </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="counter-box">
                   <h2><span class="counter">30</span>+</h2>
                   <div class="space18"></div>
@@ -333,6 +337,86 @@
       </div>
   </div>
 </div>
+
+<!-- Add responsive styles for the counter boxes -->
+<style>
+  /* Responsive styles for counter boxes */
+  .counter-box {
+    transition: all 0.3s ease;
+  }
+  
+  .counter-box h2 {
+    font-size: 42px;
+    transition: all 0.3s ease;
+  }
+  
+  .counter-box p {
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  @media (max-width: 1200px) {
+    .counter-box h2 {
+      font-size: 36px;
+    }
+    .counter-box p {
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .counter-box h2 {
+      font-size: 32px;
+    }
+    .counter-box p {
+      font-size: 14px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .counter-section-area {
+      padding: 30px 0;
+    }
+    .counter-box {
+      margin-bottom: 30px;
+      text-align: center;
+      padding: 20px 15px;
+    }
+    .counter-box h2 {
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .col-sm-6 {
+      width: 50%;
+    }
+    .counter-box {
+      padding: 15px 8px;
+      margin-bottom: 20px;
+    }
+    .counter-box h2 {
+      font-size: 26px;
+      line-height: 1.2;
+    }
+    .counter-box .space18 {
+      height: 10px;
+    }
+    .counter-box p {
+      font-size: 13px;
+      line-height: 1.4;
+    }
+  }
+  
+  @media (max-width: 375px) {
+    .counter-box h2 {
+      font-size: 22px;
+    }
+    .counter-box p {
+      font-size: 12px;
+    }
+  }
+</style>
 
 <div class="slider1-section-area">
   <div class="marquee-wrap">
@@ -442,6 +526,35 @@
             <a href="about.html" class="vl-btn1" style="overflow: hidden; margin-left: 72px;" >View Testimonials</a>
           </div>
         </div>
+        <div class="about-section-area sp6" style="padding-bottom: 0px; margin-bottom: -100px;">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <div class="about-header heading1">
+                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -65px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
+                </div>
+              </div>
+              <div class="col-lg-4 text-end">
+                <div class="btn-area1" data-aos="fade-right" data-aos-duration="800"> 
+                  <a href="about.html" class="vl-btn1" style="overflow: hidden;">Learn More About Us</a>
+                </div>
+              </div>
+            </div>
+            <div class="space20"></div>
+            <div class="about-others-area">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="img1">
+                    <div class="play-btn">
+                      <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
+                    </div>
+                    <img src="assets/img/all-images/about/about-img6.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -527,7 +640,7 @@
     <div class="row">
       <div class="col-lg-4 m-auto">
         <div class="heading1 space-margin60 text-center">
-          <h5 style="color: #fff; font-size: 32px;">Industries we serve</h5>
+          <h5 class="text-anime-style-3" style="color: #fff; font-size: 35px; line-height:35px; white-space: nowrap; text-overflow: ellipsis;">Industries we serve</h5>
         </div>
       </div>
     </div>
