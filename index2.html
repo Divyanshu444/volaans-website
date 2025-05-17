@@ -391,11 +391,9 @@
               </div>
               <div id="aiService1" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>AI Roadmap & Opportunity Assessment</li>
-                    <li><span class="bullet"></span>Proof of Concept (PoC) Development</li>
-                    <li><span class="bullet"></span>Responsible & Ethical AI Implementation</li>
-                  </ul>
+                  <p class="service-description">
+                    Start smart with AI. We help define your AI roadmap, identify automation opportunities, develop proofs of concept, and ensure ethical, responsible implementation practices from day one.
+                  </p>
                 </div>
               </div>
             </div>
@@ -413,13 +411,9 @@
               </div>
               <div id="aiService2" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>Supervised/Unsupervised Learning Models</li>
-                    <li><span class="bullet"></span>Neural Network Design (CNNs, RNNs)</li>
-                    <li><span class="bullet"></span>Time-Series Forecasting</li>
-                    <li><span class="bullet"></span>NLP & Text Analytics</li>
-                    <li><span class="bullet"></span>Model Monitoring & Drift Detection</li>
-                  </ul>
+                  <p class="service-description">
+                    Harness powerful AI models to predict, personalize, and optimize. Our team builds supervised/unsupervised ML models, neural networks, time-series forecasting tools, and NLP-based solutions.
+                  </p>
                 </div>
               </div>
             </div>
@@ -437,12 +431,9 @@
               </div>
               <div id="aiService3" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>Predictive Maintenance</li>
-                    <li><span class="bullet"></span>Anomaly Detection in IT Systems</li>
-                    <li><span class="bullet"></span>Intelligent Alert Correlation</li>
-                    <li><span class="bullet"></span>Incident Automation & Resolution</li>
-                  </ul>
+                  <p class="service-description">
+                    Automate IT operations with intelligent insights. Our AIOps services include anomaly detection, predictive maintenance, incident resolution, and intelligent alert correlation to improve uptime and responsiveness.
+                  </p>
                 </div>
               </div>
             </div>
@@ -460,12 +451,9 @@
               </div>
               <div id="aiService4" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>Image Recognition & Object Detection</li>
-                    <li><span class="bullet"></span>Facial Recognition Systems</li>
-                    <li><span class="bullet"></span>OCR (Optical Character Recognition)</li>
-                    <li><span class="bullet"></span>Video Analytics</li>
-                  </ul>
+                  <p class="service-description">
+                    Turn visuals into data. We build computer vision systems for object detection, facial recognition, video analytics, and OCR — helping businesses digitize, secure, and analyze visual content.
+                  </p>
                 </div>
               </div>
             </div>
@@ -483,12 +471,9 @@
               </div>
               <div id="aiService5" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>Chatbots & Virtual Assistants</li>
-                    <li><span class="bullet"></span>Sentiment Analysis</li>
-                    <li><span class="bullet"></span>Text Summarization</li>
-                    <li><span class="bullet"></span>Voice-to-Text Engines</li>
-                  </ul>
+                  <p class="service-description">
+                    Understand and generate human-like language. Our NLP services power chatbots, sentiment analysis tools, summarization engines, and voice-to-text systems for multi-channel interaction.
+                  </p>
                 </div>
               </div>
             </div>
@@ -506,12 +491,9 @@
               </div>
               <div id="aiService6" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list">
-                    <li><span class="bullet"></span>Model Deployment (MLOps)</li>
-                    <li><span class="bullet"></span>GPU Infrastructure Setup</li>
-                    <li><span class="bullet"></span>Data Lake for AI/ML Pipelines</li>
-                    <li><span class="bullet"></span>Model Training Optimization</li>
-                  </ul>
+                  <p class="service-description">
+                    Power your AI initiatives with the right infrastructure. We handle model deployment (MLOps), GPU infrastructure setup, data lake creation, and model training optimization for high-performance AI environments.
+                  </p>
                 </div>
               </div>
             </div>
@@ -529,12 +511,9 @@
               </div>
               <div id="aiService7" class="ai-service-content collapse">
                 <div class="ai-service-content-inner">
-                  <ul class="service-list hashtag-list">
-                    <li><span class="bullet"></span><strong>#VirtualAssistants</strong> – Task automation for HR, Sales, Finance</li>
-                    <li><span class="bullet"></span><strong>#ConversationalAI</strong> – Human-like chat interfaces for web and mobile</li>
-                    <li><span class="bullet"></span><strong>#CustomerSupportAI</strong> – AI agents for L1/L2 ticket resolution</li>
-                    <li><span class="bullet"></span><strong>#VoiceBots</strong> – Multilingual voice automation for IVRs & customer care</li>
-                  </ul>
+                  <p class="service-description">
+                    Deliver automated, human-like support across channels. Our virtual agents are designed for HR, sales, and support use cases with features like multilingual voice bots, conversational AI, and L1/L2 ticket resolution capabilities.
+                  </p>
                 </div>
               </div>
             </div>
@@ -596,7 +575,11 @@
       .toggle-icon {
         font-size: 16px;
         color: rgba(255, 255, 255, 0.7);
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+      
+      .ai-service-header:hover .toggle-icon {
+        color: #0000FB;
       }
       
       .ai-service-content {
@@ -605,7 +588,7 @@
       }
       
       .ai-service-content-inner {
-        padding: 20px 25px 20px 65px;
+        padding: 20px 25px 25px 65px;
       }
       
       .service-list {
@@ -655,6 +638,15 @@
       
       .ai-service-header[aria-expanded="true"] .toggle-icon i {
         transform: rotate(180deg);
+      }
+      
+      .service-description {
+        color: #fff;
+        line-height: 1.7;
+        font-size: 16px;
+        margin: 10px 0 0;
+        padding: 0;
+        opacity: 0.9;
       }
     </style>
 
