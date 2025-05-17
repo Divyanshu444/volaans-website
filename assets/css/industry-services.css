@@ -1,0 +1,219 @@
+/* Industry Services Detailed Styling */
+
+.industry-services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0 40px;
+}
+
+.industry-section {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.industry-section.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.industry-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  position: relative;
+}
+
+.industry-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 28px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.industry-icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), transparent);
+  z-index: 1;
+}
+
+.industry-icon i {
+  z-index: 2;
+}
+
+.industry-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.industry-emoji {
+  font-size: 28px;
+  margin-right: 15px;
+}
+
+.industry-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.service-item {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  color: #fff;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(15px);
+}
+
+.service-item.animated {
+  animation: fadeInUp 0.5s forwards;
+}
+
+.service-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.service-item::before {
+  content: '•';
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.service-item p {
+  margin: 0;
+  padding-left: 15px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+/* Theme colors for each industry */
+.healthcare .industry-icon {
+  background: linear-gradient(135deg, #3498db, #2563eb);
+}
+
+.finance .industry-icon {
+  background: linear-gradient(135deg, #f1c40f, #f39c12);
+}
+
+.legal .industry-icon {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
+}
+
+.manufacturing .industry-icon {
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+}
+
+.retail .industry-icon {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+}
+
+.education .industry-icon {
+  background: linear-gradient(135deg, #00bcd4, #0097a7);
+}
+
+.logistics .industry-icon {
+  background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+/* Staggered animation for service items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .industry-services {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  
+  .industry-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .industry-services {
+    grid-template-columns: 1fr;
+  }
+  
+  .industry-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .industry-icon {
+    margin-bottom: 15px;
+  }
+  
+  .industry-title {
+    font-size: 20px;
+  }
+}
+
+/* Expanded states styling */
+.industry-section .industry-services {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.industry-section.expanded .industry-services {
+  max-height: 1000px;
+}
+
+.industry-header::after {
+  content: '\f107';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.industry-section.expanded .industry-header::after {
+  transform: translateY(-50%) rotate(180deg);
+} 
