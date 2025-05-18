@@ -60,6 +60,7 @@
   .hero1-section-area .hero-header-area h1.text-anime-style-3 {
     font-size: 32px !important;
     line-height: 34px !important;
+  
   }
 }
 
@@ -1796,4 +1797,13 @@ svg path[stroke="#fefe1f"] {
 .owl-nav button i {
   color: white;
   font-size: 20px;
+}
+
+/* Body and html overflow fixes */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
 } 

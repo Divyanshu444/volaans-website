@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="assets/css/custom.css">
 
 
+        <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+
     <!--=====  JS SCRIPT LINK =======-->
     <script src="assets/js/plugins/jquery-3-7-1.min.js"></script>
 </head>
@@ -530,7 +532,7 @@
             <div class="row align-items-center">
               <div class="col-lg-8">
                 <div class="about-header heading1">
-                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -65px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
+                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -26px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
                 </div>
               </div>
               <div class="col-lg-4 text-end">
@@ -669,6 +671,17 @@
     background-repeat: no-repeat;
     background-size: cover;
     padding: 80px 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
   }
   
   .process-intro {
@@ -754,109 +767,34 @@
     letter-spacing: 0.5px;
   }
   
-  .timeline-content p {
-    color: #e1e1e1;
-    margin-bottom: 0;
-    font-size: 15px;
-    line-height: 1.6;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.2px;
-  }
-  
-  .process-highlight-box {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-  
-  .highlight-content {
-    background: linear-gradient(135deg, #101620, #1C1F2B);
-    color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-    border: 1px solid rgba(52, 152, 219, 0.3);
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .highlight-content:before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, rgba(16,22,32,0) 70%);
-    z-index: 0;
-  }
-  
-  .highlight-content h3 {
-    color: #fff;
-    margin: 15px 0;
-    font-size: 22px;
-    font-weight: 600;
-    position: relative;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-  
-  .highlight-content p {
-    color: rgba(255,255,255,0.9);
-    font-size: 16px;
-    line-height: 1.7;
-    position: relative;
-    font-family: 'Inter', sans-serif;
-    letter-spacing: 0.2px;
-  }
-  
-  .highlight-icon {
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(135deg, #3498db, #101620);
-    border-radius: 50%;
-    text-align: center;
-    line-height: 60px;
-    position: relative;
-    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
-  }
-  
-  .highlight-icon i {
-    font-size: 25px;
-    color: #fff;
-    position: relative;
-    z-index: 1;
-  }
-  
-  .highlight-content .vl-btn1 {
-    background: linear-gradient(135deg, #3498db, #202838);
-    position: relative;
-    z-index: 1;
-  }
-  
-  .highlight-content .vl-btn1:hover {
-    background: linear-gradient(135deg, #202838, #3498db);
-  }
-  
   @media (max-width: 991px) {
-    .process-highlight-box {
-      margin-top: 50px;
+    .timeline-content h4 {
+      font-size: 18px;
     }
   }
   
   @media (max-width: 767px) {
+    .key-values-section {
+      padding: 60px 0;
+    }
+    
     .timeline-item {
       padding-left: 45px;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-marker {
+      width: 24px;
+      height: 24px;
     }
     
     .timeline-content {
-      padding: 20px;
+      padding: 15px;
     }
     
-    .highlight-content {
-      padding: 25px;
+    .timeline-content h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
     }
   }
 </style>
@@ -868,7 +806,7 @@
     <div class="row">
       <div class="col-lg-4 m-auto">
         <div class="heading1 space-margin60 text-center">
-          <h5 class="text-anime-style-3" style="color: #fff; font-size: 35px; line-height:35px; white-space: nowrap; text-overflow: ellipsis;">Industries we serve</h5>
+          <h5 class="text-anime-style-3" style="color: #fff; font-size: 35px; line-height:35px;">Industries we serve</h5>
         </div>
       </div>
     </div>

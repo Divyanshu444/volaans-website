@@ -1,0 +1,275 @@
+/* Mobile button alignment fixes */
+
+@media (max-width: 767px) {
+  /* Hero section button alignment for mobile */
+  .hero1-section-area .trusted-partners-section .btn-area1 {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    margin-top: 20px !important;
+  }
+
+  .hero1-section-area .trusted-partners-section .btn-area1 a {
+    margin: 0 0 15px 0 !important;
+    width: 100% !important;
+    max-width: 280px !important;
+    text-align: center !important;
+    padding: 10px 20px !important;
+  }
+
+  /* Override the margin-left for the second button */
+  .hero1-section-area .trusted-partners-section .btn-area1 a.ms-3 {
+    margin-left: 0 !important;
+  }
+  
+  /* Specific styling for mobile hero buttons */
+  .mobile-hero-btn {
+    display: block !important;
+    text-transform: capitalize;
+    font-size: 15px !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  /* Fix heading sizes on mobile */
+  .hero1-section-area .hero-header-area h1.text-anime-style-3 {
+    font-size: 25px !important;
+    line-height: 34px !important;
+    margin-bottom: 15px !important;
+  }
+  
+  .hero1-section-area .hero-header-area h5 {
+    font-size: 16px !important;
+    line-height: 1.4 !important;
+  }
+  
+  /* Fix spacing in hero section */
+  .space32 {
+    height: 20px !important;
+  }
+  
+  /* Center "Book a Free Call" button in mobile view */
+  .btn-area1 {
+    text-align: center !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .btn-area1 a.vl-btn1 {
+    margin: 0 auto !important;
+    display: inline-block !important;
+  }
+  
+  /* Decrease the size of play button in mobile view */
+  .play-btn {
+    position: absolute !important;
+    bottom: 15px !important;
+    right: 15px !important;
+    transform: scale(0.8) !important;
+  }
+  
+  .play-btn a {
+    font-size: 14px !important;
+  }
+  
+  .play-btn a span {
+    width: 45px !important;
+    height: 45px !important;
+    margin-right: 10px !important;
+  }
+  
+  .play-btn a span i {
+    font-size: 14px !important;
+  }
+  
+  /* Make the play button more visible with background */
+  .play-btn a {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    padding: 5px 12px !important;
+    border-radius: 30px !important;
+  }
+  
+  /* Decrease size of reel play buttons in mobile view */
+  .reel-play-btn {
+    width: 50px !important;
+    height: 50px !important;
+    font-size: 18px !important;
+  }
+  
+  .reel-phone-frame {
+    max-width: 220px !important;
+  }
+  
+  /* Position popup-youtube button better on mobile */
+  .popup-youtube {
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 6px 12px !important;
+    border-radius: 30px !important;
+    background: rgba(0, 0, 0, 0.6) !important;
+  }
+  
+  /* Fix alignment of the play icon (\f04b) */
+  .play-btn a span i.fa-play,
+  .reel-play-btn i.fa-play {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    /* Slight adjustment to fix visual centering of the icon */
+    position: relative !important;
+    left: 18px !important;
+  }
+  
+  /* Alternative approach for centering the play icon if needed */
+  .play-btn a span,
+  .reel-play-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  
+  /* Force proper positioning of the play icon */
+  .fa-play:before {
+    content: "\f04b"; /* Ensure proper icon is displayed */
+    position: relative !important;
+    left: 1px !important; /* Small offset to visually center */
+    top: 0 !important;
+  }
+  
+  /* More focused fix for the play icon alignment issue */
+  .popup-youtube span i.fa-play {
+    /* First reset any existing positioning */
+    margin: 0 !important;
+    padding: 0 !important;
+    transform: none !important;
+    
+    /* Then apply precise alignment */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-42%, -50%) !important; /* Slight left adjustment for visual centering */
+    width: 100% !important;
+    height: 100% !important;
+    line-height: 0 !important; 
+  }
+  
+  /* Ensure the container has proper positioning for the absolute icon */
+  .popup-youtube span {
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* Hide carousel navigation arrows in mobile view */
+  .pagination-buttons,
+  .swiper-button-next,
+  .swiper-button-prev,
+  .owl-nav {
+    display: none !important;
+  }
+  
+  /* Specifically target FontAwesome arrow icons in carousel navigation */
+  .fa-solid.fa-angle-left,
+  .fa-solid.fa-angle-right,
+  button i.fa-angle-left,
+  button i.fa-angle-right {
+    display: none !important;
+  }
+  
+  /* Also hide any containers that might contain these arrows */
+  .reels-navigation,
+  .owl-nav,
+  [class*="nav-"] button,
+  [class*="navigation"] button {
+    display: none !important;
+  }
+  
+  /* Improve "Industries we serve" heading spacing and line height in mobile view */
+  .serve-section-area .heading1 h5 {
+    font-size: 28px !important;
+    line-height: 1.5 !important;
+    letter-spacing: -0.01em !important;
+    margin-bottom: 40px !important;  /* Increased bottom margin */
+    padding: 0 5px !important;
+  }
+  
+  /* Add more spacing above and below the heading */
+  .serve-section-area .space60 {
+    height: 30px !important;
+  }
+  
+  /* Add more room for the heading container */
+  .serve-section-area .heading1.space-margin60 {
+    margin-bottom: 40px !important;  /* Increased bottom margin */
+  }
+  
+  /* Additional spacing to prevent overlap with boxes below */
+  .serve-section-area .space-margin60 {
+    margin-bottom: 40px !important; 
+  }
+  
+  /* Fix container spacing in the industries section */
+  .serve-section-area .row {
+    margin-top: 30px !important;
+  }
+  
+  /* Add padding to the top of the industry grid for better spacing */
+  .industry-grid-container {
+    padding-top: 20px !important;
+  }
+  
+  /* Hide fancy "View All Services" button in mobile view */
+  .service1-section-area .started-btn {
+    display: none !important;
+  }
+  
+  /* Add a normal button in mobile view */
+  .service1-section-area .col-lg-12::after {
+    content: "" !important;
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: 30px auto !important;
+  }
+  
+  /* Add normal "View All Services" button after hiding the fancy one */
+  .service1-section-area .space50::before {
+    content: "" !important;
+    display: block !important;
+    position: relative !important;
+  }
+  
+  .service1-section-area .space50 {
+    position: relative !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+  
+  .service1-section-area .space50::after {
+    content: "View All Services" !important;
+    display: inline-block !important;
+    position: relative !important;
+    background: #0000fb !important;
+    color: white !important;
+    padding: 12px 30px !important;
+    border-radius: 5px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    letter-spacing: 0.5px !important;
+    text-transform: capitalize !important;
+    font-size: 15px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 251, 0.3) !important;
+    z-index: 5 !important; 
+    line-height: 1.5 !important;
+    font-family: 'Poppins', sans-serif !important;
+  }
+} 
