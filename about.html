@@ -524,20 +524,20 @@
           </div>
           <div class="space32"></div>
           <div class="btn-area1" data-aos="fade-left" data-aos-duration="1100"> 
-            <a href="about.html" class="vl-btn1" style="overflow: hidden; margin-left: 72px;" >View Testimonials</a>
+            <a href="about.html" class="vl-btn1" style="overflow: hidden; margin-left: 72px; display: none;" >View Testimonials</a>
           </div>
         </div>
-        <div class="about-section-area sp6" style="padding-bottom: 0px; margin-bottom: -100px;">
+        <div class="about-section-area sp6 mobile-hide-section" style="padding-bottom: 0px; margin-bottom: -100px;">
           <div class="container">
             <div class="row align-items-center">
               <div class="col-lg-8">
                 <div class="about-header heading1">
-                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -26px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
+                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -56px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
                 </div>
               </div>
               <div class="col-lg-4 text-end">
                 <div class="btn-area1" data-aos="fade-right" data-aos-duration="800"> 
-                  <a href="about.html" class="vl-btn1" style="overflow: hidden;">Learn More About Us</a>
+                  <a href="contact.html" class="vl-btn1" style="overflow: hidden;">Book A Free Call</a>
                 </div>
               </div>
             </div>
@@ -1148,5 +1148,35 @@
 <script src="assets/js/plugins/circle-progress.js"></script>
 <script src="assets/js/plugins/swiper.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- Mobile-specific styles with highest priority -->
+<style>
+@media (max-width: 767px) {
+  .mobile-hide-section, 
+  .about1-section-area .about-section-area.sp6,
+  .about-section-area[style*="padding-bottom: 0px; margin-bottom: -100px;"] {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    position: absolute !important;
+    z-index: -9999 !important;
+    pointer-events: none !important;
+    clip: rect(0,0,0,0) !important;
+  }
+  
+  /* Center align heading on mobile view */
+  .about-hero-content h1.text-anime-style-3 {
+    text-align: center !important;
+  }
+  
+  /* Center align the paragraph text as well for consistency */
+  .about-hero-content p {
+    text-align: center !important;
+  }
+}
+</style>
 </body>
 </html>

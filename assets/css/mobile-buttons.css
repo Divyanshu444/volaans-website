@@ -1,6 +1,31 @@
 /* Mobile button alignment fixes */
 
 @media (max-width: 767px) {
+
+    /* about area button  */
+    .vl-btn1, .mobile-btn{
+        margin-left: 75px !important;
+
+    }
+    
+    /* Hide the entire about section area on mobile - more forceful */
+    .about1-section-area .about-section-area.sp6,
+    .about1-section-area div[style*="padding-bottom: 0px; margin-bottom: -100px;"],
+    .mobile-hide-section {
+        display: none !important;
+        visibility: hidden !important;
+        height: 0 !important;
+        width: 0 !important;
+        overflow: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        pointer-events: none !important;
+        clip: rect(0,0,0,0) !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: 0 !important;
+    }
+
   /* Hero section button alignment for mobile */
   .hero1-section-area .trusted-partners-section .btn-area1 {
     display: flex !important;
