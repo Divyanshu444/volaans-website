@@ -27,6 +27,26 @@
 
     <!--=====  JS SCRIPT LINK =======-->
     <script src="assets/js/plugins/jquery-3-7-1.min.js"></script>
+    
+    <style>
+        .service-box-link {
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .service-box-link:hover {
+            text-decoration: none;
+            color: inherit;
+            transform: translateY(-5px);
+        }
+        
+        .service-box-link .service-category-box {
+            height: 100%;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body class="body-bg1">
 
@@ -280,38 +300,44 @@
     <div class="row">
       <!-- IT Services Box -->
       <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-        <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-          <div class="icon-area">
-            <img src="assets/img/icons/it-services-icon.svg" alt="IT Services">
+        <a href="It-Services.html" class="service-box-link">
+          <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+            <div class="icon-area">
+              <img src="assets/img/icons/it-services-icon.svg" alt="IT Services">
+            </div>
+            <h3>IT Services</h3>
+            <p>Enterprise-grade software solutions, web application development, and IT infrastructure management tailored to your business needs.</p>
+            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          <h3>IT Services</h3>
-          <p>Enterprise-grade software solutions, web application development, and IT infrastructure management tailored to your business needs.</p>
-          <a href="It-Services.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+        </a>
       </div>
       
       <!-- AI Services Box -->
       <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
-        <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-          <div class="icon-area">
-            <img src="assets/img/icons/ai-services-icon.svg" alt="AI Services">
+        <a href="index2.html" class="service-box-link">
+          <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+            <div class="icon-area">
+              <img src="assets/img/icons/ai-services-icon.svg" alt="AI Services">
+            </div>
+            <h3>AI Services</h3>
+            <p>Cutting-edge AI solutions, machine learning implementations, and workflow automation to streamline your operations.</p>
+            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          <h3>AI Services</h3>
-          <p>Cutting-edge AI solutions, machine learning implementations, and workflow automation to streamline your operations.</p>
-          <a href="index2.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+        </a>
       </div>
       
       <!-- Industry-based Services Box -->
       <div class="col-lg-4 col-md-6">
-        <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
-          <div class="icon-area">
-            <img src="assets/img/icons/industry-services-icon.svg" alt="Industry Services">
+        <a href="faq.html" class="service-box-link">
+          <div class="service-category-box" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+            <div class="icon-area">
+              <img src="assets/img/icons/industry-services-icon.svg" alt="Industry Services">
+            </div>
+            <h3>Industry-based Services</h3>
+            <p>Specialized solutions for healthcare, finance, e-commerce, and more, addressing unique industry challenges.</p>
+            <span class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></span>
           </div>
-          <h3>Industry-based Services</h3>
-          <p>Specialized solutions for healthcare, finance, e-commerce, and more, addressing unique industry challenges.</p>
-          <a href="faq.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
-        </div>
+        </a>
       </div>
     </div>
   </div>

@@ -38,7 +38,35 @@
         offset: 150px !important;
       }
       
-      /* Responsive improvements */
+      /* Enhanced responsive styles for all screen sizes */
+      /* Large devices (desktops) */
+      @media (max-width: 1199px) {
+        .portfolio-boxarea {
+          margin-bottom: 20px;
+        }
+        .hero-header-area h1 {
+          font-size: 42px;
+        }
+      }
+      
+      /* Medium devices (tablets) */
+      @media (max-width: 991px) {
+        .hero-header-area h1 {
+          font-size: 36px;
+        }
+        .imges-header {
+          margin-top: 30px;
+        }
+        .inner-section-area {
+          padding-top: 80px;
+          padding-bottom: 60px;
+        }
+        .project-inner-section-area {
+          padding: 50px 0;
+        }
+      }
+      
+      /* Small devices (landscape phones) */
       @media (max-width: 767px) {
         .portfolio-boxarea {
           margin-bottom: 15px;
@@ -47,10 +75,27 @@
           width: 100%;
           height: auto;
         }
+        .hero-header-area h1 {
+          font-size: 32px;
+        }
+        .inner-section-area {
+          padding-top: 60px;
+          padding-bottom: 40px;
+        }
+        .project-inner-section-area {
+          padding: 40px 0;
+        }
+        .marquee-text {
+          width: 100%;
+        }
+        .brand-single-box h3 {
+          font-size: 16px;
+        }
       }
       
+      /* Extra small devices (portrait phones) */
       @media (max-width: 575px) {
-        .col-lg-4.col-md-6 {
+        .col-sm-6, .col-lg-4.col-md-6 {
           width: 50%;
           padding-left: 5px;
           padding-right: 5px;
@@ -59,6 +104,216 @@
           margin-left: -5px;
           margin-right: -5px;
         }
+        .hero-header-area h1 {
+          font-size: 28px;
+        }
+        .hero-header-area h4 {
+          font-size: 14px;
+        }
+        .inner-section-area {
+          padding-top: 50px;
+          padding-bottom: 30px;
+        }
+        .project-inner-section-area {
+          padding: 30px 0;
+        }
+        .space32, .space30 {
+          height: 20px;
+        }
+        .vl-footer1-section-area .col-lg-3 {
+          margin-bottom: 30px;
+        }
+        .imges-header {
+          transform: scale(0.8);
+          margin-top: 0;
+        }
+      }
+      
+      /* Very small devices optimization */
+      @media (max-width: 399px) {
+        .col-sm-6, .col-lg-4.col-md-6 {
+          width: 100%;
+          padding-left: 15px;
+          padding-right: 15px;
+        }
+        .row {
+          margin-left: -15px;
+          margin-right: -15px;
+        }
+        .hero-header-area h1 {
+          font-size: 24px;
+        }
+        .marquee-text {
+          padding: 6px 0;
+        }
+        .brand-single-box h3 {
+          font-size: 14px;
+          padding: 0 10px;
+        }
+      }
+      
+      /* Additional optimizations for project grid */
+      .portfolio-boxarea {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .portfolio-boxarea:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .portfolio-boxarea .img1 {
+        overflow: hidden;
+        border-radius: 5px;
+      }
+      
+      .portfolio-boxarea .img1 img {
+        transition: transform 0.5s ease;
+      }
+      
+      .portfolio-boxarea:hover .img1 img {
+        transform: scale(1.05);
+      }
+      
+      /* Optimize lazy loading for better performance */
+      img {
+        max-width: 100%;
+      }
+      
+      /* Improve mobile touch experience */
+      @media (hover: none) {
+        .portfolio-boxarea:hover {
+          transform: none;
+        }
+        
+        .portfolio-boxarea:active {
+          transform: scale(0.98);
+        }
+      }
+      
+      /* Improved loading animations */
+      .portfolio-boxarea {
+        opacity: 0;
+        animation: fadeIn 0.5s ease forwards;
+        animation-play-state: paused;
+      }
+      
+      .portfolio-boxarea.loaded {
+        animation-play-state: running;
+      }
+      
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      
+      /* Optimize content display on very small screens */
+      @media (max-width: 320px) {
+        .container {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        
+        .vl-header-area .vl-logo img {
+          max-width: 80%;
+        }
+        
+        .project-inner-section-area {
+          padding: 20px 0;
+        }
+      }
+      
+      /* Image loading placeholder */
+      .img1 {
+      
+        min-height: 180px;
+        position: relative;
+      }
+      
+      .img1::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        animation: shimmer 1.5s infinite;
+        display: none;
+      }
+      
+      .img1.loading::before {
+        display: block;
+      }
+      
+      @keyframes shimmer {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
+      }
+      
+      /* Accessibility - reduced motion preference */
+      .reduced-motion [data-aos] {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+        animation: none !important;
+      }
+      
+      .reduced-motion .portfolio-boxarea {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+      
+      .reduced-motion .keyframe5,
+      .reduced-motion .keyframe6 {
+        animation: none !important;
+      }
+      
+      /* Better mobile hero section */
+      @media (max-width: 991px) {
+        .inner-section-area {
+          padding-top: 90px !important;
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .inner-section-area {
+          text-align: center;
+          padding-top: 100px !important; /* More top padding to prevent navbar overlap */
+        }
+        
+        .inner-section-area .imges-header {
+          margin: 20px auto;
+          text-align: center;
+          width: 80%;
+        }
+      }
+      
+      @media (max-width: 575px) {
+        .inner-section-area {
+          padding-top: 110px !important; /* Even more padding for smaller screens */
+        }
+      }
+      
+      @media (max-width: 399px) {
+        .inner-section-area {
+          padding-top: 120px !important; /* Maximum padding for very small screens */
+        }
+      }
+      
+      /* Fix navbar overlapping issues */
+      header.homepage1-menu {
+        z-index: 1000;
+      }
+      
+      .vl-header-area {
+        z-index: 1000;
+      }
+      
+      .inner-section-area {
+        position: relative;
+        z-index: 1;
       }
     </style>
 </head>
@@ -273,15 +528,15 @@
 <div class="inner-section-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center top; background-repeat: no-repeat; background-size: cover;">
   <div class="container">
     <div class="row align-items-center">
-      <div class="col-lg-5">
+      <div class="col-lg-5 col-md-12">
         <div class="hero-header-area">
-          <h1>Our Project</h1>
+          <h1 class="mt-3">Our Project</h1>
           <div class="space32"></div>
           <h4><a href="index.html">Home</a> <i class="fa-solid fa-angle-right"></i> <a href="#">Project Showcase</a></h4>
         </div>
       </div>
-      <div class="col-lg-4"></div>
-      <div class="col-lg-3">
+      <div class="col-lg-4 d-lg-block d-none"></div>
+      <div class="col-lg-3 col-md-10 col-sm-12 mx-auto">
         <div class="imges-header">
           <div class="img1">
             <img src="assets/img/all-images/hero/hero-img1.png" alt="" class="keyframe6">
@@ -401,11 +656,11 @@
                       <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
                           <div class="all-project-area">
-                            <div class="row">
+                            <div class="row justify-content-center project-grid">
                               <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                                 <a href="project-single.html?id=1" class="portfolio-boxarea">
                                   <div class="img1">
-                                    <img src="assets/img/Projects/1.png" alt="">
+                                    <img src="assets/img/Projects/1.png" alt="" loading="lazy">
                                   </div>
                                   <div class="arrow-content">
                                     <div class="arrow">
@@ -422,7 +677,7 @@
                               <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                                 <a href="project-single.html?id=2" class="portfolio-boxarea">
                                   <div class="img1">
-                                    <img src="assets/img/Projects/2.png" alt="">
+                                    <img src="assets/img/Projects/2.png" alt="" loading="lazy">
                                   </div>
                                   <div class="arrow-content">
                                     <div class="arrow">
@@ -835,6 +1090,487 @@
                                   <div class="arrow-content">
                                     <div class="arrow">
                                       <a href="https://mthree.com/"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <!-- Additional 30 project boxes -->
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=28" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/28.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=29" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/29.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=30" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/30.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=31" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/31.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=32" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/32.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=33" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/33.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=34" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/34.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=35" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/35.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=36" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/36.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=37" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/37.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=38" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/38.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=39" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/39.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=40" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/40.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=41" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/41.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=42" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/42.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=43" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/43.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=44" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/44.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=45" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/45.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=46" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/46.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=47" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/47.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=48" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/48.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=49" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/49.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=50" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/50.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=51" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/51.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=52" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/52.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=53" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/53.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=54" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/54.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="100" data-aos-offset="150">
+                                <a href="project-single.html?id=55" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/55.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="200" data-aos-offset="150">
+                                <a href="project-single.html?id=56" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/56.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
+                                    </div>
+                                    <div class="content-area">
+                                      <div class="space16"></div>
+                                    </div>
+                                  </div>
+                                </a>
+                              </div>
+
+                              <div class="col-lg-4 col-md-6 col-sm-6" data-aos="fade-up" data-aos-duration="600" data-aos-delay="300" data-aos-offset="150">
+                                <a href="project-single.html?id=57" class="portfolio-boxarea">
+                                  <div class="img1">
+                                    <img src="assets/img/Projects/57.png" alt="">
+                                  </div>
+                                  <div class="arrow-content">
+                                    <div class="arrow">
+                                      <a href="#"></a>
                                     </div>
                                     <div class="content-area">
                                       <div class="space16"></div>
@@ -1736,5 +2472,115 @@
 <script src="assets/js/plugins/circle-progress.js"></script>
 <script src="assets/js/plugins/swiper.js"></script>
 <script src="assets/js/main.js"></script>
+
+<!-- Responsive improvements script -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Check if we're on mobile
+    const isMobile = window.innerWidth < 768;
+    
+    // Optimize image loading
+    if (isMobile) {
+      // Reduce animation duration on mobile
+      const animatedElements = document.querySelectorAll('[data-aos]');
+      animatedElements.forEach(el => {
+        el.setAttribute('data-aos-duration', '400');
+      });
+    }
+    
+    // Handle image loading efficiently
+    const projectItems = document.querySelectorAll('.portfolio-boxarea');
+    const projectImages = document.querySelectorAll('.portfolio-boxarea img');
+    let loadedCount = 0;
+    
+    // Add loading class to all image containers
+    projectItems.forEach(item => {
+      const imgContainer = item.querySelector('.img1');
+      if (imgContainer) {
+        imgContainer.classList.add('loading');
+      }
+    });
+    
+    // Use Intersection Observer for lazy loading
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const item = entry.target;
+          const img = item.querySelector('img');
+          const imgContainer = item.querySelector('.img1');
+          
+          if (img && imgContainer) {
+            // Remove loading indicator when image is loaded
+            img.addEventListener('load', () => {
+              loadedCount++;
+              imgContainer.classList.remove('loading');
+              item.classList.add('loaded');
+              
+              // Initialize AOS again if we've loaded a significant number of images
+              if (loadedCount % 6 === 0) {
+                if (typeof AOS !== 'undefined') {
+                  AOS.refresh();
+                }
+              }
+            });
+            
+            // Handle image load errors
+            img.addEventListener('error', () => {
+              imgContainer.classList.remove('loading');
+              imgContainer.classList.add('error');
+            });
+          }
+          
+          // Stop observing the element once it's handled
+          observer.unobserve(item);
+        }
+      });
+    }, {
+      rootMargin: '200px',
+      threshold: 0.01
+    });
+    
+    // Observe all portfolio items
+    projectItems.forEach(item => {
+      imageObserver.observe(item);
+    });
+    
+    // Initialize portfolio items with animation delay based on position
+    setTimeout(() => {
+      projectItems.forEach((item, index) => {
+        const delay = isMobile ? 100 : 200;
+        item.style.animationDelay = (index % 3) * delay + 'ms';
+        item.classList.add('loaded');
+      });
+    }, 100);
+    
+    // Enable smooth scrolling
+    const scrollLinks = document.querySelectorAll('a[href^="#"]');
+    scrollLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+    
+    // Optimize for mobile: reduce motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Disable animations for users who prefer reduced motion
+      document.documentElement.classList.add('reduced-motion');
+    }
+    
+    // Resize handler
+    window.addEventListener('resize', function() {
+      if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+      }
+    });
+  });
+</script>
 </body>
 </html>

@@ -39,6 +39,10 @@
 
 <div class="procus-cursor" style="transform: translate3d(calc(-50% + 1919px), calc(-50% + 787px), 0px);"></div>
 <div class="procus-cursor2" style="left: 551px; top: 918px;"></div>
+
+<!-- Full page particles background -->
+<div id="particles-js" class="fullpage-particles-container"></div>
+
 <!--===== PROGRESS STARTS=======-->
 <div class="paginacontainer">
      <div class="progress-wrap">
@@ -192,7 +196,7 @@
         <div class="it-services-accordion">
           
           <!-- 1. Infrastructure Management -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService1">
               <div class="it-service-icon">
                 <i class="fa-solid fa-server"></i>
@@ -212,7 +216,7 @@
           </div>
           
           <!-- 2. Application Development -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService2">
               <div class="it-service-icon">
                 <i class="fa-solid fa-code"></i>
@@ -232,7 +236,7 @@
           </div>
           
           <!-- 3. Managed Services -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService3">
               <div class="it-service-icon">
                 <i class="fa-solid fa-headset"></i>
@@ -252,7 +256,7 @@
           </div>
           
           <!-- 4. Cybersecurity -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService4">
               <div class="it-service-icon">
                 <i class="fa-solid fa-shield-halved"></i>
@@ -272,7 +276,7 @@
           </div>
           
           <!-- 5. Cloud & DevOps -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService5">
               <div class="it-service-icon">
                 <i class="fa-solid fa-cloud"></i>
@@ -292,7 +296,7 @@
           </div>
           
           <!-- 6. Data & Analytics -->
-          <div class="it-service-item">
+          <div class="it-service-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600" data-aos-once="true">
             <div class="it-service-header" data-toggle="collapse" data-target="#itService6">
               <div class="it-service-icon">
                 <i class="fa-solid fa-chart-pie"></i>
@@ -316,10 +320,18 @@
     </div>
     
     <div class="row mt-5">
-      <div class="col-lg-8 mx-auto text-center">
-        <div class="cta-area">
-          <h3 class="text-white mb-4">Ready to transform your IT infrastructure?</h3>
-          <a href="contact.html" class="vl-btn1" style="overflow: hidden;">Book a Free Call</a>
+      <div class="col-lg-10 mx-auto text-center">
+        <div class="enhanced-cta-area">
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to Transform Your IT Infrastructure?</h2>
+            <p class="cta-subtitle">Partner with our team of experts to elevate your technology capabilities and drive business growth with innovative IT solutions tailored to your needs.</p>
+            <div class="cta-button-wrapper">
+              <a href="contact.html" class="cta-button">
+                <span class="button-text">Book a Free Strategy Call</span>
+                <span class="button-icon"><i class="fa-solid fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -379,6 +391,98 @@
       }
     }
     
+    /* Full page particles styling */
+    .fullpage-particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      background: linear-gradient(135deg, #0a0a2c, #141450);
+      opacity: 0.85;
+    }
+    
+    /* Make content appear above particles */
+    .container, .hero2-section-area, .serve-section-area, .slider1-section-area, 
+    .enhanced-cta-area, .vl-footer1-section-area, .vl-header-area {
+      position: relative;
+      z-index: 1;
+    }
+    
+    /* Adjust background transparency for different sections */
+    .serve-section-area {
+      background-color: rgba(0, 0, 0, 0.75) !important;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .slider1-section-area {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 30px 0;
+    }
+    
+    .vl-footer1-section-area {
+      background-color: rgba(0, 0, 0, 0.9);
+      position: relative;
+    }
+    
+    /* Enhance the hero section with the particles */
+    .hero2-section-area {
+      background-color: transparent;
+      position: relative;
+      z-index: 1;
+      overflow: visible;
+    }
+    
+    .hero2-section-area .hero-overlay {
+      background: rgba(10, 10, 36, 0.5);
+      z-index: 1;
+    }
+    
+    .hero2-section-area .hero-bg3 {
+      opacity: 0.7;
+      z-index: 0;
+    }
+    
+    .hero2-section-area .container {
+      position: relative;
+      z-index: 3;
+    }
+    
+    /* Add a special effect for particles in hero area */
+    .hero2-section-area::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+      z-index: 2;
+      pointer-events: none;
+    }
+    
+    /* Ensure all content is readable on the particle background */
+    body {
+      color: #fff;
+      background: linear-gradient(135deg, #070719, #0d0d2c);
+    }
+    
+    /* Adjust links and text for better visibility */
+    a, p, h1, h2, h3, h4, h5, h6 {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Ensure higher contrast for important elements */
+    .it-service-item {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+    
     .it-services-accordion {
       margin-bottom: 40px;
     }
@@ -387,10 +491,7 @@
       margin-bottom: 15px;
       border-radius: 12px;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.05);
       transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     }
     
     .it-service-item:hover {
@@ -471,11 +572,154 @@
       }
     }
     
-    .cta-area {
-      background: rgba(0, 0, 0, 0.2);
-      border-radius: 15px;
-      padding: 40px;
-      margin-bottom: 50px;
+    /* Enhanced CTA Area Styling */
+    .enhanced-cta-area {
+      background: linear-gradient(135deg, rgba(0, 0, 251, 0.8), rgba(13, 13, 69, 0.95));
+      border-radius: 20px;
+      padding: 60px 40px;
+      margin-bottom: 60px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .enhanced-cta-area::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('assets/img/elements/elements5.png') no-repeat;
+      background-position: right bottom;
+      background-size: 250px;
+      opacity: 0.15;
+      z-index: 0;
+    }
+    
+    .cta-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-title {
+      font-size: 42px;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+    
+    .cta-subtitle {
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 700px;
+      margin: 0 auto 35px;
+    }
+    
+    .cta-button-wrapper {
+      display: inline-block;
+      position: relative;
+    }
+    
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      color: #0000FB;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 38px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid transparent;
+      min-width: 250px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      background: transparent;
+      border-color: white;
+      color: white;
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.25);
+    }
+    
+    .button-text {
+      z-index: 2;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .button-icon {
+      margin-left: 12px;
+      font-size: 16px;
+      position: relative;
+      z-index: 2;
+      transition: all 0.3s ease;
+    }
+    
+    .cta-button:hover .button-icon {
+      transform: translateX(5px);
+    }
+    
+    /* Responsive styles for CTA area */
+    @media (max-width: 991px) {
+      .enhanced-cta-area {
+        padding: 50px 30px;
+      }
+      
+      .cta-title {
+        font-size: 36px;
+      }
+      
+      .cta-subtitle {
+        font-size: 16px;
+      }
+    }
+    
+    @media (max-width: 767px) {
+      .enhanced-cta-area {
+        padding: 40px 25px;
+      }
+      
+      .cta-title {
+        font-size: 30px;
+      }
+      
+      .cta-subtitle {
+        font-size: 15px;
+        margin-bottom: 25px;
+      }
+      
+      .cta-button {
+        font-size: 16px;
+        padding: 14px 32px;
+        min-width: 220px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .enhanced-cta-area {
+        padding: 35px 20px;
+      }
+      
+      .cta-title {
+        font-size: 26px;
+      }
+      
+      .cta-button {
+        width: 100%;
+        padding: 12px 20px;
+      }
     }
   </style>
 
@@ -660,5 +904,188 @@
 <script src="assets/js/plugins/swiper.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="assets/js/industry-services.js"></script>
+
+<!-- Particles JS for interactive background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 90,
+          "density": {
+            "enable": true,
+            "value_area": 1000
+          }
+        },
+        "color": {
+          "value": ["#ffffff", "#f0f0ff", "#e0e0ff", "#d8d8ff", "#f8f8ff"]
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.4,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 0.4,
+            "opacity_min": 0.2,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1.5,
+            "size_min": 0.8,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#e8e8ff",
+          "opacity": 0.3,
+          "width": 1.2
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2,
+          "direction": "bottom",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 180,
+            "line_linked": {
+              "opacity": 0.5
+            }
+          },
+          "bubble": {
+            "distance": 200,
+            "size": 4,
+            "duration": 2,
+            "opacity": 0.6,
+            "speed": 2
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+    
+                   // Optimize for performance by reducing particles on mobile
+     function checkMobile() {
+       if (window.innerWidth < 768) {
+         particlesJS('particles-js', {
+           "particles": {
+             "number": {
+                 "value": 50
+             },
+             "opacity": {
+                 "value": 0.35
+             },
+             "size": {
+                 "value": 4,
+                 "size_min": 0.6
+             },
+             "move": {
+                 "speed": 0.9,
+                 "direction": "bottom"
+             }
+           }
+         });
+       }
+     }
+    
+    // Run on load and on window resize
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+  });
+</script>
+
+<!-- AOS Animation Initialization with Responsive Settings -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize AOS with responsive settings
+    AOS.init({
+      // Global settings
+      duration: 800,
+      easing: 'ease-out-cubic',
+      once: true,
+      mirror: false,
+      
+      // Responsive settings
+      disable: function() {
+        // Disable animations for performances on mobile if needed
+        // Here we're just changing the offset on smaller screens
+        if (window.innerWidth < 768) {
+          // Changing settings for mobile
+          document.querySelectorAll('.it-service-item').forEach(function(item, index) {
+            // Reduce delay on mobile for faster appearance
+            item.setAttribute('data-aos-delay', (index * 100).toString());
+            // Increase duration slightly for smoother effect
+            item.setAttribute('data-aos-duration', '600');
+          });
+          return false; // Don't disable, just modify
+        }
+        return false; // Don't disable on other devices
+      }
+    });
+    
+    // Handle resize events to adapt animations
+    window.addEventListener('resize', function() {
+      AOS.refresh();
+    });
+    
+    // Refresh AOS on accordion toggle to ensure hidden elements animate when shown
+    $('.it-service-header').on('click', function() {
+      setTimeout(function() {
+        AOS.refresh();
+      }, 300);
+    });
+  });
+</script>
 </body>
 </html> 

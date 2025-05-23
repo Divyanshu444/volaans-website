@@ -829,7 +829,7 @@ svg path[stroke="#fefe1f"] {
 
 /* About Section Styling */
 .about-section-area {
-  padding: 80px 0 40px;
+  padding: 0 0 40px;
   position: relative;
 }
 
@@ -1807,4 +1807,119 @@ html, body {
   max-width: 100%;
   margin: 0;
   padding: 0;
+}
+
+/* Add styling for the particles container */
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero2-section-area {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero2-section-area .hero-overlay {
+  z-index: 1;
+}
+
+.hero2-section-area .container {
+  position: relative;
+  z-index: 3;
+}
+
+/* Add subtle floating animation to the hero content */
+.hero2-section-area .hero-content {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Add a subtle glow effect to the hero heading */
+.hero2-section-area h1 {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3), 0 0 20px rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+
+/* Add pulse animation to the hero text for added attention */
+.hero2-section-area .lead {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* IT Services Animation Styles */
+.it-service-item {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Smooth reveal for service items */
+[data-aos="fade-up"] {
+  transform: translate3d(0, 30px, 0);
+  opacity: 0;
+  transition-property: transform, opacity;
+}
+
+[data-aos="fade-up"].aos-animate {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+/* Improve animation performance on mobile */
+@media (max-width: 767px) {
+  .it-service-item {
+    transition-duration: 0.3s;
+  }
+  
+  [data-aos="fade-up"] {
+    transform: translate3d(0, 15px, 0); /* Smaller translate distance on mobile */
+  }
+}
+
+/* Add a subtle scale effect when hovering after animation completes */
+.it-service-item.aos-animate:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Ensure animations play correctly when scrolling back up */
+html:not(.no-js) [data-aos=fade-up].aos-animate {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Make sure the accordion content also animates nicely */
+.it-service-content {
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease;
+}
+
+/* Add animation to toggle icon for better UX */
+.it-service-header .toggle-icon i {
+  transition: transform 0.3s ease;
 } 
