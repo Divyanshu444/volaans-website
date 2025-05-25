@@ -269,15 +269,15 @@
     position: relative !important;
   }
   
-  .service1-section-area .space50 {
+  /* .service1-section-area .space50 {
     position: relative !important;
     margin-top: 10px !important;
     margin-bottom: 10px !important;
     display: flex !important;
     justify-content: center !important;
-  }
+  } */
   
-  .service1-section-area .space50::after {
+  /* .service1-section-area .space50::after {
     content: "View All Services" !important;
     display: inline-block !important;
     position: relative !important;
@@ -297,4 +297,4 @@
     line-height: 1.5 !important;
     font-family: 'Poppins', sans-serif !important;
   }
-} 
+}  */

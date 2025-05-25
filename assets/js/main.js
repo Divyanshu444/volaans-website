@@ -238,8 +238,8 @@ $(".header-search-btn").on("click", function (e) {
       responsiveClass:true,
       responsive:{
         0:{
-          items:1,
-          margin:15
+          items:2,
+          margin:10
         },
         480:{
           items:2,
