@@ -667,8 +667,8 @@
 
           <div class="col-lg-12 sp1">
             <div class="about-brand-sliderarea">
-              <h3 class="text-center mobile-responsive-heading" data-aos="fade-right" data-aos-duration="1000">OUR TRUSTED TECHNOLOGY PARTNERS</h3>
-              <div class="space40" style="margin-top:50px;"></div>
+              <h3 class="text-center text-anime-style-3">OUR TRUSTED TECHNOLOGY PARTNERS</h3>
+              <div class="space40"></div>
               <div class="container">
                 <div class="row">
                   <div class="col-lg-12">
@@ -711,7 +711,7 @@
       <div class="row">
         <div>
           <div class="heading1 space-margin60 text-center">
-            <h5 style="color: #fff; font-size: 45px;" class="animated-title mobile-responsive-heading" data-aos="fade-right" data-aos-duration="1000">Industries we serve</h5>
+            <h5 style="color: #fff; font-size: 45px;" class="text-anime-style-3">Industries we serve</h5>
           </div>
         </div>
       </div>
@@ -865,7 +865,7 @@
           transform-style: preserve-3d;
           transform: perspective(1000px);
           opacity: 0;
-          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+          /* Default animation removed - will be set per row */
         }
         
         .industry-grid-item::before {
@@ -1020,79 +1020,91 @@
             transform: perspective(1000px) translateY(0) rotateX(0);
           }
         }
+        
+        /* Create reverse animation for alternating rows */
+        @keyframes cardAppearDown {
+          0% {
+            opacity: 0;
+            transform: perspective(1000px) translateY(-50px) rotateX(-10deg);
+          }
+          100% {
+            opacity: 1;
+            transform: perspective(1000px) translateY(0) rotateX(0);
+          }
+        }
 
-        /* First row */
+        /* First row - fade up */
         .industry-grid-item:nth-child(1) {
           grid-column: 1;
           grid-row: 1;
           background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.1s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
         }
         .industry-grid-item:nth-child(2) {
           grid-column: 2;
           grid-row: 1 / span 2;
           background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.2s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
         }
         .industry-grid-item:nth-child(3) {
           grid-column: 3;
           grid-row: 1;
           background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.3s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
         }
-
-        /* Second row */
+        
+        /* Second row - fade down */
         .industry-grid-item:nth-child(4) {
           grid-column: 1;
           grid-row: 2;
           background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.4s;
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
         }
         .industry-grid-item:nth-child(5) {
           grid-column: 3;
           grid-row: 2;
           background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.5s;
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
         }
-
-        /* Third row */
+        
+        /* Third row - fade up */
         .industry-grid-item:nth-child(6) {
           grid-column: 1;
           grid-row: 3;
           background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.6s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
         }
         .industry-grid-item:nth-child(7) {
           grid-column: 2;
           grid-row: 3;
           background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.7s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
         }
         .industry-grid-item:nth-child(8) {
           grid-column: 3;
           grid-row: 3;
           background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.8s;
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
         }
-
-        /* Fourth row */
+        
+        /* Fourth row - fade down */
         .industry-grid-item:nth-child(9) {
           grid-column: 1;
           grid-row: 4;
           background: linear-gradient(135deg, rgba(253, 126, 20, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 0.9s;
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
         }
         .industry-grid-item:nth-child(10) {
           grid-column: 2;
           grid-row: 4;
           background: linear-gradient(135deg, rgba(108, 117, 125, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 1s;
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
         }
         .industry-grid-item:nth-child(11) {
           grid-column: 3;
           grid-row: 4;
           background: linear-gradient(135deg, rgba(102, 16, 242, 0.1), rgba(0, 0, 0, 0.2));
-          animation-delay: 1.1s;
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
         }
         
         /* 3D Card Effect */
@@ -3337,6 +3349,46 @@
     
     // Check on scroll
     window.addEventListener('scroll', animateOnScroll);
+  });
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Intersection Observer for animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Reset animation
+          const element = entry.target;
+          element.style.animation = 'none';
+          
+          // Force reflow to restart the animation
+          void element.offsetWidth;
+          
+          // Get the original animation style and reapply it
+          const index = Array.from(element.parentNode.children).indexOf(element) + 1;
+          let animationType = 'cardAppear';
+          
+          // Determine which animation to use based on the row
+          if ((index >= 4 && index <= 5) || (index >= 9 && index <= 11)) {
+            animationType = 'cardAppearDown';
+          }
+          
+          // Calculate delay based on the item's position
+          const delay = index * 0.1;
+          
+          // Apply the animation
+          element.style.animation = `${animationType} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}s forwards`;
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all grid items
+    document.querySelectorAll('.industry-grid-item').forEach(item => {
+      // Set initial style to be invisible
+      item.style.opacity = '0';
+      observer.observe(item);
+    });
   });
 </script>
 </body>
