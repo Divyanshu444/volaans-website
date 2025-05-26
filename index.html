@@ -657,7 +657,7 @@
       <div class="about-others-area">
         <div class="row">
           <div class="col-lg-12">
-            <div class="img1">
+            <div class="img1" style="opacity: 0;" id="video-section">
               <div class="play-btn">
                 <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
               </div>
@@ -2479,7 +2479,7 @@
                   <li><i class="fa-solid fa-star"></i></li>
                 </ul>
                 <div class="space16"></div>
-                <p>"What stood out was their communication, creativity, and speed — everything we hoped for in a tech partner. From day one, they demonstrated a deep understanding of our industry challenges and delivered innovative solutions that kept us ahead of competitors. Their agile approach allowed us to iterate quickly while maintaining exceptional quality across all deliverables."</p>
+                <p>"What stood out was their communication, creativity, and speed — everything we hoped for in a tech partner. From day one, they demonstrated a deep understanding of our industry challenges and delivered innovative solutions that kept us ahead of competitors. Their agile approach allowed us to iterate quickly while maintaining exceptional quality. "</p>
                 <div class="space32"></div>
                 <div class="names-area">
                   <div class="man-textarea">
@@ -3391,5 +3391,42 @@
     });
   });
 </script>
+
+<script>
+  $(document).ready(function() {
+    // Add observer for video section fade up
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          element.style.animation = 'videoFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    // Observe video section
+    const videoSection = document.getElementById('video-section');
+    if (videoSection) {
+      videoObserver.observe(videoSection);
+    }
+  });
+</script>
+
+<style>
+  @keyframes videoFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #video-section {
+    transition: all 0.5s ease;
+  }
+</style>
 </body>
 </html>

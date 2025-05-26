@@ -609,7 +609,7 @@
             <div class="about-others-area">
               <div class="row">
                 <div class="col-lg-12">
-                  <div class="img1">
+                  <div class="img1" style="opacity: 0;" id="video-section">
                     <div class="play-btn">
                       <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
                     </div>
@@ -823,7 +823,7 @@
   }
   
   .timeline-content h4 {
-    color: #0000fb;
+    color: #c4c4ff;
     margin-bottom: 15px;
     font-size: 20px;
     font-weight: 600;
@@ -863,14 +863,13 @@
   }
 </style>
 
-<!-- Continue with next section (e.g., serve-section-area) -->
-<div class="serve-section-area sp10" style="background-image: url(assets/img/all-images/bg/bg3.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+<!-- Industries We Serve Section -->
+<div class="service1-section-area sp6">
   <div class="container">
-    <div class="space60"></div>
     <div class="row">
       <div>
         <div class="heading1 space-margin60 text-center">
-          <h5 style="color: #fff; font-size: 45px;" class="animated-title" data-aos="fade-right" data-aos-duration="1000">Industries we serve</h5>
+          <h5 style="color: #fff; font-size: 45px;" class="text-anime-style-3">Industries we serve</h5>
         </div>
       </div>
     </div>
@@ -989,205 +988,527 @@
         </div>
       </div>
     </div>
+
+    <style>
+      /* Enhanced Industry Grid Animations */
+      .animated-title {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .industry-grid-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(120px, auto);
+        gap: 25px;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto 50px;
+        z-index: 2;
+      }
+      
+      .industry-grid-item {
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        opacity: 0;
+        /* Default animation removed - will be set per row */
+      }
+      
+      .industry-grid-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+      }
+      
+      .industry-grid-item:hover::before {
+        opacity: 1;
+      }
+      
+      .industry-grid-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+        pointer-events: none;
+      }
+      
+      .industry-grid-item:hover::after {
+        left: 100%;
+        transition: left 0.7s ease;
+      }
+      
+      .card-content {
+        position: relative;
+        height: 100%;
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 2;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .industry-grid-item:hover .card-content {
+        transform: translateZ(20px);
+      }
+      
+      .icon-wrapper {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(0, 0, 251, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        transition: all 0.5s ease;
+        overflow: hidden;
+      }
+      
+      .icon-wrapper::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(0, 0, 251, 0.5), transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .industry-grid-item:hover .icon-wrapper::before {
+        opacity: 1;
+        animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(0.95); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(0.95); }
+      }
+      
+      .industry-grid-item i {
+        font-size: 28px;
+        color: #fff;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 3;
+      }
+      
+      .industry-grid-item:hover i {
+        transform: scale(1.2);
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0, 0, 251, 0.7);
+      }
+      
+      .industry-grid-item span {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 10px;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 3;
+      }
+      
+      .industry-grid-item:hover span {
+        transform: translateZ(10px);
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 8px rgba(0, 0, 251, 0.5);
+      }
+      
+      .hover-details {
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: rgba(0, 0, 251, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 4;
+      }
+      
+      .industry-grid-item:hover .hover-details {
+        bottom: 0;
+        opacity: 1;
+      }
+      
+      .hover-details p {
+        color: #fff;
+        font-size: 14px;
+        margin: 0;
+      }
+      
+      @keyframes cardAppear {
+        0% {
+          opacity: 0;
+          transform: perspective(1000px) translateY(50px) rotateX(10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(1000px) translateY(0) rotateX(0);
+        }
+      }
+      
+      /* Create reverse animation for alternating rows */
+      @keyframes cardAppearDown {
+        0% {
+          opacity: 0;
+          transform: perspective(1000px) translateY(-50px) rotateX(-10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(1000px) translateY(0) rotateX(0);
+        }
+      }
+
+      /* First row - fade up */
+      .industry-grid-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+      }
+      .industry-grid-item:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+      }
+      .industry-grid-item:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+      }
+      
+      /* Second row - fade down */
+      .industry-grid-item:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2;
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+      }
+      .industry-grid-item:nth-child(5) {
+        grid-column: 3;
+        grid-row: 2;
+        background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+      }
+      
+      /* Third row - fade up */
+      .industry-grid-item:nth-child(6) {
+        grid-column: 1;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+      }
+      .industry-grid-item:nth-child(7) {
+        grid-column: 2;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
+      }
+      .industry-grid-item:nth-child(8) {
+        grid-column: 3;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
+      }
+      
+      /* Fourth row - fade down */
+      .industry-grid-item:nth-child(9) {
+        grid-column: 1;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(253, 126, 20, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+      }
+      .industry-grid-item:nth-child(10) {
+        grid-column: 2;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(108, 117, 125, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+      }
+      .industry-grid-item:nth-child(11) {
+        grid-column: 3;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(102, 16, 242, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
+      }
+      
+      /* 3D Card Effect */
+      .card-3d {
+        transition: transform 0.5s ease;
+      }
+      
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .industry-grid-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        /* Adjust grid positions for responsive layout */
+        .industry-grid-item:nth-child(1) {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .industry-grid-item:nth-child(2) {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .industry-grid-item:nth-child(3) {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .industry-grid-item:nth-child(4) {
+          grid-column: 2;
+          grid-row: 2;
+        }
+        .industry-grid-item:nth-child(5) {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        /* The rest will flow naturally */
+      }
+      
+      @media (max-width: 576px) {
+        .industry-grid-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .industry-grid-item {
+          grid-column: 1 !important;
+        }
+        
+        .industry-grid-item:nth-child(1) { grid-row: 1; }
+        .industry-grid-item:nth-child(2) { grid-row: 2; }
+        .industry-grid-item:nth-child(3) { grid-row: 3; }
+        .industry-grid-item:nth-child(4) { grid-row: 4; }
+        .industry-grid-item:nth-child(5) { grid-row: 5; }
+        .industry-grid-item:nth-child(6) { grid-row: 6; }
+        .industry-grid-item:nth-child(7) { grid-row: 7; }
+        .industry-grid-item:nth-child(8) { grid-row: 8; }
+        .industry-grid-item:nth-child(9) { grid-row: 9; }
+        .industry-grid-item:nth-child(10) { grid-row: 10; }
+        .industry-grid-item:nth-child(11) { grid-row: 11; }
+      }
+    </style>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // 3D card tilt effect
+        const cards = document.querySelectorAll('.card-3d');
+        
+        cards.forEach(card => {
+          card.addEventListener('mousemove', function(e) {
+            // Get position of mouse cursor over card
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element
+            const y = e.clientY - rect.top; // y position within the element
+            
+            // Calculate rotation based on mouse position
+            // Further from center = more rotation
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
+            const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
+            
+            // Apply the transform
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+            
+            // Move the icon wrapper for parallax effect
+            const iconWrapper = this.querySelector('.icon-wrapper');
+            if (iconWrapper) {
+              iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
+            }
+          });
+          
+          // Reset transform on mouse leave
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+            
+            const iconWrapper = this.querySelector('.icon-wrapper');
+            if (iconWrapper) {
+              iconWrapper.style.transform = 'translateX(0) translateY(0)';
+            }
+          });
+          
+          // Add slight animation on click
+          card.addEventListener('mousedown', function() {
+            this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
+          });
+          
+          card.addEventListener('mouseup', function(event) {
+            const rect = this.getBoundingClientRect();
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const x = event.clientX - rect.left;
+            const y = event.clientY - rect.top;
+            
+            const rotateY = ((x - centerX) / centerX) * 10;
+            const rotateX = ((centerY - y) / centerY) * 10;
+            
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+          });
+        });
+        
+        // Intersection Observer for animation on scroll
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // If the section is in view, ensure animations play
+              entry.target.style.animationPlayState = 'running';
+            }
+          });
+        }, { threshold: 0.1 });
+        
+        // Observe all grid items
+        document.querySelectorAll('.industry-grid-item').forEach(item => {
+          observer.observe(item);
+        });
+      });
+    </script>
   </div>
 </div>
+<!-- End Industries We Serve Section -->
 
-<!-- Industry Grid Styles -->
-<style>
-  /* Enhanced Industry Grid Animations */
-  .animated-title {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .industry-grid-container {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(120px, auto);
-    gap: 25px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto 50px;
-    z-index: 2;
-  }
-  
-  .industry-grid-item {
-    position: relative;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    opacity: 0;
-    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-  }
-  
-  .industry-grid-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 1;
-  }
-  
-  .industry-grid-item:hover::before {
-    opacity: 1;
-  }
-  
-  .industry-grid-item::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-    pointer-events: none;
-  }
-  
-  .industry-grid-item:hover::after {
-    left: 100%;
-    transition: left 0.7s ease;
-  }
-  
-  .card-content {
-    position: relative;
-    height: 100%;
-    padding: 25px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    z-index: 2;
-    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  
-  .industry-grid-item:hover .card-content {
-    transform: translateZ(20px);
-  }
-  
-  .icon-wrapper {
-    position: relative;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: rgba(0, 0, 251, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    transition: all 0.5s ease;
-    overflow: hidden;
-  }
-  
-  .icon-wrapper::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, rgba(0, 0, 251, 0.5), transparent);
-    opacity: 0;
-    transition: opacity 0.5s ease;
-  }
-  
-  .industry-grid-item:hover .icon-wrapper::before {
-    opacity: 1;
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(0.95); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(0.95); }
-  }
-  
-  .industry-grid-item i {
-    font-size: 28px;
-    color: #fff;
-    transition: all 0.5s ease;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .industry-grid-item:hover i {
-    transform: scale(1.1);
-    color: #3498db;
-  }
-  
-  .industry-grid-item span {
-    font-size: 16px;
-    font-weight: 500;
-    color: #fff;
-    margin-top: 10px;
-    transition: all 0.5s ease;
-    position: relative;
-    z-index: 3;
-  }
-  
-  .industry-grid-item:hover span {
-    color: #3498db;
-  }
-  
-  @keyframes cardAppear {
-    0% {
-      opacity: 0;
-      transform: perspective(1000px) translateY(20px);
-    }
-    100% {
-      opacity: 1;
-      transform: perspective(1000px) translateY(0);
-    }
-  }
-  
-  /* Apply sequential animations to industry grid items */
-  .industry-grid-item:nth-child(1) { animation-delay: 0.1s; }
-  .industry-grid-item:nth-child(2) { animation-delay: 0.2s; }
-  .industry-grid-item:nth-child(3) { animation-delay: 0.3s; }
-  .industry-grid-item:nth-child(4) { animation-delay: 0.4s; }
-  .industry-grid-item:nth-child(5) { animation-delay: 0.5s; }
-  .industry-grid-item:nth-child(6) { animation-delay: 0.6s; }
-  .industry-grid-item:nth-child(7) { animation-delay: 0.7s; }
-  .industry-grid-item:nth-child(8) { animation-delay: 0.8s; }
-  .industry-grid-item:nth-child(9) { animation-delay: 0.9s; }
-  .industry-grid-item:nth-child(10) { animation-delay: 1.0s; }
-  .industry-grid-item:nth-child(11) { animation-delay: 1.1s; }
-  
-  /* Responsive adjustments for industry grid */
-  @media (max-width: 991px) {
-    .industry-grid-container {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-  }
-  
-  @media (max-width: 575px) {
-    .industry-grid-container {
-      grid-template-columns: 1fr;
-      gap: 15px;
-    }
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 3D card tilt effect
+    const cards = document.querySelectorAll('.card-3d');
     
-    .icon-wrapper {
-      width: 60px;
-      height: 60px;
-    }
+    cards.forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        // Get position of mouse cursor over card
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top; // y position within the element
+        
+        // Calculate rotation based on mouse position
+        // Further from center = more rotation
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
+        const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
+        
+        // Apply the transform
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+        
+        // Move the icon wrapper for parallax effect
+        const iconWrapper = this.querySelector('.icon-wrapper');
+        if (iconWrapper) {
+          iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
+        }
+      });
+      
+      // Reset transform on mouse leave
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        
+        const iconWrapper = this.querySelector('.icon-wrapper');
+        if (iconWrapper) {
+          iconWrapper.style.transform = 'translateX(0) translateY(0)';
+        }
+      });
+      
+      // Add slight animation on click
+      card.addEventListener('mousedown', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
+      });
+      
+      card.addEventListener('mouseup', function(event) {
+        const rect = this.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        
+        const rotateY = ((x - centerX) / centerX) * 10;
+        const rotateX = ((centerY - y) / centerY) * 10;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+      });
+    });
     
-    .industry-grid-item i {
-      font-size: 24px;
-    }
-  }
-</style>
+    // Intersection Observer for animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Reset animation
+          const element = entry.target;
+          element.style.animation = 'none';
+          
+          // Force reflow to restart the animation
+          void element.offsetWidth;
+          
+          // Get the original animation style and reapply it
+          const index = Array.from(element.parentNode.children).indexOf(element) + 1;
+          let animationType = 'cardAppear';
+          
+          // Determine which animation to use based on the row
+          if ((index >= 4 && index <= 5) || (index >= 9 && index <= 11)) {
+            animationType = 'cardAppearDown';
+          }
+          
+          // Calculate delay based on the item's position
+          const delay = index * 0.1;
+          
+          // Apply the animation
+          element.style.animation = `${animationType} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}s forwards`;
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all grid items
+    document.querySelectorAll('.industry-grid-item').forEach(item => {
+      // Set initial style to be invisible
+      item.style.opacity = '0';
+      observer.observe(item);
+    });
+    
+    // Add animation for text-anime-style-3 elements
+    const animatedHeadings = document.querySelectorAll('.text-anime-style-3');
+    animatedHeadings.forEach(heading => {
+      const headingObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, { threshold: 0.2 });
+      
+      headingObserver.observe(heading);
+    });
+  });
+</script>
 
 <!--===== TEAM AREA STARTS =======-->
 <!-- <div class="team1-section-area sp6" style="background-image: url(assets/img/all-images/bg/bg2.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
@@ -1472,6 +1793,43 @@
     clip: rect(0,0,0,0) !important;
   }
 }
+</style>
+
+<script>
+  $(document).ready(function() {
+    // Add observer for video section fade up
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const element = entry.target;
+          element.style.animation = 'videoFadeUp 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    // Observe video section
+    const videoSection = document.getElementById('video-section');
+    if (videoSection) {
+      videoObserver.observe(videoSection);
+    }
+  });
+</script>
+
+<style>
+  @keyframes videoFadeUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  #video-section {
+    transition: all 0.5s ease;
+  }
 </style>
 </body>
 </html>
