@@ -439,8 +439,17 @@
   }
   
   @media (max-width: 767px) {
+    /* Hide specific spacing on mobile */
+    .space50:not(.footer-spacing) {
+      display: none !important;
+      height: 0 !important;
+    }
+    
     .counter-section-area {
-      padding: 30px 0;
+      padding: 12px 0;
+    }
+    .counter-section-area .counter-box{
+      padding: 27px;
     }
     .counter-box {
       margin-bottom: 30px;
@@ -637,7 +646,7 @@
         <div class="section-heading">
           
           
-          <h2 class="text-anime-style-3" style="text-transform: uppercase; font-size: 42px;">Our Process: Built to Deliver Scalable Impact</h2>
+          <h2 class="text-anime-style-3 process-title" style="text-transform: uppercase; font-size: 42px;">Our Process: Built to Deliver Scalable Impact</h2>
         </div>
         <div class="space24"></div>
         <p class="process-intro" data-aos="fade-up" data-aos-duration="800">
@@ -756,6 +765,27 @@
     margin: 0 auto;
     font-family: 'Inter', sans-serif;
     letter-spacing: 0.2px;
+  }
+  
+  /* Responsive styling for process title */
+  @media (max-width: 991px) {
+    .process-title {
+      font-size: 36px !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .process-title {
+      font-size: 30px !important;
+      line-height: 1.3 !important;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .process-title {
+      font-size: 26px !important;
+      line-height: 1.2 !important;
+    }
   }
   
   .key-values-timeline {
