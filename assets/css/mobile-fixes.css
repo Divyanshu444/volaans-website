@@ -259,4 +259,31 @@
     .project-item-content h5 {
         font-size: var(--ztc-font-size-font-s16);
     }
+    
+    .industry-header {
+        display: flex !important;
+        align-items: center !important;
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+        width: 100%;
+        padding: 15px 10px;
+    }
+    
+    .industry-icon {
+        display: inline-flex !important;
+        margin-right: 15px !important;
+        order: 1;
+    }
+    
+    .industry-title {
+        display: inline-block !important;
+        margin: 0 !important;
+        flex: 1;
+        order: 2;
+    }
+    
+    .dropdown-arrow {
+        margin-left: auto !important;
+        order: 3;
+    }
 } 
