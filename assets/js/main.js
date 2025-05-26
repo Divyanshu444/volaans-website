@@ -13,6 +13,11 @@
      }
    });
    
+   // Refresh AOS on window resize
+   $(window).on('resize', function() {
+     AOS.refresh();
+   });
+   
   //========== HEADER ACTIVE ENDS ============= //
   
   //========== MOBILE MENU STARTS ============= //
@@ -124,8 +129,14 @@ $(".header-search-btn").on("click", function (e) {
       });
       }
   //========== VIDEO POPUP ENDS ============= //
-  AOS.init;
-  AOS.init({disable: 'mobile'});
+  
+  // Initialize AOS with configurations
+  AOS.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: false,
+    mirror: true
+  });
   
   //========== NICE SELECT ============= //
   $('select').niceSelect();
