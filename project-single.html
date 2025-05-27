@@ -410,7 +410,7 @@
                             </div>
                             <div class="project-item-content">
                                 <h4>Website</h4>
-                                <a href="https://volansaquilae.com" target="_blank" class="website-link" id="project-website">www.VolansAquilae.com</a>
+                                <a href="#" target="_blank" class="website-link" id="project-website">www.VolansAquilae.com</a>
                             </div>
                         </div>
 
@@ -780,6 +780,10 @@
     document.getElementById('project-website').textContent = project.website;
     document.getElementById('project-description').textContent = project.description;
     document.getElementById('project-overview-title').textContent = project.projectOverviewTitle;
+    
+    // Update project website
+    document.getElementById('project-website').textContent = project.website;
+    document.getElementById('project-website').href = project.website;
     
     // Update live preview button URL
     document.getElementById('live-preview-btn').href = project.website;

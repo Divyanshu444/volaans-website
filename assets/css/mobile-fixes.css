@@ -78,7 +78,7 @@
     background: rgba(0, 0, 251, 0.2);
     color: var(--ztc-text-text-1);
     margin-right: 15px;
-    transition: all 0.3s ease;
+    transition: all 0.7s ease;
 }
 
 .project-item:hover .project-item-icon {
