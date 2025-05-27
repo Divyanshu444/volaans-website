@@ -106,7 +106,7 @@
     font-size: var(--ztc-font-size-font-s18);
     font-weight: var(--ztc-weight-medium);
     margin: 0;
-    transition: transform 0.3s ease;
+    transition: transform 0.7s ease;
 }
 
 .project-item:hover .project-item-content h5 {
