@@ -230,6 +230,11 @@
         max-width: 500px;
         margin: 0 auto;
     }
+    
+    /* Hide elements with mobile-hide class on mobile devices */
+    .mobile-hide {
+        display: none !important;
+    }
 }
 
 @media (max-width: 767px) {
