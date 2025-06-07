@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="assets/css/wide-heading.css">
 
         <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    <link rel="stylesheet" href="assets/css/responsive-utilities.css">
 
     <!--=====  JS SCRIPT LINK =======-->
     <script src="assets/js/plugins/jquery-3-7-1.min.js"></script>
@@ -297,7 +298,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row service-boxes">
       <!-- IT Services Box -->
       <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
         <a href="It-Services.html" class="service-box-link">
@@ -327,7 +328,7 @@
       </div>
       
       <!-- Industry-based Services Box -->
-      <div class="col-lg-4 col-md-6">
+      <div class="col-lg-4 col-md-6 industry-service-box">
         <a href="faq.html" class="service-box-link">
           <div class="service-category-box" data-aos="fade-up" data-aos-duration="900" data-aos-delay="300" data-aos-offset="100">
             <div class="icon-area">
@@ -342,6 +343,24 @@
     </div>
   </div>
 </div>
+
+<style>
+  /* Center the Industry-based Services box at specific breakpoints */
+  @media (min-width: 768px) and (max-width: 992px) {
+    .service-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    .industry-service-box {
+      margin-top: 30px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+</style>
 
 <div class="slider1-section-area">
   <div class="marquee-wrap">
@@ -583,44 +602,75 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--===== OTHERS AREA ENDS =======-->
-<div class="col-lg-12 sp1">
-  <div class="about-brand-sliderarea">
-    <h3 class="text-center mobile-responsive-heading" data-aos="fade-right" data-aos-duration="1000">OUR TRUSTED TECHNOLOGY PARTNERS</h3>
-    <div class="space40" style="margin-top:50px;"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="about-brand-slider owl-carousel">
-            <div class="brand-img1">
-              <img src="assets/img/partners/facebook.png" alt="Meta">
-            </div>
-
-            <div class="brand-img1">
-              <img src="assets/img/partners/microsoft-logo.png" alt="Microsoft">
-            </div>
-
-            <div class="brand-img1">
-              <img src="assets/img/partners/zoho-logo.png" alt="Zoho">
-            </div>
-
-            <div class="brand-img1">
-              <img src="assets/img/partners/semrush-logo.png" alt="SEMrush">
-            </div>
-
-            <div class="brand-img1">
-              <img src="assets/img/partners/bubble-logo.png" alt="Bubble.io">
-            </div>
-          </div>
+        
+        <!-- Mobile alternative content -->
+        <div class="mobile-industry-message">
+          We serve multiple industries including Healthcare, Finance, Real Estate, Manufacturing, EdTech, IT, E-commerce, Media, Logistics, SMBs, and Pharma. 
+          <br><br>
+          <a href="service.html">View our detailed industry solutions →</a>
         </div>
       </div>
-    </div>
-  </div>
+
+    <style>
+      /* Hide grid when layout would be distorted */
+      @media (max-width: 1200px) and (min-width: 993px) {
+        .industry-grid-container {
+          transform: scale(0.9);
+          transform-origin: center top;
+        }
+      }
+      
+      @media (min-width: 768px) and (max-width: 992px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 20px;
+          background: rgba(0, 0, 251, 0.1);
+          border-radius: 10px;
+          margin: 20px auto;
+          max-width: 80%;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 15px;
+          margin: 10px auto;
+          max-width: 100%;
+        }
+      }
+      
+      .mobile-industry-message {
+        display: none;
+        color: #fff;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      
+      .mobile-industry-message a {
+        color: #0000FB;
+        text-decoration: underline;
+        transition: all 0.3s ease;
+      }
+      
+      .mobile-industry-message a:hover {
+        color: #fff;
+      }
+    </style>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1658,5 +1708,42 @@
     });
   });
 </script>
+    <script src="assets/js/responsive.js"></script>
+
+<!--===== OTHERS AREA ENDS =======-->
+<div class="col-lg-12 sp1">
+  <div class="about-brand-sliderarea">
+    <h3 class="text-center mobile-responsive-heading" data-aos="fade-right" data-aos-duration="1000">OUR TRUSTED TECHNOLOGY PARTNERS</h3>
+    <div class="space40" style="margin-top:50px;"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="about-brand-slider owl-carousel">
+            <div class="brand-img1">
+              <img src="assets/img/partners/facebook.png" alt="Meta">
+            </div>
+
+            <div class="brand-img1">
+              <img src="assets/img/partners/microsoft-logo.png" alt="Microsoft">
+            </div>
+
+            <div class="brand-img1">
+              <img src="assets/img/partners/zoho-logo.png" alt="Zoho">
+            </div>
+
+            <div class="brand-img1">
+              <img src="assets/img/partners/semrush-logo.png" alt="SEMrush">
+            </div>
+
+            <div class="brand-img1">
+              <img src="assets/img/partners/bubble-logo.png" alt="Bubble.io">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+

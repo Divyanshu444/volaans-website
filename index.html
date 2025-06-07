@@ -28,200 +28,270 @@
 
     <!-- Custom animations for industry grid -->
     <style>
-            /* Animation styles are now handled directly by JavaScript */
-      
-      /* Fix for heading overlap */
-      .animated-title {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 30px; /* Increase margin to prevent overlap */
-        padding-bottom: 20px; /* Add padding at the bottom for the line */
-      }
-      
-      
-      
-      
-      /* Remove hover description styles */
-      .hover-details {
-        display: none !important; /* Hide the hover descriptions */
-      }
-      
-      .industry-grid-item:hover span {
-        opacity: 1 !important; /* Keep text fully visible on hover */
-      }
-      
-            /* Animation delays are now handled by JavaScript */
-    </style>
-
-    <!--=====  JS SCRIPT LINK =======-->
-    <script src="assets/js/plugins/jquery-3-7-1.min.js"></script>
-
-    <!-- Enhanced industry card hover styles -->
-    <style>
-      /* Better hover effects for industry cards */
-      .industry-grid-item {
-        transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease !important;
-        overflow: hidden;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(255, 255, 255, 0.1);
-        opacity: 0; /* Start invisible */
-        transform: translateY(30px); /* Start below final position */
-        will-change: opacity, transform; /* Optimize for animation */
-      }
-      
-      .industry-grid-item:hover {
-        transform: translateY(-10px) !important;
-        background: rgba(0, 0, 251, 0.2) !important;
-        box-shadow: 0 10px 25px rgba(0, 0, 251, 0.3) !important;
-        border-color: rgba(0, 0, 251, 0.3) !important;
-      }
-      
-      .industry-grid-item .icon-wrapper {
-        transition: transform 0.3s ease, background-color 0.3s ease !important;
-        background: rgba(0, 0, 251, 0.15);
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 0 auto 15px;
-      }
-      
-      .industry-grid-item:hover .icon-wrapper {
-        transform: scale(1.1) !important;
-        background: rgba(0, 0, 251, 0.3) !important;
-      }
-      
-      .industry-grid-item i {
-        transition: all 0.3s ease !important;
-        color: #fff;
-        font-size: 24px;
-      }
-      
-      /* Add subtle pulsing animation for icon on hover */
-      @keyframes iconPulse {
-        0% { transform: scale(1); }
-        50% { transform: scale(1.2); }
-        100% { transform: scale(1); }
-      }
-      
-      .industry-grid-item:hover i {
-        animation: iconPulse 1.5s infinite ease-in-out !important;
-      }
-      
-      .industry-grid-item span {
-        transition: all 0.3s ease !important;
-        color: #fff;
-        font-weight: 600;
-        font-size: 16px;
-      }
-      
-      .industry-grid-item:hover span {
-        color: #fff !important;
-        transform: scale(1.05) !important;
-        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
-      }
-    </style>
-
-    <!-- Add this style section after the existing one -->
-    <style>
       /* Animation styles are now handled directly by JavaScript */
-      
-      /* Fix for heading overlap */
-      .animated-title {
-        position: relative;
-        display: inline-block;
-        margin-bottom: 30px; /* Increase margin to prevent overlap */
-        padding-bottom: 20px; /* Add padding at the bottom for the line */
-      }
-      
-      /* Mobile responsive heading styles */
-      @media (max-width: 767px) {
-        .mobile-responsive-heading {
-          font-size: 24px !important;
-          white-space: normal !important;
-          line-height: 1.4 !important;
-          margin-bottom: 20px !important;
-          text-align: center !important;
-          width: 100% !important;
-          padding: 0 15px !important;
-        }
-        .testimonials-2 .swiper-testimonial-2 .testimonial-boxarea .names-area .man-textarea .man img{
-          height: 100px;
-          width: 100px;
-          border-radius: 50%;
-          object-fit: contain;
-        }
-        h3.text-center[data-aos="fade-right"] {
-          font-size: 24px !important;
-          white-space: normal !important;
-          line-height: 1.4 !important;
-          margin-bottom: 20px !important;
-        }
-        
-        h5.animated-title {
-          font-size: 28px !important;
-          white-space: normal !important;
-          line-height: 1.3 !important;
-          text-align: center !important;
-          width: 100% !important;
-        }
-        
-        .heading1 h2 {
-          font-size: 30px !important;
-          white-space: normal !important;
-          line-height: 1.3 !important;
-        }
-        
-        /* Fix spacing in mobile view */
-        .space-margin60 {
-          margin-bottom: 30px !important;
-        }
-      }
-      
-      /* Remove hover description styles */
-      .hover-details {
-        display: none !important; /* Hide the hover descriptions */
-      }
-      
-      .industry-grid-item:hover span {
-        opacity: 1 !important; /* Keep text fully visible on hover */
-      }
-      
-      /* Animation delays are now handled by JavaScript */
-    </style>
 
-    <!-- Add the following CSS at the end of the existing style blocks in the head section -->
-    <style>
-      /* Mobile responsive alignment for buttons */
-      @media (max-width: 767px) {
-        .about1-section-area .btn-area1
-         {
-          text-align: left !important;
-          display: block !important;
-        }
-        
-        /* Fix for overlapping headings in mobile view */
-        .about-brand-sliderarea h3.text-center.text-anime-style-3 {
-          font-size: 24px !important;
-          line-height: 1.4 !important;
-          margin-bottom: 30px !important;
-          padding-top: 20px !important;
-          white-space: normal !important;
-          overflow: visible !important;
-        }
-        
-        .heading1.space-margin60.text-center h5.text-anime-style-3 {
-          font-size: 28px !important;
-          line-height: 1.3 !important;
-          margin-top: 20px !important;
-          margin-bottom: 30px !important;
-          white-space: normal !important;
-          overflow: visible !important;
-        }
-      }
-    </style>
+/* Fix for heading overlap */
+.animated-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px; /* Increase margin to prevent overlap */
+  padding-bottom: 20px; /* Add padding at the bottom for the line */
+}
+
+
+
+
+/* Remove hover description styles */
+.hover-details {
+  display: none !important; /* Hide the hover descriptions */
+}
+
+.industry-grid-item:hover span {
+  opacity: 1 !important; /* Keep text fully visible on hover */
+}
+
+      /* Animation delays are now handled by JavaScript */
+</style>
+
+<!--=====  JS SCRIPT LINK =======-->
+<script src="assets/js/plugins/jquery-3-7-1.min.js"></script>
+
+<!-- Enhanced industry card hover styles -->
+<style>
+/* Better hover effects for industry cards */
+
+.industry-grid-item {
+  transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease, opacity 0.8s ease !important;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  opacity: 0; /* Start invisible */
+  transform: translateY(30px); /* Start below final position */
+  will-change: opacity, transform; /* Optimize for animation */
+}
+
+.industry-grid-item:hover {
+  transform: translateY(-10px) !important;
+  background: rgba(0, 0, 251, 0.2) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 251, 0.3) !important;
+  border-color: rgba(0, 0, 251, 0.3) !important;
+}
+
+.industry-grid-item .icon-wrapper {
+  transition: transform 0.3s ease, background-color 0.3s ease !important;
+  background: rgba(0, 0, 251, 0.15);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 15px;
+}
+
+.industry-grid-item:hover .icon-wrapper {
+  transform: scale(1.1) !important;
+  background: rgba(0, 0, 251, 0.3) !important;
+}
+
+.industry-grid-item i {
+  transition: all 0.3s ease !important;
+  color: #fff;
+  font-size: 24px;
+}
+
+/* Add subtle pulsing animation for icon on hover */
+@keyframes iconPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.industry-grid-item:hover i {
+  animation: iconPulse 1.5s infinite ease-in-out !important;
+}
+
+.industry-grid-item span {
+  transition: all 0.3s ease !important;
+  color: #fff;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.industry-grid-item:hover span {
+  color: #fff !important;
+  transform: scale(1.05) !important;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+</style>
+
+<!-- Add this style section after the existing one -->
+<style>
+/* Animation styles are now handled directly by JavaScript */
+@media (min-width: 1072px) and (max-width: 1136px) {
+  .col-lg-6, .d-none, .d-lg-block{
+    padding-right: 0 !important;
+  }
+}
+
+/* Media query for 1024x768 resolution */
+@media (width: 1024px) and (height: 768px), (max-width: 1024px) and (min-width: 992px) {
+  .homepage1-menu .vl-main-menu ul > li > a {
+    padding: 0 4px !important;
+    font-size: 14px !important;
+  }
+  
+  .homepage1-menu .vl-main-menu ul li {
+    margin-right: 5px !important;
+  }
+}
+
+/* Hide industry grid when layout would be distorted */
+@media (max-width: 1200px) and (min-width: 993px) {
+  .industry-grid-container {
+    transform: scale(0.9);
+    transform-origin: center top;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .industry-grid-container {
+    display: none !important;
+  }
+  
+  .mobile-industry-message {
+    display: block !important;
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 251, 0.1);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 80%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 767px) {
+  .industry-grid-container {
+    display: none !important;
+  }
+  
+  .mobile-industry-message {
+    display: block !important;
+    text-align: center;
+    padding: 15px;
+    margin: 10px auto;
+    max-width: 100%;
+  }
+}
+
+.mobile-industry-message {
+  display: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.mobile-industry-message a {
+  color: #0000FB;
+  text-decoration: underline;
+  transition: all 0.3s ease;
+}
+
+.mobile-industry-message a:hover {
+  color: #fff;
+}
+
+/* Fix for heading overlap */
+.animated-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 30px; /* Increase margin to prevent overlap */
+  padding-bottom: 20px; /* Add padding at the bottom for the line */
+}
+
+/* Mobile responsive heading styles */
+@media (max-width: 767px) {
+  .mobile-responsive-heading {
+    font-size: 24px !important;
+    white-space: normal !important;
+    line-height: 1.4 !important;
+    margin-bottom: 20px !important;
+    text-align: center !important;
+    width: 100% !important;
+    padding: 0 15px !important;
+  }
+  
+  h3.text-center[data-aos="fade-right"] {
+    font-size: 24px !important;
+    white-space: normal !important;
+    line-height: 1.4 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  h5.animated-title {
+    font-size: 28px !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+  
+  .heading1 h2 {
+    font-size: 30px !important;
+    white-space: normal !important;
+    line-height: 1.3 !important;
+  }
+  
+  /* Fix spacing in mobile view */
+  .space-margin60 {
+    margin-bottom: 30px !important;
+  }
+}
+
+/* Remove hover description styles */
+.hover-details {
+  display: none !important; /* Hide the hover descriptions */
+}
+
+.industry-grid-item:hover span {
+  opacity: 1 !important; /* Keep text fully visible on hover */
+}
+
+/* Animation delays are now handled by JavaScript */
+</style>
+
+<!-- Add the following CSS at the end of the existing style blocks in the head section -->
+<style>
+/* Mobile responsive alignment for buttons */
+@media (max-width: 767px) {
+  .about1-section-area .btn-area1
+   {
+    text-align: left !important;
+    display: block !important;
+  }
+  
+  /* Fix for overlapping headings in mobile view */
+  .about-brand-sliderarea h3.text-center.text-anime-style-3 {
+    font-size: 24px !important;
+    line-height: 1.4 !important;
+    margin-bottom: 30px !important;
+    padding-top: 20px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+  
+  .heading1.space-margin60.text-center h5.text-anime-style-3 {
+    font-size: 28px !important;
+    line-height: 1.3 !important;
+    margin-top: 20px !important;
+    margin-bottom: 30px !important;
+    white-space: normal !important;
+    overflow: visible !important;
+  }
+}
+</style>
 </head>
 <body class="body-bg1">
 
@@ -703,7 +773,11 @@
 
           <div class="col-lg-12 sp1">
             <div class="about-brand-sliderarea">
-              <h3 class="text-center text-anime-style-3">OUR TRUSTED TECHNOLOGY PARTNERS</h3>
+              <div class="service-header heading1 text-center space-margin60">
+                <!-- <h5><img src="assets/img/icons/sub-logo2.svg" alt="">What We Deliver</h5> -->
+                <!-- <div class="space20"></div> -->
+                <h2 class="text-anime-style-3">Our Trusted Technology Partners</h2>
+              </div>
               <div class="space40"></div>
               <div class="container">
                 <div class="row">
@@ -867,6 +941,14 @@
         </div>
       </div>
 
+
+      <div class="mobile-industry-message">
+        We serve multiple industries including Healthcare, Finance, Real Estate, Manufacturing, EdTech, IT, E-commerce, Media, Logistics, SMBs, and Pharma. 
+        <br><br>
+        <a href="service.html">View our full range of industry services →</a>
+      </div>
+    </div>
+  </div>
       <style>
         /* Enhanced Industry Grid Animations */
         .animated-title {

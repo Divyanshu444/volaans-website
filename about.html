@@ -24,6 +24,7 @@
 
 
         <link rel="stylesheet" href="assets/css/mobile-fixes.css">
+    <link rel="stylesheet" href="assets/css/responsive-utilities.css">
 
     <!-- Global Font Family Style -->
     <style>
@@ -1018,6 +1019,14 @@
         </div>
       </div>
     </div>
+     <!-- Mobile alternative content -->
+     <div class="mobile-industry-message">
+      We serve multiple industries including Healthcare, Finance, Real Estate, Manufacturing, EdTech, IT, E-commerce, Media, Logistics, SMBs, and Pharma. 
+      <br><br>
+      <a href="service.html">View our full range of industry services →</a>
+    </div>
+  </div>
+</div>
 
     <style>
       /* Enhanced Industry Grid Animations */
@@ -1296,7 +1305,62 @@
       .card-3d {
         transition: transform 0.5s ease;
       }
+      /* Hide grid when layout would be distorted */
+      @media (max-width: 1200px) and (min-width: 993px) {
+        .industry-grid-container {
+          transform: scale(0.9);
+          transform-origin: center top;
+        }
+      }
       
+      @media (min-width: 768px) and (max-width: 992px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 20px;
+          background: rgba(0, 0, 251, 0.1);
+          border-radius: 10px;
+          margin: 20px auto;
+          max-width: 80%;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 15px;
+          margin: 10px auto;
+          max-width: 100%;
+        }
+      }
+      
+      .mobile-industry-message {
+        display: none;
+        color: #fff;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      
+      .mobile-industry-message a {
+        color: #0000FB;
+        text-decoration: underline;
+        transition: all 0.3s ease;
+      }
+      
+      .mobile-industry-message a:hover {
+        color: #fff;
+      }
       /* Media Queries */
       @media (max-width: 992px) {
         .industry-grid-container {
@@ -1537,6 +1601,9 @@
       
       headingObserver.observe(heading);
     });
+  });
+  document.querySelectorAll('.industry-grid-item').forEach(item => {
+    observer.observe(item);
   });
 </script>
 
@@ -1861,5 +1928,7 @@
     transition: all 0.5s ease;
   }
 </style>
+    <script src="assets/js/responsive.js"></script>
 </body>
 </html>
+
