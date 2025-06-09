@@ -1143,13 +1143,13 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 m-auto text-center">
-        <div class="section-heading">
+        <div class="section-heading" data-aos="fade-down" data-aos-duration="800">
           
           
           <h2 class="text-anime-style-3 process-title" style="text-transform: uppercase; font-size: 42px;">Our Process: Built to Deliver Scalable Impact</h2>
         </div>
         <div class="space24"></div>
-        <p class="process-intro" data-aos="fade-up" data-aos-duration="800">
+        <p class="process-intro" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
           At Volans Aqualie, every project follows a structured, agile, and scalable workflow designed to deliver results — not just technology. Our process blends deep discovery, smart design, and rapid execution to ensure we align with your goals from day one.
         </p>
       </div>
@@ -1161,7 +1161,7 @@
       <div class="col-lg-6">
         <div class="key-values-timeline">
           <!-- Timeline item 1 -->
-          <div class="timeline-item timeline-card-3d" data-timeline="01">
+          <div class="timeline-item timeline-card-3d" data-timeline="01" data-aos="fade-up" data-aos-delay="100">
             <div class="timeline-marker">
               <span>01</span>
             </div>
@@ -1172,7 +1172,7 @@
           </div>
           
           <!-- Timeline item 2 -->
-          <div class="timeline-item timeline-card-3d" data-timeline="02">
+          <div class="timeline-item timeline-card-3d" data-timeline="02" data-aos="fade-up" data-aos-delay="200">
             <div class="timeline-marker">
               <span>02</span>
             </div>
@@ -1183,7 +1183,7 @@
           </div>
           
           <!-- Timeline item 3 -->
-          <div class="timeline-item timeline-card-3d" data-timeline="03">
+          <div class="timeline-item timeline-card-3d" data-timeline="03" data-aos="fade-up" data-aos-delay="300">
             <div class="timeline-marker">
               <span>03</span>
             </div>
@@ -1194,7 +1194,7 @@
           </div>
           
           <!-- Timeline item 4 -->
-          <div class="timeline-item timeline-card-3d" data-timeline="04">
+          <div class="timeline-item timeline-card-3d" data-timeline="04" data-aos="fade-up" data-aos-delay="400">
             <div class="timeline-marker">
               <span>04</span>
             </div>
@@ -1207,23 +1207,23 @@
       </div>
       
       <div class="col-lg-6">
-        <div class="process-highlight-box timeline-card-3d" data-aos="fade-left" data-aos-duration="1000" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+        <div class="process-highlight-box timeline-card-3d" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; justify-content: center; height: 100%; background: none; border-radius: 8px; box-shadow: none;">
           <div class="highlight-content">
-            <div class="highlight-icon">
-              <i class="fa-solid fa-rocket"></i>
+            <div class="highlight-icon" data-aos="zoom-in" data-aos-delay="500" style="background: none; box-shadow: none;">
+              <i class="fa-solid fa-rocket" style="color: #0000fb;"></i>
             </div>
-            <h3>Beyond Just Technology</h3>
-            <p>We don't just ship code or AI models — we build sustainable solutions that evolve with your business.</p>
+            <h3 data-aos="fade-up" data-aos-delay="600" style="color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Beyond Just Technology</h3>
+            <p data-aos="fade-up" data-aos-delay="700" style="color: #e0e0e0; text-shadow: 0 0 5px rgba(0,0,0,0.5);">We don't just ship code or AI models — we build sustainable solutions that evolve with your business.</p>
             
             <div class="space24"></div>
             
-            <div class="highlight-icon">
-              <i class="fa-solid fa-handshake"></i>
+            <div class="highlight-icon" data-aos="zoom-in" data-aos-delay="800" style="background: none; box-shadow: none;">
+              <i class="fa-solid fa-handshake" style="color: #0000fb;"></i>
             </div>
-            <h3>Collaborative Excellence</h3>
-            <p>Whether it's a full-stack platform, a virtual agent, or an AIOps system, our team ensures every step is transparent, collaborative, and optimized for speed and scale.</p>
+            <h3 data-aos="fade-up" data-aos-delay="900" style="color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Collaborative Excellence</h3>
+            <p data-aos="fade-up" data-aos-delay="1000" style="color: #e0e0e0; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Whether it's a full-stack platform, a virtual agent, or an AIOps system, our team ensures every step is transparent, collaborative, and optimized for speed and scale.</p>
             
-            <div class="btn-area1 mt-4">
+            <div class="btn-area1 mt-4" data-aos="fade-up" data-aos-delay="1100">
               <a href="Case_Study.html" class="vl-btn1" style="overflow: hidden;">View Case Studies</a>
             </div>
           </div>
@@ -1309,7 +1309,6 @@
     position: relative;
     padding-left: 60px;
     margin-bottom: 50px;
-    opacity: 0;
     transform-style: preserve-3d;
     transform: perspective(1000px);
   }
@@ -1326,40 +1325,26 @@
     }
   }
   
-  @keyframes cardAppearRight {
-    0% {
-      opacity: 0;
-      transform: perspective(1000px) translateY(30px) translateX(20px) rotateX(5deg);
-    }
-    100% {
-      opacity: 1;
-      transform: perspective(1000px) translateY(0) translateX(0) rotateX(0);
-    }
+  /* Add hover effect for timeline items */
+  .timeline-item:hover .timeline-marker {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 251, 0.5);
   }
   
-  /* Apply animations with delays like in index.html */
-  .timeline-item:nth-child(1) {
-    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+  /* Smooth transition for all animations */
+  .timeline-marker, .timeline-content,   .highlight-icon, .process-highlight-box {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
   
-  .timeline-item:nth-child(2) {
-    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  .highlight-content {
+    background: none;
+    box-shadow: none;
+    border: none;
   }
   
-  .timeline-item:nth-child(3) {
-    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
-  }
+  /* Removed card appear animation */
   
-  .timeline-item:nth-child(4) {
-    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
-  }
-  
-  .process-highlight-box {
-    opacity: 0;
-    transform-style: preserve-3d;
-    transform: perspective(1000px);
-    animation: cardAppearRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
-  }
+  /* Timeline animations now handled by AOS */
   
   .timeline-item:last-child {
     margin-bottom: 0;
@@ -1397,49 +1382,16 @@
     backdrop-filter: blur(10px);
     position: relative;
     z-index: 2;
+    overflow: hidden;
   }
   
-  .timeline-content::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 1;
-    border-radius: 8px;
-  }
-  
-  .timeline-content:hover::before {
-    opacity: 1;
-  }
-  
-  .timeline-content::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-    pointer-events: none;
-    z-index: 1;
-    border-radius: 8px;
-  }
-  
-  .timeline-content:hover::after {
-    left: 100%;
-    transition: left 0.7s ease;
-  }
+  /* Removed background overlays */
   
   .timeline-content:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
     background-color: rgba(16, 22, 32, 0.85);
+    border-color: #0000fb;
   }
   
   .timeline-content h4 {
@@ -1461,6 +1413,7 @@
   /* 3D Card Effect like in index.html */
   .timeline-card-3d {
     transition: transform 0.5s ease;
+    overflow: hidden;
   }
   
   @media (max-width: 991px) {
@@ -1497,51 +1450,7 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 3D card tilt effect just like in index.html
-    const cards = document.querySelectorAll('.timeline-card-3d');
-    
-    cards.forEach(card => {
-      card.addEventListener('mousemove', function(e) {
-        // Get position of mouse cursor over card
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element
-        const y = e.clientY - rect.top; // y position within the element
-        
-        // Calculate rotation based on mouse position
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateY = ((x - centerX) / centerX) * 8; // Max 8 degrees
-        const rotateX = ((centerY - y) / centerY) * 8; // Max 8 degrees
-        
-        // Apply the transform
-        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        
-        // Special effect for timeline marker
-        if (this.classList.contains('timeline-item')) {
-          const marker = this.querySelector('.timeline-marker');
-          if (marker) {
-            marker.style.transform = `scale(1.1) translateZ(10px)`;
-            marker.style.boxShadow = `0 0 15px rgba(0, 0, 251, 0.7)`;
-          }
-        }
-      });
-      
-      // Reset transform on mouse leave
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        
-        if (this.classList.contains('timeline-item')) {
-          const marker = this.querySelector('.timeline-marker');
-          if (marker) {
-            marker.style.transform = '';
-            marker.style.boxShadow = '';
-          }
-        }
-      });
-    });
-    
-    // Intersection Observer for animation on scroll
+    // Simple intersection observer to ensure animations play
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -2082,81 +1991,115 @@
 </div>
 <!-- End Industries We Serve Section -->
 
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    // 3D card tilt effect
-    const cards = document.querySelectorAll('.card-3d');
-    
-    cards.forEach(card => {
-      card.addEventListener('mousemove', function(e) {
-        // Get position of mouse cursor over card
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left; // x position within the element
-        const y = e.clientY - rect.top; // y position within the element
-        
-        // Calculate rotation based on mouse position
-        // Further from center = more rotation
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
-        const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
-        
-        // Apply the transform
-        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-        
-        // Move the icon wrapper for parallax effect
-        const iconWrapper = this.querySelector('.icon-wrapper');
-        if (iconWrapper) {
-          iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
-        }
-      });
-      
-      // Reset transform on mouse leave
-      card.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        
-        const iconWrapper = this.querySelector('.icon-wrapper');
-        if (iconWrapper) {
-          iconWrapper.style.transform = 'translateX(0) translateY(0)';
-        }
-      });
-      
-      // Add slight animation on click
-      card.addEventListener('mousedown', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
-      });
-      
-      card.addEventListener('mouseup', function(event) {
-        const rect = this.getBoundingClientRect();
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        
-        const rotateY = ((x - centerX) / centerX) * 10;
-        const rotateX = ((centerY - y) / centerY) * 10;
-        
-        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
-      });
-    });
-    
-    // Intersection Observer for animation on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          // If the section is in view, ensure animations play
-          entry.target.style.animationPlayState = 'running';
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    // Observe all grid items
-    document.querySelectorAll('.industry-grid-item').forEach(item => {
-      observer.observe(item);
-    });
-  });
-</script>
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // 3D card tilt effect
+          const cards = document.querySelectorAll('.card-3d');
+          
+          cards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+              // Get position of mouse cursor over card
+              const rect = this.getBoundingClientRect();
+              const x = e.clientX - rect.left; // x position within the element
+              const y = e.clientY - rect.top; // y position within the element
+              
+              // Calculate rotation based on mouse position
+              // Further from center = more rotation
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              
+              const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
+              const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
+              
+              // Apply the transform
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+              
+              // Move the icon wrapper for parallax effect
+              const iconWrapper = this.querySelector('.icon-wrapper');
+              if (iconWrapper) {
+                iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
+              }
+            });
+            
+            // Reset transform on mouse leave
+            card.addEventListener('mouseleave', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+              
+              const iconWrapper = this.querySelector('.icon-wrapper');
+              if (iconWrapper) {
+                iconWrapper.style.transform = 'translateX(0) translateY(0)';
+              }
+            });
+            
+            // Add slight animation on click
+            card.addEventListener('mousedown', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
+            });
+            
+            card.addEventListener('mouseup', function(event) {
+              const rect = this.getBoundingClientRect();
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const x = event.clientX - rect.left;
+              const y = event.clientY - rect.top;
+              
+              const rotateY = ((x - centerX) / centerX) * 10;
+              const rotateX = ((centerY - y) / centerY) * 10;
+              
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+            });
+          });
+
+          // Enhanced animation for industry grid items
+          const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Reset animation
+                const element = entry.target;
+                element.style.animation = 'none';
+                
+                // Force reflow to restart the animation
+                void element.offsetWidth;
+                
+                // Get the original animation style and reapply it
+                const index = Array.from(element.parentNode.children).indexOf(element) + 1;
+                let animationType = 'cardAppear';
+                
+                // Determine which animation to use based on the row
+                if ((index >= 4 && index <= 5) || (index >= 9 && index <= 11)) {
+                  animationType = 'cardAppearDown';
+                }
+                
+                // Calculate delay based on the item's position
+                const delay = index * 0.1;
+                
+                // Apply the animation
+                element.style.animation = `${animationType} 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${delay}s forwards`;
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          // Observe all grid items
+          document.querySelectorAll('.industry-grid-item').forEach(item => {
+            // Set initial style to be invisible
+            item.style.opacity = '0';
+            cardObserver.observe(item);
+          });
+          
+          // Add animation for text-anime-style-3 elements
+          const titleObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+              }
+            });
+          }, { threshold: 0.2 });
+          
+          document.querySelectorAll('.text-anime-style-3').forEach(heading => {
+            titleObserver.observe(heading);
+          });
+        });
+      </script>
 
 <div class="slider1-section-area">
   <div class="marquee-wrap">
@@ -2357,6 +2300,30 @@
     if (videoSection) {
       videoObserver.observe(videoSection);
     }
+    
+    // Initialize AOS with optimized settings
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: false,
+      mirror: false,
+      offset: 100,
+      delay: 50,
+      anchorPlacement: 'top-bottom',
+      disable: false
+    });
+    
+    // Force refresh AOS after a slight delay to ensure all elements are properly initialized
+    setTimeout(function() {
+      AOS.refresh();
+    }, 500);
+    
+    // Timeline animations are now handled by AOS
+    
+    // Refresh AOS on window resize
+    $(window).on('resize', function() {
+      AOS.refresh();
+    });
   });
 </script>
 
@@ -2382,5 +2349,23 @@
 
 <!-- Key Values Section -->
 </body>
+
+<script>
+  // Ensure AOS is fully initialized
+  document.addEventListener('DOMContentLoaded', function() {
+    // Force refresh AOS after page is fully loaded
+    setTimeout(function() {
+      if (typeof AOS !== 'undefined') {
+        // Manually add aos-animate class to timeline items if needed
+        document.querySelectorAll('.timeline-item[data-aos]').forEach(function(item) {
+          item.classList.add('aos-animate');
+        });
+        
+        // Refresh AOS
+        AOS.refresh();
+      }
+    }, 800);
+  });
+</script>
 </html>
 
