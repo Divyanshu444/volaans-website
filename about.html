@@ -345,8 +345,434 @@
 </div>
  <div class="spa"></div>
 
-<!-- Additional mobile-specific styles -->
+<!-- Additional mobile-specific styles -->     <style>
+        /* Enhanced Industry Grid Animations */
+        .animated-title {
+          position: relative;
+          display: inline-block;
+        }
+        
+        
+       
+        
+        .industry-grid-container {
+          position: relative;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-auto-rows: minmax(120px, auto);
+          gap: 25px;
+          max-width: 1200px;
+          width: 100%;
+          margin: 0 auto 50px;
+          z-index: 2;
+        }
+        
+        .industry-grid-item {
+          position: relative;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 16px;
+          backdrop-filter: blur(5px);
+          -webkit-backdrop-filter: blur(5px);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          overflow: hidden;
+          transform-style: preserve-3d;
+          transform: perspective(1000px);
+          opacity: 0;
+          /* Default animation removed - will be set per row */
+        }
+        
+        .industry-grid-item::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
+          opacity: 0;
+          transition: opacity 0.5s ease;
+          z-index: 1;
+        }
+        
+        .industry-grid-item:hover::before {
+          opacity: 1;
+        }
+        
+        .industry-grid-item::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+          transition: left 0.5s ease;
+          pointer-events: none;
+        }
+        
+        .industry-grid-item:hover::after {
+          left: 100%;
+          transition: left 0.7s ease;
+        }
+        
+        .card-content {
+          position: relative;
+          height: 100%;
+          padding: 25px 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          z-index: 2;
+          transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .industry-grid-item:hover .card-content {
+          transform: translateZ(20px);
+        }
+        
+        .icon-wrapper {
+          position: relative;
+          width: 70px;
+          height: 70px;
+          border-radius: 50%;
+          background: rgba(0, 0, 251, 0.15);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 15px;
+          transition: all 0.5s ease;
+          overflow: hidden;
+        }
+        
+        .icon-wrapper::before {
+          content: '';
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          background: radial-gradient(circle at center, rgba(0, 0, 251, 0.5), transparent);
+          opacity: 0;
+          transition: opacity 0.5s ease;
+        }
+        
+        .industry-grid-item:hover .icon-wrapper::before {
+          opacity: 1;
+          animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+          0% { transform: scale(0.95); }
+          50% { transform: scale(1.05); }
+          100% { transform: scale(0.95); }
+        }
+        
+        .industry-grid-item i {
+          font-size: 28px;
+          color: #fff;
+          transition: all 0.5s ease;
+          position: relative;
+          z-index: 3;
+        }
+        
+        .industry-grid-item:hover i {
+          transform: scale(1.2);
+          color: #fff;
+          text-shadow: 0 0 10px rgba(0, 0, 251, 0.7);
+        }
+        
+        .industry-grid-item span {
+          font-size: 18px;
+          font-weight: 600;
+          color: #fff;
+          margin-top: 10px;
+          transition: all 0.5s ease;
+          position: relative;
+          z-index: 3;
+        }
+        
+        .industry-grid-item:hover span {
+          transform: translateZ(10px);
+          letter-spacing: 0.5px;
+          text-shadow: 0 2px 8px rgba(0, 0, 251, 0.5);
+        }
+        
+        .hover-details {
+          position: absolute;
+          bottom: -60px;
+          left: 0;
+          width: 100%;
+          padding: 15px;
+          background: rgba(0, 0, 251, 0.2);
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          opacity: 0;
+          transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+          z-index: 4;
+        }
+        
+        .industry-grid-item:hover .hover-details {
+          bottom: 0;
+          opacity: 1;
+        }
+        
+        .hover-details p {
+          color: #fff;
+          font-size: 14px;
+          margin: 0;
+        }
+        
+        @keyframes cardAppear {
+          0% {
+            opacity: 0;
+            transform: perspective(1000px) translateY(50px) rotateX(10deg);
+          }
+          100% {
+            opacity: 1;
+            transform: perspective(1000px) translateY(0) rotateX(0);
+          }
+        }
+        
+        /* Create reverse animation for alternating rows */
+        @keyframes cardAppearDown {
+          0% {
+            opacity: 0;
+            transform: perspective(1000px) translateY(-50px) rotateX(-10deg);
+          }
+          100% {
+            opacity: 1;
+            transform: perspective(1000px) translateY(0) rotateX(0);
+          }
+        }
+
+        /* First row - fade up */
+        .industry-grid-item:nth-child(1) {
+          grid-column: 1;
+          grid-row: 1;
+          background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+        }
+        .industry-grid-item:nth-child(2) {
+          grid-column: 2;
+          grid-row: 1 / span 2;
+          background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+        }
+        .industry-grid-item:nth-child(3) {
+          grid-column: 3;
+          grid-row: 1;
+          background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+        }
+        
+        /* Second row - fade down */
+        .industry-grid-item:nth-child(4) {
+          grid-column: 1;
+          grid-row: 2;
+          background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+        }
+        .industry-grid-item:nth-child(5) {
+          grid-column: 3;
+          grid-row: 2;
+          background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+        }
+        
+        /* Third row - fade up */
+        .industry-grid-item:nth-child(6) {
+          grid-column: 1;
+          grid-row: 3;
+          background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+        }
+        .industry-grid-item:nth-child(7) {
+          grid-column: 2;
+          grid-row: 3;
+          background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
+        }
+        .industry-grid-item:nth-child(8) {
+          grid-column: 3;
+          grid-row: 3;
+          background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
+        }
+        
+        /* Fourth row - fade down */
+        .industry-grid-item:nth-child(9) {
+          grid-column: 1;
+          grid-row: 4;
+          background: linear-gradient(135deg, rgba(253, 126, 20, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+        }
+        .industry-grid-item:nth-child(10) {
+          grid-column: 2;
+          grid-row: 4;
+          background: linear-gradient(135deg, rgba(108, 117, 125, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+        }
+        .industry-grid-item:nth-child(11) {
+          grid-column: 3;
+          grid-row: 4;
+          background: linear-gradient(135deg, rgba(102, 16, 242, 0.1), rgba(0, 0, 0, 0.2));
+          animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
+        }
+        
+        /* 3D Card Effect */
+        .card-3d {
+          transition: transform 0.5s ease;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 992px) {
+          .industry-grid-container {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          /* Adjust grid positions for responsive layout */
+          .industry-grid-item:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+          }
+          .industry-grid-item:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+          }
+          .industry-grid-item:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+          }
+          .industry-grid-item:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+          }
+          .industry-grid-item:nth-child(5) {
+            grid-column: 1;
+            grid-row: 3;
+          }
+          /* The rest will flow naturally */
+        }
+        
+        @media (max-width: 576px) {
+          .industry-grid-container {
+            grid-template-columns: 1fr;
+          }
+          
+          .industry-grid-item {
+            grid-column: 1 !important;
+          }
+          
+          .industry-grid-item:nth-child(1) { grid-row: 1; }
+          .industry-grid-item:nth-child(2) { grid-row: 2; }
+          .industry-grid-item:nth-child(3) { grid-row: 3; }
+          .industry-grid-item:nth-child(4) { grid-row: 4; }
+          .industry-grid-item:nth-child(5) { grid-row: 5; }
+          .industry-grid-item:nth-child(6) { grid-row: 6; }
+          .industry-grid-item:nth-child(7) { grid-row: 7; }
+          .industry-grid-item:nth-child(8) { grid-row: 8; }
+          .industry-grid-item:nth-child(9) { grid-row: 9; }
+          .industry-grid-item:nth-child(10) { grid-row: 10; }
+          .industry-grid-item:nth-child(11) { grid-row: 11; }
+        }
+      </style>
+
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          // 3D card tilt effect
+          const cards = document.querySelectorAll('.card-3d');
+          
+          cards.forEach(card => {
+            card.addEventListener('mousemove', function(e) {
+              // Get position of mouse cursor over card
+              const rect = this.getBoundingClientRect();
+              const x = e.clientX - rect.left; // x position within the element
+              const y = e.clientY - rect.top; // y position within the element
+              
+              // Calculate rotation based on mouse position
+              // Further from center = more rotation
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              
+              const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
+              const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
+              
+              // Apply the transform
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+              
+              // Move the icon wrapper for parallax effect
+              const iconWrapper = this.querySelector('.icon-wrapper');
+              if (iconWrapper) {
+                iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
+              }
+            });
+            
+            // Reset transform on mouse leave
+            card.addEventListener('mouseleave', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+              
+              const iconWrapper = this.querySelector('.icon-wrapper');
+              if (iconWrapper) {
+                iconWrapper.style.transform = 'translateX(0) translateY(0)';
+              }
+            });
+            
+            // Add slight animation on click
+            card.addEventListener('mousedown', function() {
+              this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
+            });
+            
+            card.addEventListener('mouseup', function() {
+              const rect = this.getBoundingClientRect();
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const x = event.clientX - rect.left;
+              const y = event.clientY - rect.top;
+              
+              const rotateY = ((x - centerX) / centerX) * 10;
+              const rotateX = ((centerY - y) / centerY) * 10;
+              
+              this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+            });
+          });
+          
+          // Intersection Observer for animation on scroll
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // If the section is in view, ensure animations play
+                entry.target.style.animationPlayState = 'running';
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          // Observe all grid items
+          document.querySelectorAll('.industry-grid-item').forEach(item => {
+            observer.observe(item);
+          });
+        });
+      </script>
 <style>
+ /* Animation styles are now handled directly by JavaScript */
+@media (min-width: 1072px) and (max-width: 1136px) {
+  .col-lg-6, .d-none, .d-lg-block{
+    padding-right: 0 !important;
+  }
+}
+
+/* Media query for 1024x768 resolution */
+@media (width: 1024px) and (height: 768px), (max-width: 1024px) and (min-width: 992px) {
+  .homepage1-menu .vl-main-menu ul > li > a {
+    padding: 0 4px !important;
+    font-size: 14px !important;
+  }
+  
+  .homepage1-menu .vl-main-menu ul li {
+    margin-right: 5px !important;
+  }
+}
   @media (max-width: 991px) {
     .about-hero-content {
       padding: 30px 15px !important;
@@ -519,6 +945,1218 @@
     }
   }
 </style>
+<div class="slider1-section-area">
+  <div class="marquee-wrap">
+    <div class="marquee-text">
+      <div class="brand-single-box">
+        <h3>1000+ Clients <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>99.9% Uptime <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Enterprise-Grade Solutions <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Future-Ready AI <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Trusted by Meta <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Trusted by Microsoft <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Trusted by Zoho <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Transforming Digital Experiences <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>1000+ Clients <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>99.9% Uptime <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Enterprise-Grade Solutions <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+
+    <div class="brand-single-box">
+      <h3>Future-Ready AI <img src="assets/img/elements/elements5.png" alt=""></h3>
+    </div>
+    </div>
+  </div>
+</div>
+<!--===== HERO AREA ENDS =======-->
+
+<!--===== ABOUT AREA STARTS =======-->
+<div class="about1-section-area sp6" style="padding: 51px 0 100px;">
+  <img src="assets/img/elements/elements9.png" alt="" class="elements9">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="images">
+          <div class="img1 reveal">
+            <img src="assets/img/all-images/about/about-img1.png" alt="">
+          </div>
+          <img src="assets/img/elements/elements8.png" alt="" class="elements8">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="about-header heading1">
+          <!-- <h5 data-aos="fade-left" data-aos-duration="800"><img src="assets/img/icons/sub-logo2.svg" alt="">Trusted by Global Enterprises to Deliver Results That Scale</h5> -->
+          <div class="space20"></div>
+          <h2 class="text-anime-style-3">Tech with Purpose: Empowering Positive Change</h2>
+          <div class="space16"></div>
+          <div data-aos="fade-left" data-aos-duration="900">
+            <p class="mission-text">At Volans Aqualie, we believe in using technology as a force for societal good — not just profit.</p>
+            <p class="mission-text">By enabling small businesses to thrive digitally, we support:</p>
+            <ul class="mission-list">
+              <li><i class="fa-solid fa-check"></i> Local economies</li>
+              <li><i class="fa-solid fa-check"></i> Sustainable, inclusive innovation</li>
+              <li><i class="fa-solid fa-check"></i> Smarter access to services in under-served regions</li>
+              <li><i class="fa-solid fa-check"></i> Long-term digital literacy and empowerment</li>
+            </ul>
+            <p class="mission-tagline"><strong>We're building more than tools. We're building impact.</strong></p>
+          </div>
+          <!-- <div class="space32"></div>
+          <div class="bg-progress" data-aos="fade-left" data-aos-duration="1000">
+            <div class="progress-bar">
+              <label>Operational Efficiency Boost <span>40%+</span></label>
+              <div class="progress">
+                  <div class="progress-inner" style="width: 40%;"></div>
+              </div>
+          </div>
+      
+          <div class="progress-bar m-0">
+              <label>Faster Digital Transformation <span>3x</span></label>
+              <div class="progress">
+                  <div class="progress-inner" style="width: 75%;"></div>
+              </div>
+          </div> -->
+    
+          </div>
+          <div class="space32"></div>
+          <div class="btn-area1" data-aos="fade-left" data-aos-duration="1100"> 
+            <a href="about.html" class="vl-btn1" style="overflow: hidden; margin-left: 72px; display: none;" >View Testimonials</a>
+          </div>
+        </div>
+        <div class="about-section-area sp6 mobile-hide-section" style="padding-bottom: 0px; margin-bottom: -100px;">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-8">
+                <div class="about-header heading1">
+                  <h5 data-aos="fade-left" data-aos-duration="800" style="color: #fff; margin-left: -56px;">At Volans Aqualie, we combine intelligent automation with enterprise IT strategy to help SMBs thrive in a digital-first world.</h5>
+                </div>
+              </div>
+              <div class="col-lg-4 text-end">
+                <div class="btn-area1" data-aos="fade-right" data-aos-duration="800"> 
+                  <a href="contact.html" class="vl-btn1" style="overflow: hidden;">Book A Free Call</a>
+                </div>
+              </div>
+            </div>
+            <div class="space20"></div>
+            <div class="about-others-area">
+              <div class="row">
+                <div class="col-lg-12">
+                  <div class="img1" style="opacity: 0;" id="video-section">
+                    <div class="play-btn">
+                      <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
+                    </div>
+                    <img src="assets/img/all-images/about/about-img6.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--===== ABOUT AREA ENDS =======-->
+
+<!-- Add CSS for alignment fixes -->
+<style>
+  /* Purpose heading alignment */
+  h2.purpose-heading {
+    text-align: left;
+  }
+  
+  /* Video container visibility */
+  .video-container {
+    opacity: 1 !important;
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Responsive adjustments for the purpose heading */
+  @media (max-width: 991px) {
+    h2.purpose-heading {
+      text-align: center !important;
+    }
+    
+    .mission-text, .mission-tagline, .mission-list {
+      text-align: center !important;
+    }
+    
+    .mission-list {
+      display: inline-block;
+      margin: 0 auto;
+    }
+    
+    .mission-list li {
+      text-align: left;
+    }
+  }
+  
+  /* Responsive styling for main heading */
+  @media (max-width: 991px) {
+    .text-anime-style-3 {
+      text-align: center !important;
+      width: 100% !important;
+      display: block !important;
+      margin: 0 auto !important;
+    }
+  }
+</style>
+
+<!-- End of the about section -->
+</div>
+
+<!-- Key Values Section -->
+<div class="key-values-section sp6">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 m-auto text-center">
+        <div class="section-heading">
+          
+          
+          <h2 class="text-anime-style-3 process-title" style="text-transform: uppercase; font-size: 42px;">Our Process: Built to Deliver Scalable Impact</h2>
+        </div>
+        <div class="space24"></div>
+        <p class="process-intro" data-aos="fade-up" data-aos-duration="800">
+          At Volans Aqualie, every project follows a structured, agile, and scalable workflow designed to deliver results — not just technology. Our process blends deep discovery, smart design, and rapid execution to ensure we align with your goals from day one.
+        </p>
+      </div>
+    </div>
+    
+    <div class="space40"></div>
+    
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="key-values-timeline">
+          <!-- Timeline item 1 -->
+          <div class="timeline-item timeline-card-3d" data-timeline="01">
+            <div class="timeline-marker">
+              <span>01</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Discovery & Alignment</h4>
+              <p>Understanding your business goals, pain points, and operational context to create a customized roadmap.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline item 2 -->
+          <div class="timeline-item timeline-card-3d" data-timeline="02">
+            <div class="timeline-marker">
+              <span>02</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Strategy & Design</h4>
+              <p>Mapping the right AI and IT systems that align perfectly with your objectives and resource constraints.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline item 3 -->
+          <div class="timeline-item timeline-card-3d" data-timeline="03">
+            <div class="timeline-marker">
+              <span>03</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Implementation</h4>
+              <p>Agile development and automation rollouts with continuous testing and stakeholder feedback loops.</p>
+            </div>
+          </div>
+          
+          <!-- Timeline item 4 -->
+          <div class="timeline-item timeline-card-3d" data-timeline="04">
+            <div class="timeline-marker">
+              <span>04</span>
+            </div>
+            <div class="timeline-content">
+              <h4>Support & Scale</h4>
+              <p>We evolve with your business needs, continuously optimizing systems for greater efficiency and ROI.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-lg-6">
+        <div class="process-highlight-box timeline-card-3d" data-aos="fade-left" data-aos-duration="1000" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+          <div class="highlight-content">
+            <div class="highlight-icon">
+              <i class="fa-solid fa-rocket"></i>
+            </div>
+            <h3>Beyond Just Technology</h3>
+            <p>We don't just ship code or AI models — we build sustainable solutions that evolve with your business.</p>
+            
+            <div class="space24"></div>
+            
+            <div class="highlight-icon">
+              <i class="fa-solid fa-handshake"></i>
+            </div>
+            <h3>Collaborative Excellence</h3>
+            <p>Whether it's a full-stack platform, a virtual agent, or an AIOps system, our team ensures every step is transparent, collaborative, and optimized for speed and scale.</p>
+            
+            <div class="btn-area1 mt-4">
+              <a href="Case_Study.html" class="vl-btn1" style="overflow: hidden;">View Case Studies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Custom styles for the updated key values section -->
+<style>
+  
+  .key-values-section {
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+    background-image: url('assets/img/all-images/bg/bg2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 80px 0;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .process-intro {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2px;
+  }
+  
+  /* Responsive styling for process title */
+  @media (max-width: 991px) {
+    .process-title {
+      font-size: 36px !important;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .process-title {
+      font-size: 30px !important;
+      line-height: 1.3 !important;
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .process-title {
+      font-size: 26px !important;
+      line-height: 1.2 !important;
+    }
+  }
+  
+  .key-values-timeline {
+    position: relative;
+    padding: 30px 0;
+  }
+  
+  .key-values-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(180deg, #0000fb, #101620);
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  }
+  
+  .timeline-item {
+    position: relative;
+    padding-left: 60px;
+    margin-bottom: 50px;
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+  
+  /* Create animations just like industry-grid-item */
+  @keyframes cardAppear {
+    0% {
+      opacity: 0;
+      transform: perspective(1000px) translateY(50px) translateX(-20px) rotateX(10deg);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1000px) translateY(0) translateX(0) rotateX(0);
+    }
+  }
+  
+  @keyframes cardAppearRight {
+    0% {
+      opacity: 0;
+      transform: perspective(1000px) translateY(30px) translateX(20px) rotateX(5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: perspective(1000px) translateY(0) translateX(0) rotateX(0);
+    }
+  }
+  
+  /* Apply animations with delays like in index.html */
+  .timeline-item:nth-child(1) {
+    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+  }
+  
+  .timeline-item:nth-child(2) {
+    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+  }
+  
+  .timeline-item:nth-child(3) {
+    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+  }
+  
+  .timeline-item:nth-child(4) {
+    animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
+  }
+  
+  .process-highlight-box {
+    opacity: 0;
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    animation: cardAppearRight 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+  }
+  
+  .timeline-item:last-child {
+    margin-bottom: 0;
+  }
+  
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #101620;
+    border: 2px solid #0000fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 0 0 5px rgba(52, 152, 219, 0.2), 0 0 15px rgba(52, 152, 219, 0.5);
+  }
+  
+  .timeline-marker span {
+    font-size: 12px;
+    font-weight: bold;
+    color: #0000fb;
+  }
+  
+  .timeline-content {
+    background-color: rgba(16, 22, 32, 0.7);
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+    border-left: 3px solid #0000fb;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+  }
+  
+  .timeline-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+    border-radius: 8px;
+  }
+  
+  .timeline-content:hover::before {
+    opacity: 1;
+  }
+  
+  .timeline-content::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: 8px;
+  }
+  
+  .timeline-content:hover::after {
+    left: 100%;
+    transition: left 0.7s ease;
+  }
+  
+  .timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(52, 152, 219, 0.15);
+    background-color: rgba(16, 22, 32, 0.85);
+  }
+  
+  .timeline-content h4 {
+    color: #c4c4ff;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .timeline-content p {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* 3D Card Effect like in index.html */
+  .timeline-card-3d {
+    transition: transform 0.5s ease;
+  }
+  
+  @media (max-width: 991px) {
+    .timeline-content h4 {
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .key-values-section {
+      padding: 60px 0;
+    }
+    
+    .timeline-item {
+      padding-left: 45px;
+      margin-bottom: 30px;
+    }
+    
+    .timeline-marker {
+      width: 24px;
+      height: 24px;
+    }
+    
+    .timeline-content {
+      padding: 15px;
+    }
+    
+    .timeline-content h4 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 3D card tilt effect just like in index.html
+    const cards = document.querySelectorAll('.timeline-card-3d');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        // Get position of mouse cursor over card
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top; // y position within the element
+        
+        // Calculate rotation based on mouse position
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateY = ((x - centerX) / centerX) * 8; // Max 8 degrees
+        const rotateX = ((centerY - y) / centerY) * 8; // Max 8 degrees
+        
+        // Apply the transform
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+        
+        // Special effect for timeline marker
+        if (this.classList.contains('timeline-item')) {
+          const marker = this.querySelector('.timeline-marker');
+          if (marker) {
+            marker.style.transform = `scale(1.1) translateZ(10px)`;
+            marker.style.boxShadow = `0 0 15px rgba(0, 0, 251, 0.7)`;
+          }
+        }
+      });
+      
+      // Reset transform on mouse leave
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        
+        if (this.classList.contains('timeline-item')) {
+          const marker = this.querySelector('.timeline-marker');
+          if (marker) {
+            marker.style.transform = '';
+            marker.style.boxShadow = '';
+          }
+        }
+      });
+    });
+    
+    // Intersection Observer for animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // If the section is in view, ensure animations play
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all timeline items
+    document.querySelectorAll('.timeline-item, .process-highlight-box').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
+
+<!-- Industries We Serve Section -->
+<div class="service1-section-area sp6">
+  <div class="container">
+    <div class="row">
+      <div>
+        <div class="heading1 space-margin60 text-center">
+          <h5 style="color: #fff; font-size: 45px;" class="text-anime-style-3">Industries we serve</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="industry-grid-container">
+          <!-- First row - left side -->
+          <div class="industry-grid-item card-3d" data-industry="healthcare">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-hospital"></i>
+              </div>
+              <span>Healthcare</span>
+            </div>
+          </div>
+          
+          <!-- Center spanning two rows -->
+          <div class="industry-grid-item card-3d" data-industry="realestate">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <span>Real Estate</span>
+            </div>
+          </div>
+          
+          <!-- First row - right side -->
+          <div class="industry-grid-item card-3d" data-industry="finance">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <span>Finance</span>
+            </div>
+          </div>
+          
+          <!-- Second row - left side -->
+          <div class="industry-grid-item card-3d" data-industry="manufacturing">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-industry"></i>
+              </div>
+              <span>Manufacturing</span>
+            </div>
+          </div>
+          
+          <!-- Second row - right side -->
+          <div class="industry-grid-item card-3d" data-industry="edtech">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <span>EdTech</span>
+            </div>
+          </div>
+          
+          <!-- Third row - left -->
+          <div class="industry-grid-item card-3d" data-industry="it">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-laptop-code"></i>
+              </div>
+              <span>IT</span>
+            </div>
+          </div>
+          
+          <!-- Third row - middle -->
+          <div class="industry-grid-item card-3d" data-industry="ecommerce">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-shopping-cart"></i>
+              </div>
+              <span>E-commerce</span>
+            </div>
+          </div>
+          
+          <!-- Third row - right -->
+          <div class="industry-grid-item card-3d" data-industry="media">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-film"></i>
+              </div>
+              <span>Media & Entertainment</span>
+            </div>
+          </div>
+          
+          <!-- Fourth row - left -->
+          <div class="industry-grid-item card-3d" data-industry="logistics">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-truck"></i>
+              </div>
+              <span>Logistics</span>
+            </div>
+          </div>
+          
+          <!-- Fourth row - middle -->
+          <div class="industry-grid-item card-3d" data-industry="smb">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <span>SMBs</span>
+            </div>
+          </div>
+          
+          <!-- Fourth row - right -->
+          <div class="industry-grid-item card-3d" data-industry="pharma">
+            <div class="card-content">
+              <div class="icon-wrapper">
+                <i class="fa-solid fa-pills"></i>
+              </div>
+              <span>Pharma</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Mobile alternative content -->
+        <div class="mobile-industry-message">
+          We serve multiple industries including Healthcare, Finance, Real Estate, Manufacturing, EdTech, IT, E-commerce, Media, Logistics, SMBs, and Pharma. 
+          <br><br>
+          <a href="service.html">View our full range of industry services →</a>
+        </div>
+      </div>
+    </div>
+
+    <style>
+      /* Enhanced Industry Grid Animations */
+      .animated-title {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .industry-grid-container {
+        position: relative;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(120px, auto);
+        gap: 25px;
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto 50px;
+        z-index: 2;
+      }
+      
+      .industry-grid-item {
+        position: relative;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transform-style: preserve-3d;
+        transform: perspective(1000px);
+        opacity: 0;
+        /* Default animation removed - will be set per row */
+      }
+      
+      .industry-grid-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, transparent, rgba(0, 0, 251, 0.1));
+        opacity: 0;
+        transition: opacity 0.5s ease;
+        z-index: 1;
+      }
+      
+      .industry-grid-item:hover::before {
+        opacity: 1;
+      }
+      
+      .industry-grid-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s ease;
+        pointer-events: none;
+      }
+      
+      .industry-grid-item:hover::after {
+        left: 100%;
+        transition: left 0.7s ease;
+      }
+      
+      .card-content {
+        position: relative;
+        height: 100%;
+        padding: 25px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        z-index: 2;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .industry-grid-item:hover .card-content {
+        transform: translateZ(20px);
+      }
+      
+      .icon-wrapper {
+        position: relative;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: rgba(0, 0, 251, 0.15);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+        transition: all 0.5s ease;
+        overflow: hidden;
+      }
+      
+      .icon-wrapper::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at center, rgba(0, 0, 251, 0.5), transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+      
+      .industry-grid-item:hover .icon-wrapper::before {
+        opacity: 1;
+        animation: pulse 2s infinite;
+      }
+      
+      @keyframes pulse {
+        0% { transform: scale(0.95); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(0.95); }
+      }
+      
+      .industry-grid-item i {
+        font-size: 28px;
+        color: #fff;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 3;
+      }
+      
+      .industry-grid-item:hover i {
+        transform: scale(1.2);
+        color: #fff;
+        text-shadow: 0 0 10px rgba(0, 0, 251, 0.7);
+      }
+      
+      .industry-grid-item span {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        margin-top: 10px;
+        transition: all 0.5s ease;
+        position: relative;
+        z-index: 3;
+      }
+      
+      .industry-grid-item:hover span {
+        transform: translateZ(10px);
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 8px rgba(0, 0, 251, 0.5);
+      }
+      
+      .hover-details {
+        position: absolute;
+        bottom: -60px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        background: rgba(0, 0, 251, 0.2);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        z-index: 4;
+      }
+      
+      .industry-grid-item:hover .hover-details {
+        bottom: 0;
+        opacity: 1;
+      }
+      
+      .hover-details p {
+        color: #fff;
+        font-size: 14px;
+        margin: 0;
+      }
+      
+      @keyframes cardAppear {
+        0% {
+          opacity: 0;
+          transform: perspective(1000px) translateY(50px) rotateX(10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(1000px) translateY(0) rotateX(0);
+        }
+      }
+      
+      /* Create reverse animation for alternating rows */
+      @keyframes cardAppearDown {
+        0% {
+          opacity: 0;
+          transform: perspective(1000px) translateY(-50px) rotateX(-10deg);
+        }
+        100% {
+          opacity: 1;
+          transform: perspective(1000px) translateY(0) rotateX(0);
+        }
+      }
+
+      /* First row - fade up */
+      .industry-grid-item:nth-child(1) {
+        grid-column: 1;
+        grid-row: 1;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.1s forwards;
+      }
+      .industry-grid-item:nth-child(2) {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        background: linear-gradient(135deg, rgba(220, 53, 69, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s forwards;
+      }
+      .industry-grid-item:nth-child(3) {
+        grid-column: 3;
+        grid-row: 1;
+        background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+      }
+      
+      /* Second row - fade down */
+      .industry-grid-item:nth-child(4) {
+        grid-column: 1;
+        grid-row: 2;
+        background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s forwards;
+      }
+      .industry-grid-item:nth-child(5) {
+        grid-column: 3;
+        grid-row: 2;
+        background: linear-gradient(135deg, rgba(111, 66, 193, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.5s forwards;
+      }
+      
+      /* Third row - fade up */
+      .industry-grid-item:nth-child(6) {
+        grid-column: 1;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(23, 162, 184, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
+      }
+      .industry-grid-item:nth-child(7) {
+        grid-column: 2;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.7s forwards;
+      }
+      .industry-grid-item:nth-child(8) {
+        grid-column: 3;
+        grid-row: 3;
+        background: linear-gradient(135deg, rgba(32, 201, 151, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppear 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.8s forwards;
+      }
+      
+      /* Fourth row - fade down */
+      .industry-grid-item:nth-child(9) {
+        grid-column: 1;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(253, 126, 20, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.9s forwards;
+      }
+      .industry-grid-item:nth-child(10) {
+        grid-column: 2;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(108, 117, 125, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s forwards;
+      }
+      .industry-grid-item:nth-child(11) {
+        grid-column: 3;
+        grid-row: 4;
+        background: linear-gradient(135deg, rgba(102, 16, 242, 0.1), rgba(0, 0, 0, 0.2));
+        animation: cardAppearDown 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.1s forwards;
+      }
+      
+      /* 3D Card Effect */
+      .card-3d {
+        transition: transform 0.5s ease;
+      }
+      
+      /* Hide grid when layout would be distorted */
+      @media (max-width: 1200px) and (min-width: 993px) {
+        .industry-grid-container {
+          transform: scale(0.9);
+          transform-origin: center top;
+        }
+      }
+      
+      @media (min-width: 768px) and (max-width: 992px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 20px;
+          background: rgba(0, 0, 251, 0.1);
+          border-radius: 10px;
+          margin: 20px auto;
+          max-width: 80%;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+      }
+      
+      @media (max-width: 767px) {
+        .industry-grid-container {
+          display: none !important;
+        }
+        
+        .mobile-industry-message {
+          display: block !important;
+          text-align: center;
+          padding: 15px;
+          margin: 10px auto;
+          max-width: 100%;
+        }
+      }
+      
+      .mobile-industry-message {
+        display: none;
+        color: #fff;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 1.5;
+      }
+      
+      .mobile-industry-message a {
+        color: #0000FB;
+        text-decoration: underline;
+        transition: all 0.3s ease;
+      }
+      
+      .mobile-industry-message a:hover {
+        color: #fff;
+      }
+      
+      /* Media Queries */
+      @media (max-width: 992px) {
+        .industry-grid-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        
+        /* Adjust grid positions for responsive layout */
+        .industry-grid-item:nth-child(1) {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .industry-grid-item:nth-child(2) {
+          grid-column: 2;
+          grid-row: 1;
+        }
+        .industry-grid-item:nth-child(3) {
+          grid-column: 1;
+          grid-row: 2;
+        }
+        .industry-grid-item:nth-child(4) {
+          grid-column: 2;
+          grid-row: 2;
+        }
+        .industry-grid-item:nth-child(5) {
+          grid-column: 1;
+          grid-row: 3;
+        }
+        /* The rest will flow naturally */
+      }
+      
+      @media (max-width: 576px) {
+        .industry-grid-container {
+          grid-template-columns: 1fr;
+        }
+        
+        .industry-grid-item {
+          grid-column: 1 !important;
+        }
+        
+        .industry-grid-item:nth-child(1) { grid-row: 1; }
+        .industry-grid-item:nth-child(2) { grid-row: 2; }
+        .industry-grid-item:nth-child(3) { grid-row: 3; }
+        .industry-grid-item:nth-child(4) { grid-row: 4; }
+        .industry-grid-item:nth-child(5) { grid-row: 5; }
+        .industry-grid-item:nth-child(6) { grid-row: 6; }
+        .industry-grid-item:nth-child(7) { grid-row: 7; }
+        .industry-grid-item:nth-child(8) { grid-row: 8; }
+        .industry-grid-item:nth-child(9) { grid-row: 9; }
+        .industry-grid-item:nth-child(10) { grid-row: 10; }
+        .industry-grid-item:nth-child(11) { grid-row: 11; }
+      }
+    </style>
+  </div>
+</div>
+<!-- End Industries We Serve Section -->
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // 3D card tilt effect
+    const cards = document.querySelectorAll('.card-3d');
+    
+    cards.forEach(card => {
+      card.addEventListener('mousemove', function(e) {
+        // Get position of mouse cursor over card
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left; // x position within the element
+        const y = e.clientY - rect.top; // y position within the element
+        
+        // Calculate rotation based on mouse position
+        // Further from center = more rotation
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        
+        const rotateY = ((x - centerX) / centerX) * 10; // Max 10 degrees
+        const rotateX = ((centerY - y) / centerY) * 10; // Max 10 degrees
+        
+        // Apply the transform
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+        
+        // Move the icon wrapper for parallax effect
+        const iconWrapper = this.querySelector('.icon-wrapper');
+        if (iconWrapper) {
+          iconWrapper.style.transform = `translateX(${(x - centerX) / 10}px) translateY(${(y - centerY) / 10}px)`;
+        }
+      });
+      
+      // Reset transform on mouse leave
+      card.addEventListener('mouseleave', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+        
+        const iconWrapper = this.querySelector('.icon-wrapper');
+        if (iconWrapper) {
+          iconWrapper.style.transform = 'translateX(0) translateY(0)';
+        }
+      });
+      
+      // Add slight animation on click
+      card.addEventListener('mousedown', function() {
+        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(0.97, 0.97, 0.97)';
+      });
+      
+      card.addEventListener('mouseup', function(event) {
+        const rect = this.getBoundingClientRect();
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+        
+        const rotateY = ((x - centerX) / centerX) * 10;
+        const rotateX = ((centerY - y) / centerY) * 10;
+        
+        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.03, 1.03, 1.03)`;
+      });
+    });
+    
+    // Intersection Observer for animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // If the section is in view, ensure animations play
+          entry.target.style.animationPlayState = 'running';
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    // Observe all grid items
+    document.querySelectorAll('.industry-grid-item').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>
 
 <div class="slider1-section-area">
   <div class="marquee-wrap">
@@ -739,6 +2377,10 @@
   }
 </style>
     <script src="assets/js/responsive.js"></script>
+
+
+
+<!-- Key Values Section -->
 </body>
 </html>
 
