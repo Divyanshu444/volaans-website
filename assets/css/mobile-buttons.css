@@ -59,13 +59,14 @@
   /* Fix heading sizes on mobile */
   .hero1-section-area .hero-header-area h1.text-anime-style-3 {
     font-size: 25px !important;
-    line-height: 34px !important;
+    line-height: 23px !important;
     margin-bottom: 15px !important;
   }
   
   .hero1-section-area .hero-header-area h5 {
-    font-size: 16px !important;
+    font-size: 13px !important;
     line-height: 1.4 !important;
+    font-weight: 10 !important;
   }
   
   /* Fix spacing in hero section */

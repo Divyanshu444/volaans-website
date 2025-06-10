@@ -19957,8 +19957,8 @@ Location:
   position: absolute;
   top: 14px;
   left: 0;
-  width: 100%;
-  height: 86px;
+  width: 55%;
+  height: 150px;
   z-index: 2;
 }
 @media (max-width: 767px) {

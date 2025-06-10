@@ -1,35 +1,88 @@
-# PowerShell script to add gesture navigation script to all HTML files
-Write-Host "Adding gesture navigation script to all HTML files..."
+# Add gesture navigation script to all HTML files
+Write-Host "Adding gesture navigation to HTML files..." -ForegroundColor Cyan
 
-# Get all HTML files in the current directory
-$htmlFiles = Get-ChildItem -Path . -Filter "*.html"
-
-# Our script tag to insert
-$scriptTag = "`n<!-- Gesture Navigation Script for track pad and touchscreen swipe navigation -->`n<script src=`"assets/js/gesture-navigation.js`"></script>`n</body>"
-
-# Count for tracking progress
-$updatedFiles = 0
-
-foreach ($file in $htmlFiles) {
-    Write-Host "Processing $($file.Name)..."
-    
-    # Read the file content
-    $content = Get-Content -Path $file.FullName -Raw
-    
-    # Check if the script is already added
-    if ($content -match "gesture-navigation\.js") {
-        Write-Host "  Script already added to $($file.Name), skipping..." -ForegroundColor Yellow
-        continue
-    }
-    
-    # Replace the closing body tag with our script + closing body tag
-    $updatedContent = $content -replace "</body>", $scriptTag
-    
-    # Write the content back to the file
-    Set-Content -Path $file.FullName -Value $updatedContent
-    
-    $updatedFiles++
-    Write-Host "  Successfully updated $($file.Name)" -ForegroundColor Green
+# Create plugins directory if it doesn't exist
+$pluginsDir = "assets/js/plugins"
+if (!(Test-Path $pluginsDir)) {
+    New-Item -ItemType Directory -Force -Path $pluginsDir
+    Write-Host "Created plugins directory: $pluginsDir" -ForegroundColor Yellow
 }
 
-Write-Host "Completed! Updated $updatedFiles HTML files." -ForegroundColor Cyan 
+# Get all HTML files
+$htmlFiles = Get-ChildItem -Path . -Filter "*.html"
+
+# Scripts to add - they must be placed BEFORE the closing body tag to ensure they load correctly
+$polyfillScript = "`n<!-- Wheel Event Polyfill -->`n<script src=`"assets/js/plugins/wheel-event-polyfill.js`"></script>`n"
+$gestureScript = "`n<!-- Gesture Navigation -->`n<script src=`"assets/js/gesture-navigation.js`"></script>`n"
+
+# Count for stats
+$filesUpdated = 0
+$filesAlreadyHave = 0
+$filesError = 0
+$filesPlacementFixed = 0
+
+foreach ($file in $htmlFiles) {
+    $content = Get-Content -Path $file.FullName -Raw
+    $updated = $false
+    
+    # Check if the file already has the wheel polyfill script
+    if (!($content -match "wheel-event-polyfill\.js")) {
+        try {
+            # Add the polyfill script right before the closing body tag
+            if ($content -match "</body>") {
+                $content = $content -replace "</body>", "$polyfillScript</body>"
+                $updated = $true
+                Write-Host "Added wheel polyfill to: $($file.Name)" -ForegroundColor Cyan
+            }
+        } catch {
+            Write-Host "Error adding wheel polyfill to $($file.Name): $_" -ForegroundColor Red
+            $filesError++
+        }
+    }
+    
+    # Check if the file already has the gesture navigation script
+    if ($content -match "gesture-navigation\.js") {
+        # Check if it's placed correctly - it should be before the </body> tag
+        if ($content -match "gesture-navigation\.js.*</body>") {
+            if (!$updated) {
+                Write-Host "Already exists and correctly placed in: $($file.Name)" -ForegroundColor Green
+                $filesAlreadyHave++
+            }
+        } else {
+            # Fix the placement - remove the existing script tag and add it in the correct position
+            $content = $content -replace "<script.*?gesture-navigation\.js.*?</script>", ""
+            $content = $content -replace "</body>", "$gestureScript</body>"
+            $updated = $true
+            Write-Host "Fixed placement in: $($file.Name)" -ForegroundColor Yellow
+            $filesPlacementFixed++
+        }
+    } else {
+        # Add the gesture script right before the closing body tag
+        try {
+            if ($content -match "</body>") {
+                $content = $content -replace "</body>", "$gestureScript</body>"
+                $updated = $true
+                Write-Host "Added gesture navigation to: $($file.Name)" -ForegroundColor Green
+                $filesUpdated++
+            } else {
+                Write-Host "Cannot find </body> tag in: $($file.Name)" -ForegroundColor Red
+                $filesError++
+            }
+        } catch {
+            Write-Host "Error processing $($file.Name): $_" -ForegroundColor Red
+            $filesError++
+        }
+    }
+    
+    # Save changes if file was updated
+    if ($updated) {
+        Set-Content -Path $file.FullName -Value $content
+    }
+}
+
+Write-Host "`nSummary:" -ForegroundColor Cyan
+Write-Host "Files updated: $filesUpdated" -ForegroundColor White
+Write-Host "Files already containing script (correctly placed): $filesAlreadyHave" -ForegroundColor Green
+Write-Host "Files with placement fixed: $filesPlacementFixed" -ForegroundColor Yellow
+Write-Host "Files with errors: $filesError" -ForegroundColor Red
+Write-Host "Total HTML files: $($htmlFiles.Count)" -ForegroundColor White 

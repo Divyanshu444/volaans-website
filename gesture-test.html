@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture Navigation Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .test-area {
+            width: 80%;
+            max-width: 600px;
+            height: 300px;
+            border: 2px dashed #ccc;
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+            touch-action: pan-y; /* Allow vertical but not horizontal panning */
+        }
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            margin-top: auto;
+        }
+        #log {
+            border: 1px solid #ccc;
+            padding: 1rem;
+            margin-top: 2rem;
+            width: 80%;
+            max-width: 600px;
+            height: 200px;
+            overflow-y: auto;
+            text-align: left;
+            font-family: monospace;
+            background-color: #f9f9f9;
+        }
+        .buttons {
+            margin: 20px 0;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gesture Navigation Test</h1>
+    </header>
+    
+    <main>
+        <h2>Test Trackpad/Touch Gestures</h2>
+        <p>Try swiping left or right with trackpad or touchscreen</p>
+        
+        <div class="buttons">
+            <button id="clear-log">Clear Log</button>
+            <button id="test-wheel">Test Wheel Event</button>
+            <button id="reset-storage">Reset localStorage</button>
+        </div>
+        
+        <div class="test-area" id="test-area">
+            Swipe Left or Right Here
+        </div>
+        
+        <div class="nav-links">
+            <a href="index.html" class="prev">Previous Page (Home)</a>
+            <a href="about.html" class="next">Next Page (About)</a>
+        </div>
+        
+        <h3>Debug Log</h3>
+        <div id="log"></div>
+    </main>
+    
+    <footer>
+        <p>Gesture Navigation Test Page</p>
+    </footer>
+
+    <script>
+        // Debug logging function
+        function log(message) {
+            const logElement = document.getElementById('log');
+            const time = new Date().toLocaleTimeString();
+            logElement.innerHTML += `<div>[${time}] ${message}</div>`;
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+        
+        // Override console.log for debugging
+        const originalConsoleLog = console.log;
+        console.log = function() {
+            originalConsoleLog.apply(console, arguments);
+            const message = Array.from(arguments).map(arg => {
+                if (typeof arg === 'object') {
+                    try {
+                        return JSON.stringify(arg);
+                    } catch (e) {
+                        return arg.toString();
+                    }
+                } else {
+                    return arg;
+                }
+            }).join(' ');
+            log(message);
+        };
+        
+        // Check if the script is loaded
+        window.addEventListener('load', function() {
+            log('Page loaded. Checking for gesture navigation script...');
+            
+            // Check if the script is found in the document
+            const scripts = document.querySelectorAll('script');
+            let found = false;
+            
+            scripts.forEach(script => {
+                const src = script.getAttribute('src');
+                if (src) {
+                    log('Script found: ' + src);
+                    if (src.includes('gesture-navigation.js')) {
+                        log('✅ Gesture navigation script found');
+                        found = true;
+                    }
+                    if (src.includes('wheel-event-polyfill.js')) {
+                        log('✅ Wheel event polyfill found');
+                    }
+                }
+            });
+            
+            if (!found) {
+                log('❌ Gesture navigation script NOT found');
+            }
+            
+            // Add manual test handlers
+            document.getElementById('clear-log').addEventListener('click', function() {
+                document.getElementById('log').innerHTML = '';
+                log('Log cleared');
+            });
+            
+            document.getElementById('test-wheel').addEventListener('click', function() {
+                log('Simulating wheel event...');
+                
+                try {
+                    // Create and dispatch a wheel event
+                    const wheelEvent = new WheelEvent('wheel', {
+                        deltaX: -120,
+                        deltaY: 0,
+                        deltaMode: 0,
+                        bubbles: true,
+                        cancelable: true
+                    });
+                    document.getElementById('test-area').dispatchEvent(wheelEvent);
+                    log('Wheel event dispatched');
+                } catch (e) {
+                    log('Error creating wheel event: ' + e.message);
+                    
+                    // Fallback for older browsers
+                    try {
+                        const mouseWheelEvent = document.createEvent('MouseEvents');
+                        mouseWheelEvent.initEvent('mousewheel', true, true);
+                        Object.defineProperty(mouseWheelEvent, 'deltaX', { value: -120 });
+                        document.getElementById('test-area').dispatchEvent(mouseWheelEvent);
+                        log('MouseWheel event dispatched as fallback');
+                    } catch (e2) {
+                        log('Error creating mousewheel event: ' + e2.message);
+                    }
+                }
+            });
+            
+            document.getElementById('reset-storage').addEventListener('click', function() {
+                localStorage.removeItem('gesture_navigation_seen');
+                localStorage.removeItem('gesture_test_closed');
+                log('localStorage reset');
+                log('Reload the page to see the notifications again');
+            });
+        });
+        
+        // Add manual event listeners for testing
+        const testArea = document.getElementById('test-area');
+        
+        testArea.addEventListener('wheel', function(e) {
+            log(`Wheel event detected: deltaX=${e.deltaX}, deltaY=${e.deltaY}`);
+        });
+        
+        testArea.addEventListener('mousewheel', function(e) {
+            log(`MouseWheel event detected: wheelDeltaX=${e.wheelDeltaX}, wheelDeltaY=${e.wheelDeltaY}`);
+        });
+        
+        testArea.addEventListener('DOMMouseScroll', function(e) {
+            log(`DOMMouseScroll event detected: detail=${e.detail}`);
+        });
+        
+        let touchStartX = 0;
+        
+        testArea.addEventListener('touchstart', function(e) {
+            touchStartX = e.touches[0].clientX;
+            log(`Touch start detected at X=${touchStartX}`);
+        });
+        
+        testArea.addEventListener('touchmove', function(e) {
+            const touchX = e.touches[0].clientX;
+            const diffX = touchX - touchStartX;
+            log(`Touch move detected: diffX=${diffX}`);
+        });
+        
+        testArea.addEventListener('touchend', function() {
+            log('Touch end detected');
+        });
+    </script>
+
+    <!-- Wheel Event Polyfill -->
+    <script src="assets/js/plugins/wheel-event-polyfill.js"></script>
+    
+    <!-- Test tool -->
+    <script src="assets/js/test-gesture-support.js"></script>
+    
+    <!-- Gesture Navigation -->
+    <script src="assets/js/gesture-navigation.js"></script>
+</body>
+</html> 
