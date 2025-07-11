@@ -13983,11 +13983,11 @@ Location:
   left: 0;
   right: 0;
   z-index: 99;
-  padding: 16px 0;
+  padding: 16px ;
 }
 @media (max-width: 767px) {
   .homepage1-menu .vl-transparent-header {
-    padding: 0;
+    padding: 16;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {

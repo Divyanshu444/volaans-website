@@ -282,7 +282,7 @@ svg path[stroke="#fefe1f"] {
 }
 
 /* Fix z-index order to ensure proper layering */
-.service1-section-area .service-branding-boxesarea::before {
+a.service1-section-area .service-branding-boxesarea::before {
   content: "";
   position: absolute;
   left: 0;
@@ -293,6 +293,7 @@ svg path[stroke="#fefe1f"] {
   z-index: 0;  /* Lowered z-index */
   border-radius: 8px;
 }
+
 
 /* Border Animation for Explore Solutions Button */
 .vl-hero-btn .vl-btn-wrap a.vl-btn1 {
