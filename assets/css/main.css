@@ -16560,7 +16560,7 @@ Location:
 @media only screen and (min-width: 1600px) and (max-width: 1700px) {
   .header-site-icon .slide-bar.slide-bar1 {
     overflow-y: scroll;
-    height: 735px;
+    height: 600px;
   }
 }
 .header-site-icon .slide-bar.slide-bar1 .sidebar-info .sidebar-logo a img {
