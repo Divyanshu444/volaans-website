@@ -1,0 +1,117 @@
+/* Google Sans (Product Sans) Font Import */
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/googlesans/v58/4UaGrENHsxJlGDuGo1OIlL3Owps.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/googlesans/v58/4UabrENHsxJlGDuGo1OIlLU94Yt9CwZ-Pw.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  src: url('https://fonts.gstatic.com/s/googlesans/v58/4UabrENHsxJlGDuGo1OIlLV154t9CwZ-Pw.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Apply Google Sans to all text elements */
+body,
+h1, h2, h3, h4, h5, h6,
+p, a, span, button, input, textarea, select, option,
+div, li, ul, ol, table, td, th, blockquote, label, pre, code,
+.vl-btn1, .vl-btn2, .vl-btn3,
+.industry-grid-item span,
+.service-brand-head h2,
+.service-list li span,
+.portfolio-header h2,
+.heading1 h2,
+.heading1 h5 {
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+}
+
+/* Adjust font weights */
+h1, h2, h3, .heading1 h2, .hero1-section-area .hero-header-area h1.text-anime-style-3 {
+  font-weight: 700 !important;
+}
+
+h4, h5, h6, .vl-btn1, .vl-btn2, .vl-btn3, .service-brand-head h2 {
+  font-weight: 500 !important;
+}
+
+p, a, span, li, label, input, textarea, button {
+  font-weight: 400 !important;
+}
+
+/* Typography adjustments for Google Sans */
+.hero1-section-area .hero-header-area h1.text-anime-style-3 {
+  letter-spacing: -0.02em;
+}
+
+.service-brand-head h2 {
+  letter-spacing: -0.01em;
+}
+
+.heading1 h2 {
+  letter-spacing: -0.01em;
+}
+
+/* Enhanced spacing and readability */
+p {
+  line-height: 1.6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  body {
+    font-size: 15px;
+  }
+  
+  h1, .hero1-section-area .hero-header-area h1.text-anime-style-3 {
+    font-size: 32px !important;
+  }
+  
+  h2, .heading1 h2 {
+    font-size: 26px !important;
+  }
+  
+  h3 {
+    font-size: 22px !important;
+  }
+}
+
+/* Ensure all font-awesome icons retain their original font */
+.fa,
+.fas,
+.far,
+.fal,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin,
+.fa-duotone,
+.fa-brands {
+  font-family: "Font Awesome 6 Pro" !important;
+}
+
+.fa-solid {
+  font-weight: 900 !important;
+}
+
+.fa-regular {
+  font-weight: 400 !important;
+}
+
+/* Override any Bootstrap font families */
+.btn, .form-control, .dropdown-menu, .nav-link, .navbar-brand {
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+} 
