@@ -313,6 +313,15 @@
    </div>
  <!--===== PROGRESS ENDS=======-->
 
+<!-- Script to clear navigation flags -->
+<script>
+  // Clear the industry grid navigation flag when landing on index page
+  document.addEventListener('DOMContentLoaded', function() {
+    sessionStorage.removeItem('from_industry_grid');
+    console.log('Cleared from_industry_grid flag on index.html');
+  });
+</script>
+
 <!--=====HEADER START=======-->
 <header class="homepage1-menu">
   <div id="vl-header-sticky" class="vl-header-area vl-transparent-header">
@@ -844,7 +853,7 @@
           <div class="industry-grid-container">
             <!-- First row - left side -->
 
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="healthcare">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="healthcare" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-hospital"></i>
@@ -855,7 +864,7 @@
             
             <!-- Center spanning two rows -->
              
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="realestate">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="realestate" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-building"></i>
@@ -866,7 +875,7 @@
             
             <!-- First row - right side -->
 
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="finance">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="finance" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-chart-line"></i>
@@ -876,7 +885,7 @@
             </a>
             
             <!-- Second row - left side -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="manufacturing">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="manufacturing" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-industry"></i>
@@ -886,7 +895,7 @@
             </a>
             
             <!-- Second row - right side -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="edtech">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="edtech" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-graduation-cap"></i>
@@ -896,7 +905,7 @@
             </a>
             
             <!-- Third row - left -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="it">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="it" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-laptop-code"></i>
@@ -906,7 +915,7 @@
             </a>
             
             <!-- Third row - middle -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="ecommerce">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="ecommerce" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-shopping-cart"></i>
@@ -916,7 +925,7 @@
             </a>
             
             <!-- Third row - right -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="media">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="media" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-film"></i>
@@ -926,7 +935,7 @@
             </a>
             
             <!-- Fourth row - left -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="logistics">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="logistics" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-truck"></i>
@@ -936,7 +945,7 @@
             </a>
             
             <!-- Fourth row - middle -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="smb">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="smb" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-store"></i>
@@ -946,7 +955,7 @@
             </a>
             
             <!-- Fourth row - right -->
-            <a href="service.html" class="industry-grid-item card-3d" data-industry="pharma">
+            <a href="service.html" class="industry-grid-item card-3d" data-industry="pharma" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-pills"></i>
@@ -3574,6 +3583,15 @@
 
 <!-- Wheel Event Polyfill -->
 <script src="assets/js/plugins/wheel-event-polyfill.js"></script>
+
+<!-- Script to clear navigation flags -->
+<script>
+  // Clear the industry grid navigation flag when landing on index page
+  document.addEventListener('DOMContentLoaded', function() {
+    sessionStorage.removeItem('from_industry_grid');
+    console.log('Cleared from_industry_grid flag on index.html');
+  });
+</script>
 
 <!-- Gesture Navigation -->
 <script src="assets/js/gesture-navigation.js"></script>

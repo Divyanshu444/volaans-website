@@ -70,6 +70,26 @@ document.addEventListener('DOMContentLoaded', function() {
     
     console.log('Inferring navigation from:', pageName); // Debug
     
+    // Special case for index.html and index2.html
+    if (pageName === 'index.html') {
+      if (!navLinks.next) {
+        navLinks.next = 'index2.html';
+      }
+      // No previous page for index.html
+      navLinks.prev = null;
+      return;
+    }
+    
+    // Special case for index2.html
+    if (pageName === 'index2.html') {
+      if (!navLinks.prev) {
+        navLinks.prev = 'index.html';
+      }
+      // No next page after index2.html in this sequence
+      navLinks.next = null;
+      return;
+    }
+    
     // Common page naming patterns
     const pagePatterns = [
       { regex: /page-(\d+)\.html/, group: 1 },
@@ -106,9 +126,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const pageName = currentPath.split('/').pop();
     
+    // Special case for service.html - check if user came from industry grid
+    if (pageName === 'service.html') {
+      // Check the referrer to see if we came from index.html
+      const referrer = document.referrer;
+      const referrerPath = referrer ? new URL(referrer).pathname.split('/').pop() : '';
+      
+      // If referrer is index.html or we have a industry grid click stored, set prev directly to index.html
+      if (referrerPath === 'index.html' || sessionStorage.getItem('from_industry_grid') === 'true') {
+        navLinks.prev = 'index.html';
+        console.log('Setting direct navigation back to index.html from services');
+        return;
+      }
+    }
+    
     // Define common pages in navigation order
     const commonPages = [
       'index.html',
+      'index2.html',
       'about.html',
       'service.html',
       'project.html',
@@ -147,6 +182,23 @@ document.addEventListener('DOMContentLoaded', function() {
   // Handle touch start
   function handleTouchStart(e) {
     const touch = e.touches[0];
+    
+    // Check if the touch is on an interactive element (links, buttons, etc.)
+    const target = e.target;
+    const isInteractiveElement = target.closest('a') || 
+                                target.closest('button') || 
+                                target.closest('.service-branding-boxesarea') ||
+                                target.closest('.portfolio-boxarea') ||
+                                target.closest('[role="button"]');
+    
+    // If touching an interactive element, don't process as a navigation gesture
+    if (isInteractiveElement) {
+      touchStartX = 0;
+      touchStartY = 0;
+      console.log('Touch start on interactive element, ignoring for gesture navigation');
+      return;
+    }
+    
     touchStartX = touch.clientX;
     touchStartY = touch.clientY;
     touchStartTime = Date.now();
@@ -156,6 +208,22 @@ document.addEventListener('DOMContentLoaded', function() {
   // Handle touch end
   function handleTouchEnd(e) {
     if (!touchStartX || !touchStartY) return;
+    
+    // Check if the touch end is on an interactive element
+    const target = e.target;
+    const isInteractiveElement = target.closest('a') || 
+                                target.closest('button') || 
+                                target.closest('.service-branding-boxesarea') ||
+                                target.closest('.portfolio-boxarea') ||
+                                target.closest('[role="button"]');
+    
+    // If ending on an interactive element, don't process as a navigation gesture
+    if (isInteractiveElement) {
+      touchStartX = 0;
+      touchStartY = 0;
+      console.log('Touch end on interactive element, ignoring for gesture navigation');
+      return;
+    }
     
     const touchEndX = e.changedTouches[0].clientX;
     const touchEndY = e.changedTouches[0].clientY;
@@ -180,6 +248,20 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Handle trackpad wheel events (horizontal scrolling)
   function handleTrackpadGesture(e) {
+    // Check if the event target is an interactive element
+    const target = e.target;
+    const isInteractiveElement = target.closest('a') || 
+                                target.closest('button') || 
+                                target.closest('.service-branding-boxesarea') ||
+                                target.closest('.portfolio-boxarea') ||
+                                target.closest('[role="button"]');
+    
+    // Don't process gesture if on interactive element
+    if (isInteractiveElement) {
+      console.log('Trackpad gesture on interactive element, ignoring');
+      return;
+    }
+    
     // Only process horizontal scrolling
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) { // Reduced threshold from 50 to 30
       console.log('Trackpad gesture detected, deltaX:', e.deltaX); // Debug
@@ -203,6 +285,21 @@ document.addEventListener('DOMContentLoaded', function() {
       // Only trigger for left button
       if (e.button !== 0) return;
       
+      // Check if the mouse is on an interactive element
+      const target = e.target;
+      const isInteractiveElement = target.closest('a') || 
+                                  target.closest('button') || 
+                                  target.closest('.service-branding-boxesarea') ||
+                                  target.closest('.portfolio-boxarea') ||
+                                  target.closest('[role="button"]');
+      
+      // If on an interactive element, don't track for gesture navigation
+      if (isInteractiveElement) {
+        mouseDownTime = 0;
+        console.log('Mouse down on interactive element, ignoring for gesture navigation');
+        return;
+      }
+      
       lastPageX = e.pageX;
       horizontalMovement = 0;
       mouseMoveCount = 0;
@@ -215,6 +312,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mouse move - track horizontal movement
     document.addEventListener('mousemove', function(e) {
       if (!mouseDownTime) return;
+      
+      // Check if mouse moved over an interactive element
+      const target = e.target;
+      const isInteractiveElement = target.closest('a') || 
+                                  target.closest('button') || 
+                                  target.closest('.service-branding-boxesarea') ||
+                                  target.closest('.portfolio-boxarea') ||
+                                  target.closest('[role="button"]');
+      
+      // If over an interactive element during move, cancel the tracking
+      if (isInteractiveElement) {
+        mouseDownTime = 0;
+        horizontalMovement = 0;
+        mouseMoveCount = 0;
+        console.log('Mouse moved over interactive element, cancelling gesture tracking');
+        return;
+      }
       
       // Calculate horizontal movement
       const deltaX = e.pageX - lastPageX;
@@ -232,6 +346,23 @@ document.addEventListener('DOMContentLoaded', function() {
     // Mouse up - check if it was a trackpad gesture
     document.addEventListener('mouseup', function(e) {
       if (!mouseDownTime) return;
+      
+      // Check if mouse up is on an interactive element
+      const target = e.target;
+      const isInteractiveElement = target.closest('a') || 
+                                  target.closest('button') || 
+                                  target.closest('.service-branding-boxesarea') ||
+                                  target.closest('.portfolio-boxarea') ||
+                                  target.closest('[role="button"]');
+      
+      // If ending on an interactive element, don't process as gesture
+      if (isInteractiveElement) {
+        mouseDownTime = 0;
+        horizontalMovement = 0;
+        mouseMoveCount = 0;
+        console.log('Mouse up on interactive element, cancelling gesture');
+        return;
+      }
       
       const elapsedTime = Date.now() - mouseDownTime;
       
