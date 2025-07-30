@@ -261,6 +261,635 @@
 }
 
 /* Animation delays are now handled by JavaScript */
+
+/* ===== NEW GLOBE SYSTEM STYLES ===== */
+.globe-system-new {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 0 auto;
+  filter: drop-shadow(0 0 50px rgba(0, 0, 251, 0.3));
+}
+
+.orbital-ring-new {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  border: 2px solid rgba(0, 0, 251, 0.6);
+  border-radius: 50%;
+  animation: orbitRotateNew 30s linear infinite;
+  box-shadow: 
+    0 0 30px rgba(0, 0, 251, 0.5),
+    inset 0 0 30px rgba(0, 0, 251, 0.2),
+    0 0 60px rgba(0, 153, 255, 0.3);
+}
+
+.orbit-dot-new {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: #0000fb;
+  border-radius: 50%;
+  box-shadow: 
+    0 0 40px rgba(0, 0, 251, 1),
+    0 0 20px rgba(0, 0, 251, 0.8),
+    0 0 60px rgba(0, 153, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
+  animation: planetFloat 4s ease-in-out infinite;
+  border: 1px solid rgba(0, 153, 255, 0.5);
+}
+
+.planet {
+  background: radial-gradient(circle at 30% 30%, #00ccff, #0099ff, #0000fb);
+  box-shadow: 
+    0 0 50px rgba(0, 0, 251, 1),
+    0 0 25px rgba(0, 0, 251, 0.9),
+    0 0 75px rgba(0, 153, 255, 0.7),
+    inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.planet-1 {
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0s;
+}
+
+.planet-2 {
+  top: 25%;
+  right: -8px;
+  transform: translateY(-50%);
+  animation-delay: 0.5s;
+}
+
+.planet-3 {
+  right: 25%;
+  top: -8px;
+  transform: translateX(50%);
+  animation-delay: 1s;
+}
+
+.planet-4 {
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation-delay: 1.5s;
+}
+
+.planet-5 {
+  right: 25%;
+  bottom: -8px;
+  transform: translateX(50%);
+  animation-delay: 2s;
+}
+
+.planet-6 {
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 2.5s;
+}
+
+.planet-7 {
+  left: 25%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  animation-delay: 3s;
+}
+
+.planet-8 {
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation-delay: 3.5s;
+}
+
+.wireframe-lines-horizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+  background: transparent;
+}
+
+/* ===== OUTER ORBITAL RING ===== */
+.outer-orbital-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  border: 1px solid rgba(0, 0, 251, 0.4);
+  border-radius: 50%;
+  animation: orbitRotateNew 50s linear infinite reverse;
+  box-shadow: 
+    0 0 25px rgba(0, 0, 251, 0.3),
+    inset 0 0 25px rgba(0, 0, 251, 0.1),
+    0 0 50px rgba(0, 153, 255, 0.2);
+}
+
+.outer-planet {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: radial-gradient(circle at 40% 40%, #0099ff, #0000fb);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 25px rgba(0, 0, 251, 0.9),
+    0 0 15px rgba(0, 153, 255, 0.7),
+    0 0 40px rgba(0, 0, 251, 0.5),
+    inset 0 0 8px rgba(255, 255, 255, 0.2);
+  animation: planetFloat 5s ease-in-out infinite;
+  border: 0.5px solid rgba(0, 153, 255, 0.4);
+}
+
+.outer-planet-1 {
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 0s;
+}
+
+.outer-planet-2 {
+  top: 15%;
+  right: -5px;
+  transform: translateY(-50%);
+  animation-delay: 1s;
+}
+
+.outer-planet-3 {
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  animation-delay: 2s;
+}
+
+.outer-planet-4 {
+  bottom: -5px;
+  right: 30%;
+  transform: translateX(50%);
+  animation-delay: 3s;
+}
+
+.outer-planet-5 {
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation-delay: 4s;
+}
+
+.outer-planet-6 {
+  left: -5px;
+  top: 30%;
+  transform: translateY(-50%);
+  animation-delay: 5s;
+}
+
+/* ===== STARFIELD ===== */
+.starfield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.star {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 50%;
+  animation: starTwinkle 3s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.star-1 { width: 2px; height: 2px; top: 10%; left: 15%; animation-delay: 0s; }
+.star-2 { width: 1px; height: 1px; top: 20%; right: 10%; animation-delay: 0.5s; }
+.star-3 { width: 3px; height: 3px; top: 15%; left: 80%; animation-delay: 1s; background: #0099ff; }
+.star-4 { width: 1px; height: 1px; top: 35%; left: 5%; animation-delay: 1.5s; }
+.star-5 { width: 2px; height: 2px; top: 60%; right: 20%; animation-delay: 2s; }
+.star-6 { width: 1px; height: 1px; bottom: 10%; left: 25%; animation-delay: 2.5s; }
+.star-7 { width: 2px; height: 2px; bottom: 20%; right: 15%; animation-delay: 3s; }
+.star-8 { width: 1px; height: 1px; top: 45%; left: 90%; animation-delay: 0.3s; }
+.star-9 { width: 3px; height: 3px; top: 70%; left: 10%; animation-delay: 1.7s; background: #0000fb; }
+.star-10 { width: 1px; height: 1px; bottom: 30%; right: 5%; animation-delay: 2.3s; }
+.star-11 { width: 2px; height: 2px; top: 5%; left: 50%; animation-delay: 0.8s; }
+.star-12 { width: 1px; height: 1px; top: 80%; right: 40%; animation-delay: 1.2s; }
+.star-13 { width: 2px; height: 2px; top: 25%; left: 70%; animation-delay: 1.8s; }
+.star-14 { width: 1px; height: 1px; bottom: 15%; left: 60%; animation-delay: 2.8s; }
+.star-15 { width: 3px; height: 3px; top: 40%; right: 30%; animation-delay: 0.7s; background: #0099ff; }
+.star-16 { width: 1px; height: 1px; bottom: 5%; left: 80%; animation-delay: 1.3s; }
+.star-17 { width: 2px; height: 2px; top: 85%; left: 30%; animation-delay: 2.7s; }
+.star-18 { width: 1px; height: 1px; top: 50%; left: 2%; animation-delay: 0.9s; }
+.star-19 { width: 2px; height: 2px; bottom: 25%; right: 70%; animation-delay: 1.9s; }
+.star-20 { width: 1px; height: 1px; top: 75%; right: 8%; animation-delay: 2.9s; }
+
+/* ===== COSMIC GLOWING EFFECTS ===== */
+.cosmic-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 0, 251, 0.1) 0%,
+    rgba(0, 153, 255, 0.05) 30%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: cosmicPulse 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+.energy-field {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  top: -10%;
+  left: -10%;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(0, 0, 251, 0.03) 60deg,
+    rgba(0, 153, 255, 0.05) 120deg,
+    transparent 180deg,
+    rgba(0, 0, 251, 0.02) 240deg,
+    transparent 300deg,
+    rgba(0, 153, 255, 0.04) 360deg
+  );
+  border-radius: 50%;
+  animation: energyRotate 15s linear infinite;
+  z-index: 0;
+}
+
+.globe-aura {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 251, 0.2) 0%,
+    rgba(0, 153, 255, 0.1) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: auraGlow 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* ===== ENERGY PARTICLES ===== */
+.energy-particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  background: #0000fb;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 251, 0.8), 0 0 30px rgba(0, 0, 251, 0.4);
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+.particle-1 {
+  width: 3px;
+  height: 3px;
+  top: 15%;
+  left: 25%;
+  animation-delay: 0s;
+}
+
+.particle-2 {
+  width: 2px;
+  height: 2px;
+  top: 30%;
+  right: 15%;
+  animation-delay: 1s;
+  background: #0099ff;
+}
+
+.particle-3 {
+  width: 4px;
+  height: 4px;
+  top: 60%;
+  left: 10%;
+  animation-delay: 2s;
+}
+
+.particle-4 {
+  width: 2px;
+  height: 2px;
+  bottom: 20%;
+  right: 25%;
+  animation-delay: 3s;
+  background: #0099ff;
+}
+
+.particle-5 {
+  width: 3px;
+  height: 3px;
+  top: 80%;
+  left: 70%;
+  animation-delay: 4s;
+}
+
+.particle-6 {
+  width: 2px;
+  height: 2px;
+  top: 10%;
+  right: 35%;
+  animation-delay: 5s;
+}
+
+.particle-7 {
+  width: 3px;
+  height: 3px;
+  bottom: 40%;
+  left: 5%;
+  animation-delay: 6s;
+  background: #0099ff;
+}
+
+.particle-8 {
+  width: 2px;
+  height: 2px;
+  top: 45%;
+  right: 5%;
+  animation-delay: 7s;
+}
+
+.particle-9 {
+  width: 4px;
+  height: 4px;
+  bottom: 10%;
+  left: 85%;
+  animation-delay: 1.5s;
+}
+
+.particle-10 {
+  width: 2px;
+  height: 2px;
+  top: 25%;
+  left: 80%;
+  animation-delay: 3.5s;
+  background: #0099ff;
+}
+
+.ai-badge-new {
+  position: absolute;
+  top: 40px;
+  right: -60px;
+  background: rgba(0, 0, 0, 0.9);
+  border: 2px solid rgba(0, 0, 251, 0.6);
+  border-radius: 50%;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  z-index: 5;
+  box-shadow: 
+    0 0 40px rgba(0, 0, 251, 0.6),
+    inset 0 0 20px rgba(0, 0, 251, 0.2),
+    0 0 80px rgba(0, 153, 255, 0.4);
+  animation: badgeGlow 4s ease-in-out infinite;
+}
+
+.badge-arrow-new {
+  font-size: 18px;
+  color: #0000fb;
+  margin-top: 5px;
+}
+
+.floating-dots-new {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+}
+
+.dot-new {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #0000fb;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: floatNew 6s ease-in-out infinite;
+  box-shadow: 
+    0 0 15px rgba(0, 0, 251, 0.8),
+    0 0 30px rgba(0, 0, 251, 0.4),
+    0 0 45px rgba(0, 153, 255, 0.3);
+}
+
+.dot-1 {
+  top: 10%;
+  left: 20%;
+  animation-delay: 0s;
+}
+
+.dot-2 {
+  top: 30%;
+  right: 10%;
+  animation-delay: 1s;
+}
+
+.dot-3 {
+  bottom: 20%;
+  left: 15%;
+  animation-delay: 2s;
+}
+
+.dot-4 {
+  top: 60%;
+  left: 10%;
+  animation-delay: 3s;
+}
+
+.dot-5 {
+  bottom: 40%;
+  right: 20%;
+  animation-delay: 4s;
+}
+.dot-6 {
+  bottom: 30%;
+  right: 150%;
+  animation-delay: 1s;
+}
+.dot-7 {
+  bottom: 25%;
+  right: 10%;
+  animation-delay: 5s;
+}
+/* ===== NEW ANIMATIONS ===== */
+@keyframes orbitRotateNew {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes floatNew {
+  0%, 100% { transform: translateY(0px); opacity: 0.6; }
+  50% { transform: translateY(-20px); opacity: 1; }
+}
+
+@keyframes planetFloat {
+  0%, 100% { transform: scale(1) translateY(0px); opacity: 1; }
+  50% { transform: scale(1.1) translateY(-3px); opacity: 0.9; }
+}
+
+@keyframes starTwinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+@keyframes cosmicPulse {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes energyRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes auraGlow {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes particleFloat {
+  0%, 100% { 
+    transform: translateY(0px) scale(1); 
+    opacity: 0.6; 
+  }
+  25% { 
+    transform: translateY(-15px) scale(1.1); 
+    opacity: 1; 
+  }
+  50% { 
+    transform: translateY(-8px) scale(0.9); 
+    opacity: 0.8; 
+  }
+  75% { 
+    transform: translateY(-20px) scale(1.2); 
+    opacity: 0.9; 
+  }
+}
+
+@keyframes badgeGlow {
+  0%, 100% { 
+    box-shadow: 
+      0 0 40px rgba(0, 0, 251, 0.6),
+      inset 0 0 20px rgba(0, 0, 251, 0.2),
+      0 0 80px rgba(0, 153, 255, 0.4);
+  }
+  50% { 
+    box-shadow: 
+      0 0 60px rgba(0, 0, 251, 0.8),
+      inset 0 0 30px rgba(0, 0, 251, 0.3),
+      0 0 120px rgba(0, 153, 255, 0.6);
+  }
+}
+
+/* ===== RESPONSIVE FOR NEW GLOBE ===== */
+@media (max-width: 1200px) {
+  .globe-system-new {
+    width: 380px;
+    height: 380px;
+  }
+  
+  .orbital-ring-new {
+    width: 450px;
+    height: 450px;
+  }
+  
+  .outer-orbital-ring {
+    width: 520px;
+    height: 520px;
+  }
+}
+
+@media (max-width: 768px) {
+  .globe-system-new {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .orbital-ring-new {
+    width: 360px;
+    height: 360px;
+  }
+  
+  .outer-orbital-ring {
+    width: 420px;
+    height: 420px;
+  }
+  
+  .ai-badge-new {
+    width: 80px;
+    height: 80px;
+    font-size: 10px;
+    top: 30px;
+    right: -30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .globe-system-new {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .orbital-ring-new {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .outer-orbital-ring {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .ai-badge-new {
+    width: 60px;
+    height: 60px;
+    font-size: 8px;
+    top: 20px;
+    right: -20px;
+  }
+  
+  .starfield {
+    display: none; /* Hide some stars on very small screens */
+  }
+  
+  .energy-particles {
+    display: none; /* Hide energy particles on very small screens for performance */
+  }
+  
+  .cosmic-glow,
+  .energy-field {
+    opacity: 0.5; /* Reduce cosmic effects on small screens */
+  }
+}
 </style>
 
 <!-- Add the following CSS at the end of the existing style blocks in the head section -->
@@ -563,17 +1192,94 @@
             </div> -->
           </div>
         </div>
-        <div class="col-lg-1"></div>
-        <div class="col-lg-4">
+        <div class="col-lg-5">
           <div class="imges-header">
-            <div class="img1">
-              <img src="assets/img/all-images/hero/hero-img1.png" alt="" class="keyframe6">
+            <div class="globe-system-new">
+              <!-- Cosmic glow background -->
+              <div class="cosmic-glow"></div>
+              <div class="energy-field"></div>
+              
+              <!-- Starfield background -->
+              <div class="starfield">
+                <div class="star star-1"></div>
+                <div class="star star-2"></div>
+                <div class="star star-3"></div>
+                <div class="star star-4"></div>
+                <div class="star star-5"></div>
+                <div class="star star-6"></div>
+                <div class="star star-7"></div>
+                <div class="star star-8"></div>
+                <div class="star star-9"></div>
+                <div class="star star-10"></div>
+                <div class="star star-11"></div>
+                <div class="star star-12"></div>
+                <div class="star star-13"></div>
+                <div class="star star-14"></div>
+                <div class="star star-15"></div>
+                <div class="star star-16"></div>
+                <div class="star star-17"></div>
+                <div class="star star-18"></div>
+                <div class="star star-19"></div>
+                <div class="star star-20"></div>
+              </div>
+              
+              <!-- Wireframe orbit ring with planets -->
+              <div class="orbital-ring-new">
+                <div class="orbit-dot-new planet planet-1"></div>
+                <div class="orbit-dot-new planet planet-2"></div>
+                <div class="orbit-dot-new planet planet-3"></div>
+                <div class="orbit-dot-new planet planet-4"></div>
+                <div class="orbit-dot-new planet planet-5"></div>
+                <div class="orbit-dot-new planet planet-6"></div>
+                <div class="orbit-dot-new planet planet-7"></div>
+                <div class="orbit-dot-new planet planet-8"></div>
+              </div>
+              
+              <!-- Outer orbital ring -->
+              <div class="outer-orbital-ring">
+                <div class="outer-planet outer-planet-1"></div>
+                <div class="outer-planet outer-planet-2"></div>
+                <div class="outer-planet outer-planet-3"></div>
+                <div class="outer-planet outer-planet-4"></div>
+                
+              </div>
+              
+              <!-- Original globe image -->
+              <div class="img1">
+                <img src="assets/img/all-images/hero/hero-img1.png" alt="" class="keyframe6">
+                <div class="globe-aura"></div>
+              </div>
+              
+              <!-- AI Badge -->
+              <div class="ai-badge-new">
+                <span>AI-driven<br>marketing</span>
+                <div class="badge-arrow-new">↗</div>
+              </div>
             </div>
-            <div class="arrow">
-              <a href="contact.html">
-                <img src="assets/img/elements/elements2.png" alt="" class="keyframe5">
-                <img src="assets/img/icons/arrow1.svg" alt="" class="arrow1">
-              </a>
+            
+            <!-- Floating dots -->
+            <div class="floating-dots-new">
+              <div class="dot-new dot-1"></div>
+              <div class="dot-new dot-2"></div>
+              <div class="dot-new dot-3"></div>
+              <div class="dot-new dot-4"></div>
+              <div class="dot-new dot-5"></div>
+              <div class="dot-new dot-6"></div>
+              <div class="dot-new dot-7"></div>
+            </div>
+            
+            <!-- Energy particles -->
+            <div class="energy-particles">
+              <div class="particle particle-1"></div>
+              <div class="particle particle-2"></div>
+              <div class="particle particle-3"></div>
+              <div class="particle particle-4"></div>
+              <div class="particle particle-5"></div>
+              <div class="particle particle-6"></div>
+              <div class="particle particle-7"></div>
+              <div class="particle particle-8"></div>
+              <div class="particle particle-9"></div>
+              <div class="particle particle-10"></div>
             </div>
           </div>
         </div>
