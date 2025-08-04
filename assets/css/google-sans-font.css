@@ -51,6 +51,11 @@ p, a, span, li, label, input, textarea, button {
   font-weight: 400 !important;
 }
 
+/* Make hashtag spans bold */
+.service-list li span {
+  font-weight: 650 !important;
+}
+
 /* Typography adjustments for Google Sans */
 .hero1-section-area .hero-header-area h1.text-anime-style-3 {
   letter-spacing: -0.02em;
