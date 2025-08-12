@@ -568,6 +568,116 @@ Location:
 /*============= SERVICE CSS AREA ===============*/
 /*============= WORK CSS AREA ===============*/
 /*============= TESTIMONIAL CSS AREA ===============*/
+/* New modern testimonials (fully responsive, zoom-safe) */
+.testimonials-modern {
+  position: relative;
+  z-index: 1;
+}
+.testimonials-modern .tmn-layout {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 120px;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .testimonials-modern .tmn-layout { grid-template-columns: 1fr; }
+}
+.testimonials-modern .tmn-avatars {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 991px) {
+  .testimonials-modern .tmn-avatars { display: none; }
+}
+.testimonials-modern .tmn-avatar img {
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--ztc-text-text-8);
+}
+.testimonials-modern .tmn-slider-wrap { position: relative; }
+.testimonials-modern .tmn-slider { overflow: hidden; padding: 0; }
+.testimonials-modern .tmn-slider-wrap { padding: 0 clamp(56px, 6vw, 80px); }
+.testimonials-modern .tmn-avatar { cursor: pointer; }
+.testimonials-modern .tmn-avatar.is-active img { box-shadow: 0 0 0 4px var(--ztc-text-text-8); }
+.testimonials-modern .tmn-card {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 6px solid rgba(255, 255, 255, 0.1);
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: #2D3034;
+  box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.09);
+  padding: clamp(20px, 4vw, 36px);
+  overflow: hidden;
+}
+.testimonials-modern .tmn-quote { position: absolute; right: clamp(14px, 2vw, 24px); top: clamp(12px, 2vw, 20px); }
+.testimonials-modern .tmn-stars li {
+  display: inline-block;
+  height: 28px;
+  width: 28px;
+  text-align: center;
+  line-height: 28px;
+  border-radius: 2.203px;
+  background: rgba(17, 17, 17, 0.06);
+  color: #FB8500;
+}
+.testimonials-modern .tmn-card p {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--ztc-family-font2);
+  font-size: var(--ztc-font-size-font-s20);
+  font-weight: var(--ztc-weight-medium);
+  line-height: 1.6;
+  letter-spacing: -0.4px;
+  margin-top: 12px;
+}
+.testimonials-modern .tmn-person {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 20px;
+}
+.testimonials-modern .tmn-person img {
+  height: 66px;
+  width: 66px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.testimonials-modern .tmn-person a {
+  color: rgba(255, 255, 255, 0.9);
+  font-family: var(--ztc-family-font2);
+  font-size: var(--ztc-font-size-font-s22);
+  font-weight: var(--ztc-weight-semibold);
+  line-height: 22px;
+  transition: all 0.3s ease;
+}
+.testimonials-modern .tmn-person a:hover { color: var(--ztc-text-text-8); }
+.testimonials-modern .tmn-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--ztc-text-text-1);
+  background: rgba(255, 255, 255, 0.06);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+.testimonials-modern .tmn-prev { left: clamp(8px, 2vw, 18px); }
+.testimonials-modern .tmn-next { right: clamp(8px, 2vw, 18px); }
+.testimonials-modern .tmn-nav:hover { background: var(--ztc-text-text-8); color: var(--ztc-text-text-4); }
+.testimonials-modern .tmn-pagination { position: relative; margin-top: 20px; text-align: center; }
+.testimonials-modern .tmn-pagination .swiper-pagination-bullet { background: rgba(255, 255, 255, 0.4); opacity: 1; }
+.testimonials-modern .tmn-pagination .swiper-pagination-bullet-active { background: var(--ztc-text-text-8); }
 /*============= BLOG CSS AREA ===============*/
 /*============= CONTACT CSS AREA ===============*/
 /*============= TEAM CSS AREA ===============*/

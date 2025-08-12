@@ -669,7 +669,7 @@
     0 0 40px rgba(0, 0, 251, 0.6),
     inset 0 0 20px rgba(0, 0, 251, 0.2),
     0 0 80px rgba(0, 153, 255, 0.4);
-  animation: rotateCounterClockwise 9s linear infinite;
+  /* animation: rotateCounterClockwise 9s linear infinite; */
 }
 
 .badge-arrow-new {
@@ -1269,9 +1269,9 @@
             <h5>From intelligent virtual agents to end to end IT support</h5>
             <div class="space32"></div>
             <h1 class="text-anime-style-3">
-              <span class="line line-1">Volans Aquilae helps </span>
-              <span class="line line-2">SMBs automate smarter  </span>
-              <span class="line line-3">and scale faster.</span>
+              <span style="font-weight: 630 !important;" class="line line-1">Volans Aquilae helps </span>
+              <span  style="font-weight: 630 !important;" class="line line-2">SMBs automate smarter  </span>
+              <span  style="font-weight: 630 !important;" class="line line-3">and scale faster.</span>
               <!-- <img src="assets/img/elements/elements1.png" alt="" class="elements1 keyframe5"> -->
             </h1>
             <div class="space32"></div>
@@ -3292,220 +3292,136 @@
 </style>
 
 
-<!--===== TESTIMONIAL AREA START =======-->
-<section class="testimonials-2 sp6">
+<!--===== TESTIMONIAL AREA START (Modern, fully responsive) =======-->
+<section class="testimonials-modern sp6">
   <div class="container">
     <div class="row">
       <div class="col-lg-6 m-auto text-center">
         <div class="heading1 space-margin60">
-         <!-- <h5><img src="assets/img/icons/sub-logo2.svg" alt=""> What Our Clients Say</h5>
-         <div class="space20"></div> -->
           <h2 class="text-anime-style-3" style="display: block; white-space: nowrap; margin-top: -20px; letter-spacing: -0.02em; overflow: visible;">Real Stories. Real Impact</h2>
         </div>
       </div>
     </div>
-    
-    <div class="row">
-      <div class="col-lg-7 col-md-12 left _relative m-auto">
-        <div class="swiper swiper-testimonial-2">
+
+    <div class="tmn-layout">
+      <div class="tmn-avatars tmn-avatars-left">
+        <div class="tmn-avatar" data-slide="0"><img src="assets/img/all-images/testimonial/testimonial-img5.png" alt=""></div>
+        <div class="tmn-avatar" data-slide="1"><img src="assets/img/all-images/testimonial/testimonial-img7.png" alt=""></div>
+        <div class="tmn-avatar" data-slide="4"><img src="assets/img/all-images/testimonial/testimonial-img8.png" alt=""></div>
+      </div>
+
+      <div class="tmn-slider-wrap">
+        <div class="swiper tmn-slider">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
-              <div class="testimonial-boxarea">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none">
+              <div class="tmn-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none" class="tmn-quote">
                   <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
                 </svg>
-                <ul>
+                <ul class="tmn-stars">
                   <li><i class="fa-solid fa-star"></i></li>
                   <li><i class="fa-solid fa-star"></i></li>
                   <li><i class="fa-solid fa-star"></i></li>
                   <li><i class="fa-solid fa-star"></i></li>
                   <li><i class="fa-solid fa-star"></i></li>
                 </ul>
-                          <div class="space16"></div>
-                <p>"Volans Aquilae transformed our internal systems with seamless AI integration. Productivity has never been higher. Their team's expertise in custom AI solutions addressed our unique workflow challenges and significantly reduced operational costs.The implementation was smooth and their ongoing support has been exceptional."</p>
-                <div class="space32"></div>
-                <div class="names-area">
-                  <div class="man-textarea">
-                    <div class="man">
-                      <img src="assets/img/all-images/testimonial/testimonial-img5.png" alt="">
-                        </div>
-                    <div class="text">
-                      <a href="team.html">Anna R., CTO, Meditech Europe</a>
-                      <div class="space12"></div>
-                      <!-- <p>CTO, TechVantage Solutions</p> -->
-                      </div>
-                  </div>
-                  <!-- <img src="assets/img/elements/elements20.png" alt="" class="elements20"> -->
+                <p>"Volans Aquilae transformed our internal systems with seamless AI integration. Productivity has never been higher. Their team's expertise in custom AI solutions addressed our unique workflow challenges and significantly reduced operational costs. The implementation was smooth and their ongoing support has been exceptional."</p>
+                <div class="tmn-person">
+                  <img src="assets/img/all-images/testimonial/testimonial-img5.png" alt="">
+                  <a href="team.html">Anna R., CTO, Meditech Europe</a>
                 </div>
               </div>
             </div>
-            <div class="swiper-slide">
-              <div class="testimonial-boxarea">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none">
-                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
-                </svg>
-                <ul>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                </ul>
-                <div class="space16"></div>
-                <p>"Their strategic approach to digital experience made our platform more intuitive and doubled our engagement. The thoughtful UX redesign captured our brand essence while making complex features accessible to all users. Volans Aquilae truly understood our audience and delivered a solution that exceeded our expectations."</p>
-                <div class="space32"></div>
-                <div class="names-area">
-                  <div class="man-textarea">
-                    <div class="man">
-                      <img src="assets/img/all-images/testimonial/testimonial-img7.png" alt="">
-                    </div>
-                    <div class="text">
-                      <a href="team.html">David M., Product Head, EduSmart Inc.</a>
-                      <div class="space12"></div>
-                      <!-- <p>Owner FeatherDev</p> -->
-                    </div>
-                  </div>
-                  <!-- <img src="assets/img/elements/elements20.png" alt="" class="elements20"> -->
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-boxarea">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none">
-                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
-                </svg>
-                <ul>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                </ul>
-                <div class="space16"></div>
-                <p>"From planning to execution, the Volans team was spot on. Highly reliable and technically brilliant. They anticipated challenges before they arose and maintained transparent communication throughout the entire project lifecycle. Their ability to translate our business requirements into technical solutions on time, the volans helped me."</p>
-                <div class="space32"></div>
-                <div class="names-area">
-                  <div class="man-textarea">
-                    <div class="man">
-                      <img src="assets/img/all-images/testimonial/testimonial-img6.png" alt="">
-                    </div>
-                    <div class="text">
-                      <a href="team.html">Sandra K., IT Manager, TransLogix Solutions</a>
-                      <div class="space12"></div>
-                      <!-- <p>Owner FeatherDev</p> -->
-                    </div>
-                  </div>
-                  <!-- <img src="assets/img/elements/elements20.png" alt="" class="elements20"> -->
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-boxarea">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none">
-                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
-                </svg>
-                <ul>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                </ul>
-                <div class="space16"></div>
-                <p>"We saw a 3x increase in automation efficiency within weeks. Their AI solutions are next level. The custom automation workflows they developed eliminated repetitive tasks that previously consumed 30+ staff hours weekly. Their integration with our legacy systems was seamless, and the intuitive interface they designed required minimal training for our team."</p>
-                <div class="space32"></div>
-                <div class="names-area">
-                  <div class="man-textarea">
-                    <div class="man">
-                      <img src="assets/img/all-images/testimonial/testimonial-img10.png" alt="">
-                    </div>
-                    <div class="text">
-                      <a href="team.html">Priya D., Operations Director, NovaCom</a>
-                      <div class="space12"></div>
-                      <!-- <p>Owner FeatherDev</p> -->
-                    </div>
-                  </div>
-                  <!-- <img src="assets/img/elements/elements20.png" alt="" class="elements20"> -->
-                </div>
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div class="testimonial-boxarea">
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none">
-                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
-                </svg>
-                <ul>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                  <li><i class="fa-solid fa-star"></i></li>
-                </ul>
-                <div class="space16"></div>
-                <p>"What stood out was their communication, creativity, and speed — everything we hoped for in a tech partner. From day one, they demonstrated a deep understanding of our industry challenges and delivered innovative solutions that kept us ahead of competitors. Their agile approach allowed us to iterate quickly while maintaining exceptional quality. "</p>
-                <div class="space32"></div>
-                <div class="names-area">
-                  <div class="man-textarea">
-                    <div class="man">
-                      <img src="assets/img/all-images/testimonial/testimonial-img8.png" alt="">
-                    </div>
-                    <div class="text">
-                      <a href="team.html">Ethan L., CEO, BrightNest Digital</a>
-                      <div class="space12"></div>
-                      <!-- <p>Owner FeatherDev</p> -->
-                    </div>
-                  </div>
-                  <!-- <img src="assets/img/elements/elements20.png" alt="" class="elements20"> -->
-                </div>
-                  </div>
 
+            <div class="swiper-slide">
+              <div class="tmn-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none" class="tmn-quote">
+                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
+                </svg>
+                <ul class="tmn-stars">
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+                <p>"Their strategic approach to digital experience made our platform more intuitive and doubled our engagement. The thoughtful UX redesign captured our brand essence while making complex features accessible to all users. Volans Aquilae truly understood our audience and delivered a solution that exceeded our expectations."</p>
+                <div class="tmn-person">
+                  <img src="assets/img/all-images/testimonial/testimonial-img7.png" alt="">
+                  <a href="team.html">David M., Product Head, EduSmart Inc.</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="tmn-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none" class="tmn-quote">
+                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
+                </svg>
+                <ul class="tmn-stars">
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+                <p>"From planning to execution, the Volans team was spot on. Highly reliable and technically brilliant. They anticipated challenges before they arose and maintained transparent communication throughout the entire project lifecycle. Their ability to translate our business requirements into technical solutions on time, the volans helped me."</p>
+                <div class="tmn-person">
+                  <img src="assets/img/all-images/testimonial/testimonial-img6.png" alt="">
+                  <a href="team.html">Sandra K., IT Manager, TransLogix Solutions</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="tmn-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none" class="tmn-quote">
+                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
+                </svg>
+                <ul class="tmn-stars">
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+                <p>"We saw a 3x increase in automation efficiency within weeks. Their AI solutions are next level. The custom automation workflows they developed eliminated repetitive tasks that previously consumed 30+ staff hours weekly. Their integration with our legacy systems was seamless, and the intuitive interface they designed required minimal training for our team."</p>
+                <div class="tmn-person">
+                  <img src="assets/img/all-images/testimonial/testimonial-img10.png" alt="">
+                  <a href="team.html">Priya D., Operations Director, NovaCom</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="swiper-slide">
+              <div class="tmn-card">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="26" viewBox="0 0 32 26" fill="none" class="tmn-quote">
+                  <path d="M17.4814 6.11477C17.4814 7.7281 17.9031 9.08294 18.7464 10.1793C19.3441 10.9346 20.155 11.4308 21.1793 11.6679C22.1876 11.9026 23.1409 11.9191 24.0026 11.7193C24.2959 13.4609 23.8193 15.3053 22.6093 17.2596C21.3968 19.2127 19.8336 20.6812 17.9196 21.6651L20.8181 25.8359C22.2848 25.1099 23.6781 24.1896 24.9614 23.0768C26.2631 21.9639 27.4181 20.6843 28.4448 19.2378C29.4714 17.7913 30.2414 16.1578 30.7364 14.3061C31.2314 12.4544 31.3689 10.5661 31.1324 8.62277C30.8244 6.0561 29.9958 4.00277 28.6464 2.4811C27.2983 0.93988 25.619 0.16927 23.6084 0.16927C21.8393 0.16927 20.3708 0.700937 19.2084 1.77894C18.0583 2.83494 17.4839 4.28205 17.4851 6.12027L17.4814 6.11477ZM0.754095 6.11477C0.754095 7.7281 1.17576 9.08294 2.01909 10.1793C2.61798 10.9493 3.42893 11.4485 4.45193 11.6771C5.47859 11.9032 6.4197 11.9167 7.27526 11.7174C7.56859 13.4408 7.11026 15.2924 5.8966 17.2541C4.68659 19.1974 3.1246 20.6641 1.2106 21.6541L4.10176 25.8359C5.56965 25.1099 6.95076 24.1902 8.24509 23.0768C9.55849 21.9473 10.725 20.6576 11.7174 19.2378C12.7368 17.7894 13.4958 16.1578 13.9908 14.3061C14.4936 12.4559 14.6287 10.525 14.3886 8.62277C14.0843 6.0561 13.2593 4.00277 11.9136 2.4811C10.5691 0.95088 8.89287 0.185772 6.88476 0.185772C5.11254 0.183327 3.64465 0.719269 2.48109 1.7936C1.33098 2.8496 0.755316 4.29671 0.754095 6.13494V6.11477Z" fill="white"/>
+                </svg>
+                <ul class="tmn-stars">
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                  <li><i class="fa-solid fa-star"></i></li>
+                </ul>
+                <p>"What stood out was their communication, creativity, and speed — everything we hoped for in a tech partner. From day one, they demonstrated a deep understanding of our industry challenges and delivered innovative solutions that kept us ahead of competitors. Their agile approach allowed us to iterate quickly while maintaining exceptional quality."</p>
+                <div class="tmn-person">
+                  <img src="assets/img/all-images/testimonial/testimonial-img8.png" alt="">
+                  <a href="team.html">Ethan L., CEO, BrightNest Digital</a>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="tmn-pagination"></div>
         </div>
-        <div class="pagination-buttons">
-          <div class="swiper-button-next">
-            <button><i class="fa-solid fa-angle-left"></i></button>
-          </div>
-          <div class="swiper-button-prev">
-            <button><i class="fa-solid fa-angle-right"></i></button>
-          </div>
-        </div>
+        <div class="tmn-nav tmn-prev"><i class="fa-solid fa-angle-left"></i></div>
+        <div class="tmn-nav tmn-next"><i class="fa-solid fa-angle-right"></i></div>
       </div>
-      <div class="map-testimonial">
-        <div class="swiper swiper-thumb2">
-          <div class="swiper-wrapper list-img">
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img5.png" alt="">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img6.png" alt="">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img7.png" alt="">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img8.png" alt="">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img9.png" alt="">
-              </div>
-            </div>
-            <div class="swiper-slide">
-              <div>
-                <img src="assets/img/all-images/testimonial/testimonial-img10.png" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
+
+      <div class="tmn-avatars tmn-avatars-right">
+        <div class="tmn-avatar" data-slide="2"><img src="assets/img/all-images/testimonial/testimonial-img6.png" alt=""></div>
+        <div class="tmn-avatar" data-slide="3"><img src="assets/img/all-images/testimonial/testimonial-img10.png" alt=""></div>
       </div>
     </div>
   </div>
@@ -3651,7 +3567,7 @@
                  </ul>
           </div>
               <div class="space14"></div>
-              <h4 class="vl-blog-1-title"><a href="blog-single.html?id=1">How AI Automation Is Transforming Small & Mid-Sized Businesses</a></h4>
+              <h4 class="vl-blog-1-title"><a href="blog-single.html?id=1">The Factory Floor Supervisor Who Saved 1,200 Jobs (With 72 Hours' Notice)</a></h4>
               <div class="space20"></div>
               <div class="vl-blog-1-icon">
                 <a href="blog-single.html?id=1">Learn More <i class="fa-solid fa-arrow-right"></i></a>
@@ -3674,7 +3590,7 @@
                    </ul>
                 </div>
                 <div class="space14"></div>
-                <h4 class="vl-blog-1-title"><a href="blog-single.html?id=2">The Essential Guide to Choosing the Right Web Application for Your Business</a></h4>
+                <h4 class="vl-blog-1-title"><a href="blog-single.html?id=2">The Security Chief Who Stopped 10,000 Cyberattacks (While Everyone Slept)</a></h4>
                <div class="space20"></div>
                 <div class="vl-blog-1-icon">
                   <a href="blog-single.html?id=2">Learn More <i class="fa-solid fa-arrow-right"></i></a>
@@ -3698,7 +3614,7 @@
                  </ul>
               </div>
               <div class="space14"></div>
-              <h4 class="vl-blog-1-title"><a href="blog-single.html?id=3">Why Digital Transformation Fails — And How to Get It Right</a></h4>
+              <h4 class="vl-blog-1-title"><a href="blog-single.html?id=3">The Doctor Who Almost Quit Medicine (Until This Happened at 3 AM)</a></h4>
               <div class="space20"></div>
               <div class="vl-blog-1-icon">
                 <a href="blog-single.html?id=3">Learn More <i class="fa-solid fa-arrow-right"></i></a>
@@ -3721,7 +3637,7 @@
              </ul>
           </div>
           <div class="space14"></div>
-          <h4 class="vl-blog-1-title"><a href="blog-single.html?id=4">How AI-Powered Virtual Agents Are Redefining Customer Support</a></h4>
+          <h4 class="vl-blog-1-title"><a href="blog-single.html?id=4">The Doctor Who Saved 30% of Her Time (And Her Sanity) With AI</a></h4>
           <div class="space20"></div>
           <div class="vl-blog-1-icon">
             <a href="blog-single.html?id=4">Learn More <i class="fa-solid fa-arrow-right"></i></a>
@@ -3744,7 +3660,7 @@
                </ul>
             </div>
             <div class="space14"></div>
-            <h4 class="vl-blog-1-title"><a href="blog-single.html?id=5">Top 5 Benefits of Custom Enterprise Software for Growing Businesses</a></h4>
+            <h4 class="vl-blog-1-title"><a href="blog-single.html?id=5">The $5.2 Million Wire Transfer That Almost Destroyed a Bank</a></h4>
            <div class="space20"></div>
             <div class="vl-blog-1-icon">
               <a href="blog-single.html?id=5">Learn More <i class="fa-solid fa-arrow-right"></i></a>
@@ -3768,7 +3684,7 @@
              </ul>
           </div>
           <div class="space14"></div>
-          <h4 class="vl-blog-1-title"><a href="blog-single.html?id=6">How to Strategically Plan a Digital Transformation in 2025</a></h4>
+          <h4 class="vl-blog-1-title"><a href="blog-single.html?id=6">The Lawyer Who Found 40 Hours in Her Week (Without Cloning Herself)</a></h4>
           <div class="space20"></div>
           <div class="vl-blog-1-icon">
             <a href="blog-single.html?id=6">Learn More <i class="fa-solid fa-arrow-right"></i></a>

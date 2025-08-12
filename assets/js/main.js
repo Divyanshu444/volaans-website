@@ -486,31 +486,62 @@ a.forEach(item => {
 
 // SWIPER SLIDER //
 document.addEventListener("DOMContentLoaded", function () {
-  var swiper3 = new Swiper(".swiper-thumb2", {
-    spaceBetween: 10,
-    slidesPerView: 6,
-    freeMode: true,
-    watchSlidesProgress: true,
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-  });
-  var swiper4 = new Swiper(".swiper-testimonial-2", {
-    spaceBetween: 10,
-    loop: true,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    autoplay: {
-      delay: 2500,
-      disableOnInteraction: false,
-    },
-    thumbs: {
-      swiper: swiper3,
-    },
-  });
+  // Old testimonial sliders (guarded if still present on other pages)
+  var thumbEl = document.querySelector('.swiper-thumb2');
+  var mainEl = document.querySelector('.swiper-testimonial-2');
+  if (thumbEl && mainEl) {
+    var swiper3 = new Swiper('.swiper-thumb2', {
+      spaceBetween: 10,
+      slidesPerView: 6,
+      freeMode: true,
+      watchSlidesProgress: true,
+      autoplay: { delay: 2500, disableOnInteraction: false },
+    });
+    var swiper4 = new Swiper('.swiper-testimonial-2', {
+      spaceBetween: 10,
+      loop: true,
+      navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' },
+      autoplay: { delay: 2500, disableOnInteraction: false },
+      thumbs: { swiper: swiper3 },
+    });
+  }
+
+  // New modern testimonial slider
+  var modernEl = document.querySelector('.tmn-slider');
+  if (modernEl) {
+    const modernSwiper = new Swiper('.tmn-slider', {
+      loop: true,
+      speed: 600,
+      spaceBetween: 0,
+      autoHeight: true,
+      slidesPerView: 1,
+      centeredSlides: true,
+      watchOverflow: true,
+      autoplay: { delay: 4500, disableOnInteraction: false },
+      navigation: { nextEl: '.tmn-next', prevEl: '.tmn-prev' },
+      pagination: { el: '.tmn-pagination', clickable: true },
+    });
+
+    // Avatar click -> slide to specific index
+    const avatarNodes = document.querySelectorAll('.tmn-avatar[data-slide]');
+    const updateActiveAvatars = (realIdx) => {
+      avatarNodes.forEach(a => a.classList.toggle('is-active', Number(a.getAttribute('data-slide')) === realIdx));
+    };
+    // Keep avatars in sync when slider changes
+    modernSwiper.on('slideChange', () => {
+      const real = modernSwiper.realIndex; // 0-based
+      updateActiveAvatars(real);
+    });
+    avatarNodes.forEach(node => {
+      node.addEventListener('click', () => {
+        const target = Number(node.getAttribute('data-slide')) || 0;
+        modernSwiper.slideToLoop(target, 500);
+        updateActiveAvatars(target);
+      });
+    });
+    // Initialize active state
+    updateActiveAvatars(modernSwiper.realIndex);
+  }
   
   // Industry Grid Animation with Intersection Observer
   const industryGridItems = document.querySelectorAll('.industry-grid-item');
