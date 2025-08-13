@@ -6,7 +6,7 @@ const blogData = [
     date: "January 25, 2025",
     author: "Volans Aquilae",
     category: "Manufacturing",
-    featuredImage: "assets/img/all-images/blog/blog1.png",
+    featuredImage: "assets/img/all-images/blog/blog1.jpg",
     content: `
       <p>Carlos Rivera had been walking Factory Floor C for 18 years. He knew every machine's quirk, every worker's rhythm, every sound that meant trouble. But on Monday, October 12th, at 7:23 AM, he received news that made his blood run cold.</p>
       <p>"Carlos," his plant manager's voice was grim over the phone. "Corporate called. We're hemorrhaging money on Line 3. If we can't cut production costs by 25% in the next quarter, they're moving operations to Vietnam. 1,200 jobs are on the line."</p>
@@ -124,7 +124,7 @@ const blogData = [
     date: "January 22, 2025",
     author: "Volans Aquilae",
     category: "Cybersecurity",
-    featuredImage: "assets/img/all-images/blog/blog2.png",
+    featuredImage: "assets/img/all-images/blog/blog2.jpg",
     content: `
       <p>David Kim's phone didn't ring at 4:07 AM. That should have been his first warning.</p>
       <p>As Chief Security Officer for Metropolitan Financial, David was used to midnight alerts about suspicious activities, failed login attempts, and network anomalies. His phone averaged 15 security alerts per night.</p>
@@ -229,7 +229,7 @@ const blogData = [
     date: "January 20, 2025",
     author: "Volans Aquilae",
     category: "Healthcare",
-    featuredImage: "assets/img/all-images/blog/blog3.png",
+    featuredImage: "assets/img/all-images/blog/blog3.jpg",
     content: `
       <p>Dr. Chen threw her stethoscope against the wall. Again.</p>
       <p>3:47 AM. Her patient in Room 12 was deteriorating, but the computer wanted 14 forms filled first. Her daughter's birthday party was in 5 hours, and she'd already missed three bedtime stories this week.</p>
@@ -745,7 +745,7 @@ const blogData = [
     date: "January 8, 2025",
     author: "Volans Aquilae",
     category: "Financial Technology",
-    featuredImage: "assets/img/all-images/blog/blog-img10.png",
+    featuredImage: "assets/img/all-images/blog/blog8.jpg",
     content: `
       <p>4:17 PM, Friday afternoon. Marcus Chen, Chief Risk Officer, stares at a wire transfer: $2.3 million to the Cayman Islands. Perfect authorization codes. Legitimate access. Normal appearance.</p>
       <p>The AI wasn't fooled.</p>

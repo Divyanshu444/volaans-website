@@ -93,27 +93,41 @@ p {
   }
 }
 
-/* Ensure all font-awesome icons retain their original font */
+/* Ensure all font-awesome icons use correct font families */
 .fa,
 .fas,
-.far,
-.fal,
-.fab,
 .fa-solid,
+.far,
 .fa-regular,
+.fal,
 .fa-light,
+.fat,
 .fa-thin,
-.fa-duotone,
-.fa-brands {
-  font-family: "Font Awesome 6 Pro" !important;
+.fad,
+.fa-duotone {
+  font-family: "Font Awesome 6 Pro", "Font Awesome 6 Free" !important;
 }
 
-.fa-solid {
+.fab,
+.fa-brands {
+  font-family: "Font Awesome 6 Brands" !important;
+  font-weight: 400 !important;
+}
+
+.fa-solid, .fas {
   font-weight: 900 !important;
 }
 
-.fa-regular {
+.fa-regular, .far {
   font-weight: 400 !important;
+}
+
+.fa-light, .fal {
+  font-weight: 300 !important;
+}
+
+.fa-thin, .fat {
+  font-weight: 100 !important;
 }
 
 /* Override any Bootstrap font families */

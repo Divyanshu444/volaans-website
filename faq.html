@@ -11,7 +11,30 @@
     <!--===== CSS LINK =======-->
     <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/plugins/aos.css">
-    <link rel="stylesheet" href="assets/css/plugins/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+    /* Force FontAwesome icons to display */
+    .fa, .fas, .far, .fab, .fa-brands, .fa-solid, .fa-regular {
+        font-family: "Font Awesome 6 Free", "Font Awesome 6 Brands" !important;
+        font-weight: 900 !important;
+    }
+    .fa-brands, .fab {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
+    }
+    /* Specific footer icon fixes */
+    .vl-footer1-section-area .footer-logo1 ul li a i,
+    .vl-footer2-section-area .footer-logo1 ul li a i,
+    .vl-footer4-section-area .footer-logo1 ul li a i {
+        font-family: "Font Awesome 6 Brands" !important;
+        font-weight: 400 !important;
+        display: inline-block !important;
+        font-style: normal !important;
+        font-variant: normal !important;
+        text-rendering: auto !important;
+        line-height: 1 !important;
+    }
+    </style>
     <link rel="stylesheet" href="assets/css/plugins/magnific-popup.css">
     <link rel="stylesheet" href="assets/css/plugins/mobile.css">
     <link rel="stylesheet" href="assets/css/plugins/owlcarousel.min.css">
@@ -38,9 +61,11 @@
 </div>
 <!--===== PRELOADER ENDS =======-->
 
-
 <!-- <div class="procus-cursor" style="transform: translate3d(calc(-50% + 1919px), calc(-50% + 787px), 0px);"></div>
 <div class="procus-cursor2" style="left: 551px; top: 918px;"></div> -->
+
+<!-- Full page particles background -->
+<div id="particles-js" class="fullpage-particles-container"></div>
 <!--===== PROGRESS STARTS=======-->
 <div class="paginacontainer">
      <div class="progress-wrap">
@@ -237,7 +262,159 @@
 </div>
 <!--===== MOBILE HEADER STARTS =======-->
 <style>
- 
+/* Full page particles styling */
+.fullpage-particles-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, #0a0a2c, #141450);
+  opacity: 0.85;
+}
+
+/* Make content appear above particles */
+.container, .hero2-section-area, .serve-section-area, .slider1-section-area, 
+.enhanced-cta-area, .vl-footer1-section-area, .vl-header-area, .inner-section-area {
+  position: relative;
+  z-index: 1;
+}
+
+/* Adjust background transparency for different sections */
+.serve-section-area {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  position: relative;
+  z-index: 1;
+}
+
+.slider1-section-area {
+  background-color: rgb(255 255 255 / 0%);;
+}
+
+.vl-footer1-section-area {
+  background-color: rgba(0, 0, 0, 0.9);
+  position: relative;
+}
+
+/* Enhance the hero section with the particles */
+.inner-section-area {
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+  overflow: visible;
+}
+
+.inner-section-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 36, 0.5);
+  z-index: 1;
+}
+
+/* Add a special effect for particles in hero area */
+.inner-section-area::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Ensure all content is readable on the particle background */
+body {
+  color: #fff;
+  background: linear-gradient(135deg, #070719, #0d0d2c);
+}
+
+/* Adjust links and text for better visibility */
+a, p, h1, h2, h3, h4, h5, h6 {
+  position: relative;
+  z-index: 2;
+}
+
+
+
+/* Make individual industry sections transparent */
+.industry-section {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 12px !important;
+  padding: 20px !important;
+  margin-bottom: 20px !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.3s ease !important;
+}
+
+.industry-section:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Industry services expandable content styling */
+.industry-services {
+  padding-top: 20px !important;
+  margin-top: 15px !important;
+}
+
+/* Make service items more transparent but visible */
+.service-item {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  transition: all 0.4s ease !important;
+  padding: 15px 20px !important;
+  border-radius: 8px !important;
+  margin-bottom: 10px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+.service-item:hover {
+  background: rgba(255, 255, 255, 0.15) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  transform: translateY(-2px) translateX(5px) !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.service-item p {
+  color: #fff !important;
+  margin: 0 !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Arrow animation */
+.dropdown-arrow i {
+  transition: transform 0.4s ease !important;
+}
+
+/* Enhanced expand/collapse animation */
+.industry-section .industry-services {
+  max-height: 0 !important;
+  overflow: hidden !important;
+  transition: max-height 0.6s ease, padding 0.6s ease !important;
+  padding-top: 0 !important;
+}
+
+.industry-section.expanded .industry-services {
+  max-height: 1500px !important;
+  padding-top: 20px !important;
+}
 </style>
 <!--===== HERO AREA STARTS =======-->
 <div class="inner-section-area" style="background-image: url(assets/img/all-images/bg/hero-bg1.png); background-position: center top; background-repeat: no-repeat; background-size: cover;">
@@ -265,7 +442,6 @@
         </div>
       </div>
     </div>
-    <div class="space30"></div>
   </div>
 </div>
 
@@ -341,22 +517,22 @@
 </div>
 <!--===== HERO AREA ENDS =======-->
 
-
-
-    <!-- Detailed Industry Services -->
-    <div class="space40"></div>
+<!--===== INDUSTRY SERVICES AREA STARTS =======-->
+<div class="serve-section-area sp10" style="background-image: url(assets/img/all-images/bg/bg2.png); background-position: center; background-repeat: no-repeat; background-size: cover;">
+  <!-- Detailed Industry Services -->
     <div class="container">
       <div class="row">
         <div class="col-lg-10 m-auto">
           <div class="heading1 text-center space-margin60" data-aos="fade-up">
-            <h2>Industry Based Services</h2>
+            <h2 style="color: #fff; font-size: 38px; margin-bottom: 40px;">Industry Based Services</h2>
           </div>
         </div>
       </div>
-      <div class="industry-services-container">
-        <!-- Healthcare -->
-        <div class="industry-section healthcare" data-aos="fade-up" data-aos-delay="100">
-          <div class="industry-header">
+      <div class="row">
+        <div class="col-lg-12">
+          <!-- Healthcare -->
+          <div class="industry-section healthcare" data-aos="fade-up" data-aos-delay="100">
+            <div class="industry-header">
             <div class="industry-icon">
               <i class="fa-solid fa-hospital"></i>
             </div>
@@ -567,7 +743,7 @@
     </div>
   </div>
 </div>
-<!--===== INDUSTRIES WE SERVE ENDS =======-->
+<!--===== INDUSTRY SERVICES AREA ENDS =======-->
 
 <!--===== FAQ AREA STARTS =======-->
 <!-- <div class="faq-inner-section-area sp6">
@@ -1174,11 +1350,10 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/newsletter.js"></script>
 
-<script src="assets/js/industry-services.js"></script>
 <style>
   @media (max-width: 767px) {
-    .industry-services-container{
-      padding: 0 20px 0px 20px !important;
+    .industry-section {
+      margin: 0 20px 20px 20px !important;
     }
     /* .footer-logo1 img{
       margin-left: -10px !important;
@@ -1196,20 +1371,79 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  const industryHeaders = document.querySelectorAll('.industry-header');
+  // Get all industry sections
+  const industrySections = document.querySelectorAll('.industry-section');
   
-  industryHeaders.forEach(header => {
-    header.addEventListener('click', function() {
-      const parent = this.parentElement;
+  // Add click functionality to expand/collapse sections
+  industrySections.forEach(section => {
+    const header = section.querySelector('.industry-header');
+    const services = section.querySelector('.industry-services');
+    const arrow = header.querySelector('.dropdown-arrow i');
+    
+    header.addEventListener('click', () => {
+      // Toggle expanded class
+      section.classList.toggle('expanded');
       
-      // Toggle current section
-      parent.classList.toggle('active');
+      // Close other sections when one is expanded
+      if (section.classList.contains('expanded')) {
+        industrySections.forEach(otherSection => {
+          if (otherSection !== section && otherSection.classList.contains('expanded')) {
+            otherSection.classList.remove('expanded');
+            const otherArrow = otherSection.querySelector('.dropdown-arrow i');
+            if (otherArrow) {
+              otherArrow.style.transform = 'rotate(0deg)';
+            }
+          }
+        });
+        
+        // Animate arrow
+        if (arrow) {
+          arrow.style.transform = 'rotate(180deg)';
+        }
+        
+        // Animate service items appearing
+        setTimeout(() => {
+          const items = section.querySelectorAll('.service-item');
+          items.forEach((item, index) => {
+            item.style.opacity = 0;
+            item.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+              item.style.opacity = 1;
+              item.style.transform = 'translateY(0)';
+            }, 100 * index);
+          });
+        }, 200);
+        
+      } else {
+        // Animate arrow back
+        if (arrow) {
+          arrow.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+    
+    // Add hover effects
+    section.addEventListener('mouseenter', () => {
+      if (!section.classList.contains('expanded')) {
+        section.style.transform = 'translateY(-5px)';
+      }
+    });
+    
+    section.addEventListener('mouseleave', () => {
+      if (!section.classList.contains('expanded')) {
+        section.style.transform = 'translateY(0)';
+      }
     });
   });
   
   // Open the first section by default
-  if (industryHeaders.length > 0) {
-    industryHeaders[0].parentElement.classList.add('active');
+  if (industrySections.length > 0) {
+    const firstSection = industrySections[0];
+    firstSection.classList.add('expanded');
+    const firstArrow = firstSection.querySelector('.dropdown-arrow i');
+    if (firstArrow) {
+      firstArrow.style.transform = 'rotate(180deg)';
+    }
   }
 });
 </script>
@@ -1220,6 +1454,146 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <!-- Wheel Event Polyfill -->
 <script src="assets/js/plugins/wheel-event-polyfill.js"></script>
+
+<!-- Particles JS for interactive background -->
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 90,
+          "density": {
+            "enable": true,
+            "value_area": 1000
+          }
+        },
+        "color": {
+          "value": ["#ffffff", "#f0f0ff", "#e0e0ff", "#d8d8ff", "#f8f8ff"]
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.4,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 0.4,
+            "opacity_min": 0.2,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 5,
+          "random": true,
+          "anim": {
+            "enable": true,
+            "speed": 1.5,
+            "size_min": 0.8,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#e8e8ff",
+          "opacity": 0.3,
+          "width": 1.2
+        },
+        "move": {
+          "enable": true,
+          "speed": 1.2,
+          "direction": "bottom",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": true,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "window",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "grab"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 180,
+            "line_linked": {
+              "opacity": 0.5
+            }
+          },
+          "bubble": {
+            "distance": 200,
+            "size": 4,
+            "duration": 2,
+            "opacity": 0.6,
+            "speed": 2
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+    
+    // Optimize for performance by reducing particles on mobile
+    function checkMobile() {
+      if (window.innerWidth < 768) {
+        particlesJS('particles-js', {
+          "particles": {
+            "number": {
+                "value": 50
+            },
+            "opacity": {
+                "value": 0.35
+            },
+            "size": {
+                "value": 4,
+                "size_min": 0.6
+            },
+            "move": {
+                "speed": 0.9,
+                "direction": "bottom"
+            }
+          }
+        });
+      }
+    }
+    
+    // Run on load and on window resize
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+  });
+</script>
 
 <!-- Gesture Navigation -->
 <script src="assets/js/gesture-navigation.js"></script>
