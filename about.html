@@ -967,6 +967,11 @@
     }
   }
 </style>
+<style>
+  .slider1-section-area .marquee-wrap .marquee-text {
+    margin-top: 100px !important;
+  }
+</style>
 <div class="slider1-section-area">
   <div class="marquee-wrap">
     <div class="marquee-text">
@@ -1180,7 +1185,7 @@
     <div class="space40"></div>
     
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-6 process-left-col">
         <div class="key-values-timeline">
           <!-- Timeline item 1 -->
           <div class="timeline-item timeline-card-3d" data-timeline="01" data-aos="fade-up" data-aos-delay="100">
@@ -1228,7 +1233,7 @@
         </div>
       </div>
       
-      <div class="col-lg-6">
+      <div class="col-lg-6 process-right-col">
         <div class="process-highlight-box timeline-card-3d" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200" style="display: flex; flex-direction: column; justify-content: center; height: 100%; background: none; border-radius: 8px; box-shadow: none;">
           <div class="highlight-content">
             <div class="highlight-icon" data-aos="zoom-in" data-aos-delay="500" style="background: none; box-shadow: none;">
@@ -1245,9 +1250,25 @@
             <h3 data-aos="fade-up" data-aos-delay="900" style="color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Collaborative Excellence</h3>
             <p data-aos="fade-up" data-aos-delay="1000" style="color: #e0e0e0; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Whether it's a fullstack platform, a virtual agent, or an AIOps system, our team ensures every step is transparent, collaborative, and optimized for speed and scale.</p>
             
-            <div class="btn-area1 mt-4" data-aos="fade-up" data-aos-delay="1100">
-              <a href="Case_Study.html" class="vl-btn1" style="overflow: hidden;">View Case Studies</a>
+            <div class="space24"></div>
+            
+            <div class="highlight-icon" data-aos="zoom-in" data-aos-delay="1100" style="background: none; box-shadow: none;">
+              <i class="fa-solid fa-star" style="color: #0000fb;"></i>
             </div>
+            <h3 data-aos="fade-up" data-aos-delay="1200" style="color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5);">Strategic Innovation Partnership</h3>
+            <p data-aos="fade-up" data-aos-delay="1300" style="color: #e0e0e0; text-shadow: 0 0 5px rgba(0,0,0,0.5);">We become your trusted technology partner, understanding your industry challenges and delivering custom solutions that drive measurable business outcomes and competitive advantage.</p>
+            
+            <div class="space24"></div>
+            
+            <div class="highlight-icon" data-aos="zoom-in" data-aos-delay="1400" style="background: none; box-shadow: none;">
+              <i class="fa-solid fa-sync" style="color: #0000fb;"></i>
+            </div>
+            <h3 data-aos="fade-up" data-aos-delay="1500" style="color: #fff; text-shadow: 0 0 5px rgba(0,0,0,0.5);">End-to-End Digital Transformation</h3>
+            <p data-aos="fade-up" data-aos-delay="1600" style="color: #e0e0e0; text-shadow: 0 0 5px rgba(0,0,0,0.5);">From initial consultation to post-deployment optimization, we provide comprehensive support that ensures seamless integration with existing systems and continuous improvement of your operational efficiency.</p>
+            
+            <!-- <div class="btn-area1 mt-4" data-aos="fade-up" data-aos-delay="1700">
+              <a href="Case_Study.html" class="vl-btn1" style="overflow: hidden;">View Case Studies</a>
+            </div> -->
           </div>
         </div>
       </div>
@@ -1466,6 +1487,48 @@
     .timeline-content h4 {
       font-size: 16px;
       margin-bottom: 10px;
+    }
+  }
+  
+  /* Process Section Column Spacing */
+  .key-values-section .row {
+    align-items: stretch;
+  }
+  
+  .process-left-col {
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-right-col {
+    padding-left: 30px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .process-highlight-box {
+    flex: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  
+  @media (max-width: 991px) {
+    .process-left-col,
+    .process-right-col {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    .process-left-col {
+      margin-bottom: 40px;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .process-left-col {
+      margin-bottom: 30px;
     }
   }
 </style>

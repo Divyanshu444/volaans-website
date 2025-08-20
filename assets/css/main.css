@@ -1201,6 +1201,7 @@ Location:
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+  border: 2px solid #0000FB;
 }
 @media (max-width: 767px) {
   .service1-section-area .service-branding-boxesarea {
@@ -2081,7 +2082,7 @@ Location:
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: 170px 0 0;
+  padding: 170px 0 93px;
 }
 @media (max-width: 767px) {
   .hero1-section-area .hero-header-area {
@@ -4349,6 +4350,7 @@ Location:
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+  border: 2px solid #0000FB;
 }
 @media (max-width: 767px) {
   .service1-section-area .service-branding-boxesarea {
@@ -5229,7 +5231,7 @@ Location:
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: 170px 0 0;
+  padding: 170px 0 93px;
 }
 @media (max-width: 767px) {
   .hero1-section-area .hero-header-area {
@@ -6773,6 +6775,7 @@ Location:
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+  border: 2px solid #0000FB;
 }
 @media (max-width: 767px) {
   .service1-section-area .service-branding-boxesarea {
@@ -7653,7 +7656,7 @@ Location:
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: 170px 0 0;
+  padding: 170px 0 93px;
 }
 @media (max-width: 767px) {
   .hero1-section-area .hero-header-area {
@@ -9972,6 +9975,7 @@ Location:
   align-items: center;
   justify-content: space-between;
   padding: 50px;
+  border: 2px solid #2b2bf299;
 }
 @media (max-width: 767px) {
   .service1-section-area .service-branding-boxesarea {
@@ -10853,7 +10857,7 @@ Location:
   position: relative;
   z-index: 1;
   overflow: hidden;
-  padding: 170px 0 0;
+  padding: 170px 0 93px;
 }
 @media (max-width: 767px) {
   .hero1-section-area .hero-header-area {
@@ -11603,7 +11607,7 @@ Location:
   width: 100%;
   white-space: nowrap;
   padding: 28px 0;
-  margin-top: 30px;
+  margin-top: 0px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .slider1-section-area .marquee-wrap .marquee-text {
