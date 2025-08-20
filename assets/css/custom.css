@@ -238,7 +238,7 @@ svg path[stroke="#fefe1f"] {
 /* Adjust image size for different screen sizes */
 @media (max-width: 1200px) {
   .service1-section-area .service-branding-boxesarea .hidden-img img {
-    max-width: 180px;
+    max-width: 225px;
   }
 }
 
