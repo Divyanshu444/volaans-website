@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Configuration
   const config = {
-    minSwipeDistance: 50, // Reduced from 100 to make it more sensitive
-    maxSwipeTime: 800,     // Increased from 500 to allow more time for gestures
-    preventScrollX: false,  // Changed to false to avoid conflicts with native scrolling
+    minSwipeDistance: 30, // Further reduced for better sensitivity
+    maxSwipeTime: 1000,   // Increased to allow more time for gestures
+    preventScrollX: false, // Don't prevent horizontal scrolling
     showFirstTimeNotification: true,  // Show notification to first-time visitors
-    useAlternativeTrackpadMethod: true // Use an alternative method for trackpad detection
+    useAlternativeTrackpadMethod: true, // Use an alternative method for trackpad detection
+    debugMode: true  // Enable debug logging
   };
 
   // Store navigation links for easy access
@@ -24,6 +25,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Find navigation links on the page (customize these selectors based on your actual navigation)
   function findNavigationLinks() {
     console.log('Finding navigation links...'); // Debug
+    
+    // Reset navigation links
+    navLinks.next = null;
+    navLinks.prev = null;
+    
     // These selectors should match your actual navigation elements
     // They might be different on your site - adjust as needed
     const allLinks = document.querySelectorAll('a');
@@ -32,65 +38,52 @@ document.addEventListener('DOMContentLoaded', function() {
       const href = link.getAttribute('href');
       const text = link.textContent.toLowerCase();
       
+      // Skip if no href or href is just anchor
+      if (!href || href === '#' || href.startsWith('#')) return;
+      
       // Check for next page links
       if ((text.includes('next') || 
           link.classList.contains('next') || 
-          link.parentElement.classList.contains('next')) && 
-          href && href !== '#') {
+          link.parentElement.classList.contains('next'))) {
         navLinks.next = href;
+        console.log('Found next link via text/class:', href);
       }
       
       // Check for previous page links
       if ((text.includes('prev') || 
           text.includes('previous') || 
           link.classList.contains('prev') || 
-          link.parentElement.classList.contains('prev')) && 
-          href && href !== '#') {
+          link.parentElement.classList.contains('prev'))) {
         navLinks.prev = href;
+        console.log('Found prev link via text/class:', href);
       }
     });
     
-    // Fallback - try to determine pages from current URL
-    if (!navLinks.next || !navLinks.prev) {
+    console.log('Direct navigation links found:', navLinks);
+    
+    // If no direct navigation links were found, try to infer from page structure
+    if (!navLinks.next && !navLinks.prev) {
+      console.log('No direct navigation links found, trying to infer...');
       inferNavigationFromCurrentPage();
     }
     
-    // If no navigation links were found, try to use common pages
+    // If still no navigation links, use common pages fallback
     if (!navLinks.next && !navLinks.prev) {
+      console.log('No navigation inferred, using common pages fallback...');
       useCommonPagesNavigation();
     }
     
-    console.log('Navigation links detected:', navLinks);
+    console.log('Final navigation links:', navLinks);
   }
 
   // Try to infer navigation from current page structure
   function inferNavigationFromCurrentPage() {
     const currentPath = window.location.pathname;
-    const pageName = currentPath.split('/').pop();
+    const pageName = currentPath.split('/').pop() || 'index.html';
     
     console.log('Inferring navigation from:', pageName); // Debug
     
-    // Special case for index.html and index2.html
-    if (pageName === 'index.html') {
-      if (!navLinks.next) {
-        navLinks.next = 'index2.html';
-      }
-      // No previous page for index.html
-      navLinks.prev = null;
-      return;
-    }
-    
-    // Special case for index2.html
-    if (pageName === 'index2.html') {
-      if (!navLinks.prev) {
-        navLinks.prev = 'index.html';
-      }
-      // No next page after index2.html in this sequence
-      navLinks.next = null;
-      return;
-    }
-    
-    // Common page naming patterns
+    // Common page naming patterns for numbered pages
     const pagePatterns = [
       { regex: /page-(\d+)\.html/, group: 1 },
       { regex: /(\d+)\.html/, group: 1 },
@@ -116,6 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!navLinks.prev && pageNumber > 1) {
         navLinks.prev = `${basePath}${pageNumber - 1}.html`;
       }
+      console.log('Inferred numbered page navigation:', { pageNumber, navLinks });
+    } else {
+      console.log('No numbered page pattern found, will use common pages navigation');
     }
   }
   
@@ -126,8 +122,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const currentPath = window.location.pathname;
     const pageName = currentPath.split('/').pop();
     
+    // Handle empty pathname or just filename
+    const actualPageName = pageName || 'index.html';
+    
+    console.log('Current page name:', actualPageName); // Debug
+    
     // Special case for service.html - check if user came from industry grid
-    if (pageName === 'service.html') {
+    if (actualPageName === 'service.html') {
       // Check the referrer to see if we came from index.html
       const referrer = document.referrer;
       const referrerPath = referrer ? new URL(referrer).pathname.split('/').pop() : '';
@@ -140,31 +141,61 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Define common pages in navigation order
+    // Define common pages in navigation order - updated to match actual site structure
     const commonPages = [
       'index.html',
-      'index2.html',
       'about.html',
       'service.html',
       'project.html',
+      'Case_Study.html',
       'blog.html',
       'contact.html'
     ];
     
-    // Find current page index
-    const currentIndex = commonPages.indexOf(pageName);
+    // Add special cases for pages not in main navigation
+    const specialCases = {
+      'index2.html': { prev: 'index.html', next: 'about.html' },
+      'blog-single.html': { prev: 'blog.html', next: null },
+      'project-single.html': { prev: 'project.html', next: 'Case_Study.html' },
+      'service-single.html': { prev: 'service.html', next: 'project.html' },
+      'It-Services.html': { prev: 'service.html', next: 'project.html' },
+      'blog2.html': { prev: 'blog.html', next: null },
+      'team.html': { prev: 'about.html', next: 'service.html' },
+      'testimonial.html': { prev: 'about.html', next: 'service.html' },
+      'faq.html': { prev: 'blog.html', next: null },
+      'contact.html': { prev: 'blog.html', next: null },
+      '404.html': { prev: 'index.html', next: null }
+    };
+    
+    // Check for special cases first
+    if (specialCases[actualPageName]) {
+      const specialCase = specialCases[actualPageName];
+      navLinks.prev = specialCase.prev;
+      navLinks.next = specialCase.next;
+      console.log('Applied special case navigation for:', actualPageName);
+      return;
+    }
+    
+    // Find current page index in common pages
+    const currentIndex = commonPages.indexOf(actualPageName);
     
     if (currentIndex !== -1) {
       // Set next page if not the last page
       if (currentIndex < commonPages.length - 1) {
         navLinks.next = commonPages[currentIndex + 1];
+      } else {
+        navLinks.next = null; // Last page
       }
       
       // Set previous page if not the first page
       if (currentIndex > 0) {
         navLinks.prev = commonPages[currentIndex - 1];
+      } else {
+        navLinks.prev = null; // First page
       }
     }
+    
+    console.log('Applied common pages navigation. Current index:', currentIndex, 'Links:', navLinks);
   }
 
   // Variables to track touch events
@@ -254,17 +285,27 @@ document.addEventListener('DOMContentLoaded', function() {
                                 target.closest('button') || 
                                 target.closest('.service-branding-boxesarea') ||
                                 target.closest('.portfolio-boxarea') ||
-                                target.closest('[role="button"]');
+                                target.closest('[role="button"]') ||
+                                target.closest('input') ||
+                                target.closest('textarea') ||
+                                target.closest('select');
     
     // Don't process gesture if on interactive element
     if (isInteractiveElement) {
-      console.log('Trackpad gesture on interactive element, ignoring');
+      if (config.debugMode) {
+        console.log('Trackpad gesture on interactive element, ignoring');
+      }
       return;
     }
     
-    // Only process horizontal scrolling
-    if (Math.abs(e.deltaX) > Math.abs(e.deltaY) && Math.abs(e.deltaX) > 30) { // Reduced threshold from 50 to 30
-      console.log('Trackpad gesture detected, deltaX:', e.deltaX); // Debug
+    // Only process horizontal scrolling with improved logic
+    const horizontalDominant = Math.abs(e.deltaX) > Math.abs(e.deltaY);
+    const significantHorizontal = Math.abs(e.deltaX) > 20; // Reduced threshold for better sensitivity
+    
+    if (horizontalDominant && significantHorizontal) {
+      if (config.debugMode) {
+        console.log('Trackpad gesture detected, deltaX:', e.deltaX, 'deltaY:', e.deltaY);
+      }
       
       if (config.preventScrollX) {
         e.preventDefault();
@@ -273,6 +314,8 @@ document.addEventListener('DOMContentLoaded', function() {
       // We use deltaX in opposite direction because scroll right means go to previous page
       // and scroll left means go to next page in natural scrolling
       processSwipe(-e.deltaX);
+    } else if (config.debugMode) {
+      console.log('Wheel event ignored - deltaX:', e.deltaX, 'deltaY:', e.deltaY, 'horizontal dominant:', horizontalDominant, 'significant:', significantHorizontal);
     }
   }
   
@@ -338,8 +381,11 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Check if this looks like a trackpad gesture
       // Trackpad gestures typically have many small movements
-      if (mouseMoveCount > 5 && Math.abs(horizontalMovement) > 50) {
+      if (mouseMoveCount > 3 && Math.abs(horizontalMovement) > 30) {
         isTrackpadGesture = true;
+        if (config.debugMode) {
+          console.log('Trackpad gesture detected via mouse events, movement:', horizontalMovement);
+        }
       }
     });
     
@@ -383,27 +429,42 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Process the swipe based on direction and distance
   function processSwipe(distance) {
-    if (Math.abs(distance) < config.minSwipeDistance) return;
+    if (config.debugMode) {
+      console.log('processSwipe called with distance:', distance, 'minSwipeDistance:', config.minSwipeDistance);
+    }
     
-    console.log('Processing swipe, distance:', distance); // Debug
+    if (Math.abs(distance) < config.minSwipeDistance) {
+      if (config.debugMode) {
+        console.log('Swipe distance too small, ignoring');
+      }
+      return;
+    }
+    
+    console.log('Processing swipe, distance:', distance, 'navLinks:', navLinks); // Debug
     
     if (distance > 0) {
       // Swiped right - go to previous page
       if (navLinks.prev) {
         console.log('Navigating to previous page:', navLinks.prev);
-        window.location.href = navLinks.prev;
+        // Add a small delay to allow for visual feedback
+        setTimeout(() => {
+          window.location.href = navLinks.prev;
+        }, 100);
       } else {
         console.log('No previous page available');
-        showNavigationFeedback('No previous page');
+        showNavigationFeedback('No previous page available');
       }
     } else {
       // Swiped left - go to next page
       if (navLinks.next) {
         console.log('Navigating to next page:', navLinks.next);
-        window.location.href = navLinks.next;
+        // Add a small delay to allow for visual feedback
+        setTimeout(() => {
+          window.location.href = navLinks.next;
+        }, 100);
       } else {
         console.log('No next page available');
-        showNavigationFeedback('No next page');
+        showNavigationFeedback('No next page available');
       }
     }
   }
@@ -620,27 +681,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Initialize gesture detection
   function init() {
+    console.log('Initializing gesture navigation...');
+    
     // Find the navigation links
     findNavigationLinks();
     
-    // Set up event listeners
-    document.addEventListener('touchstart', handleTouchStart, { passive: true });
-    document.addEventListener('touchend', handleTouchEnd, { passive: true });
+    // Log the final navigation state for debugging
+    console.log('Gesture navigation initialization complete:');
+    console.log('- Current page:', window.location.pathname);
+    console.log('- Previous page:', navLinks.prev);
+    console.log('- Next page:', navLinks.next);
     
-    // Use passive: false for wheel to allow preventDefault
-    document.addEventListener('wheel', handleTrackpadGesture, { passive: false });
-    
-    // Setup alternative trackpad method if enabled
-    if (config.useAlternativeTrackpadMethod) {
-      setupAlternativeTrackpadMethod();
-    }
-    
-    // Setup visual feedback
-    setupSwipeFeedback();
-    
-    // Show first-time notification if enabled
-    if (config.showFirstTimeNotification) {
-      showFirstTimeNotification();
+    // Only set up event listeners if we have navigation links
+    if (navLinks.next || navLinks.prev) {
+      console.log('Setting up gesture event listeners...');
+      
+      // Set up event listeners
+      document.addEventListener('touchstart', handleTouchStart, { passive: true });
+      document.addEventListener('touchend', handleTouchEnd, { passive: true });
+      
+      // Use passive: false for wheel to allow preventDefault
+      document.addEventListener('wheel', handleTrackpadGesture, { passive: false });
+      
+      // Setup alternative trackpad method if enabled
+      if (config.useAlternativeTrackpadMethod) {
+        setupAlternativeTrackpadMethod();
+      }
+      
+      // Setup visual feedback
+      setupSwipeFeedback();
+      
+      // Show first-time notification if enabled
+      if (config.showFirstTimeNotification) {
+        showFirstTimeNotification();
+      }
+    } else {
+      console.log('No navigation links available, gesture navigation disabled for this page');
     }
     
     console.log('Gesture navigation initialized with links:', navLinks);

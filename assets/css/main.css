@@ -14101,7 +14101,7 @@ Location:
 }
 @media (max-width: 767px) {
   .homepage1-menu .vl-transparent-header {
-    padding: 16;
+    padding: 16px;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -16667,14 +16667,16 @@ Location:
 }
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .header-site-icon .slide-bar.slide-bar1 {
-    overflow-y: scroll;
-    height: 735px;
+    overflow-y: auto;
+    height: 100vh;
+    max-height: 100vh;
   }
 }
 @media only screen and (min-width: 1600px) and (max-width: 1700px) {
   .header-site-icon .slide-bar.slide-bar1 {
-    overflow-y: scroll;
-    height: 600px;
+    overflow-y: auto;
+    height: 100vh;
+    max-height: 100vh;
   }
 }
 .header-site-icon .slide-bar.slide-bar1 .sidebar-info .sidebar-logo a img {

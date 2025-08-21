@@ -145,8 +145,8 @@
 
 .body-overlay {
   background-color: #000000;
-  height: 950px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   position: fixed;
   top: 0;
   z-index: 1010;
@@ -222,15 +222,18 @@
     overflow-y: auto;
     top: 0;
     right: -860px;
-    right: -860px;
-    max-width: 830px;
-    padding: 50px 50px;
-    height: 900px;
+    max-width: min(830px, 90vw);
+    padding: 30px;
+    height: 100vh;
+    max-height: 100vh;
     display: block;
     background-color: var(--color-white);
     z-index: 1020;
-transition-duration: 500ms;
-background-color: #fff;
+    transition-duration: 500ms;
+    background-color: #fff;
+    box-sizing: border-box;
+    /* Ensure proper scaling with zoom */
+    transform-origin: top right;
 }
 
 
@@ -367,4 +370,142 @@ background-color: #fff;
   color: #3a505f;
   top: 0;
   cursor: pointer;
+}
+
+/* Enhanced responsiveness for zoom levels and different screen sizes */
+@media screen and (max-height: 800px) {
+  .slide-bar {
+    padding: 20px;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .space40 {
+    height: 20px !important;
+  }
+  
+  .space32 {
+    height: 15px !important;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .slide-bar {
+    padding: 15px;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .space40 {
+    height: 10px !important;
+  }
+  
+  .space32 {
+    height: 8px !important;
+  }
+  
+  .sidebar-info .sidebar-logo a img {
+    height: 40px !important;
+    width: auto !important;
+  }
+}
+
+/* Handle high zoom levels (120%+) */
+@media screen and (max-width: 1200px) {
+  .slide-bar {
+    max-width: min(400px, 85vw);
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .slide-bar {
+    max-width: min(350px, 85vw);
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slide-bar {
+    max-width: min(320px, 90vw);
+    padding: 20px 15px;
+    height: 100vh;
+    max-height: 100vh;
+  }
+  
+  .sidebar-info .sidebar-logo a img {
+    height: 35px !important;
+    width: auto !important;
+  }
+}
+
+/* Ensure sidebar content fits within viewport */
+.sidebar-info {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+/* Fix for body overlay to cover entire viewport */
+.body-overlay {
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+/* Additional mobile and small screen optimizations */
+@media screen and (max-width: 480px) {
+  .slide-bar {
+    max-width: min(300px, 95vw);
+    padding: 15px 10px;
+    right: -310px;
+  }
+  
+  .sidebar-info .sidebar-logo a img {
+    height: 30px !important;
+    width: auto !important;
+  }
+  
+  .sidebar-content ul li a {
+    font-size: 14px !important;
+    padding: 8px 0 !important;
+  }
+  
+  .social-link-area h3 {
+    font-size: 18px !important;
+  }
+  
+  .form-area h3 {
+    font-size: 18px !important;
+  }
+  
+  .form-area form input {
+    padding: 15px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Ensure proper scrolling behavior */
+.slide-bar .sidebar-info {
+  overflow-y: auto;
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+/* Handle very wide screens to prevent excessive sidebar width */
+@media screen and (min-width: 1920px) {
+  .slide-bar {
+    max-width: min(500px, 25vw);
+  }
+}
+
+/* High DPI and zoom level optimizations */
+@media screen and (-webkit-min-device-pixel-ratio: 1.25), 
+       screen and (min-resolution: 120dpi) {
+  .slide-bar {
+    height: 100vh;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
 }
