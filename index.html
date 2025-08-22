@@ -1642,7 +1642,7 @@
           <div class="col-lg-12">
             <div class="img1" style="opacity: 0;" id="video-section">
               <div class="play-btn">
-                <a href="https://www.youtube.com/watch?v=Y8XpQpW5OVY" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
+                <a href="company_opening_video.mp4" class="popup-youtube"><span><i class="fa-solid fa-play"></i></span> Play Video</a>
               </div>
               <img src="assets/img/all-images/about/about-img6.png" alt="">
             </div>
@@ -1875,31 +1875,34 @@
           left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(135deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+          background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
           border-radius: 16px;
           transition: background 0.5s ease;
           z-index: 1;
         }
         
         .industry-grid-item:hover::before {
-          background: linear-gradient(135deg, rgba(0, 0, 251, 0.7), rgba(0, 0, 251, 0.5));
+          background: linear-gradient(135deg, rgba(0, 0, 251, 0.8), rgba(0, 0, 251, 0.6));
         }
         
+        /* Additional overlay for better text readability */
         .industry-grid-item::after {
           content: '';
           position: absolute;
           top: 0;
-          left: -100%;
+          left: 0;
           width: 100%;
           height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: left 0.5s ease;
-          pointer-events: none;
+          background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.3) 70%);
+          border-radius: 16px;
+          transition: all 0.5s ease;
+          z-index: 1;
+          opacity: 0.7;
         }
         
         .industry-grid-item:hover::after {
-          left: 100%;
-          transition: left 0.7s ease;
+          background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 251, 0.4) 80%);
+          opacity: 0.9;
         }
         
         .card-content {
@@ -1960,12 +1963,13 @@
           transition: all 0.5s ease;
           position: relative;
           z-index: 3;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .industry-grid-item:hover i {
           transform: scale(1.2);
           color: #fff;
-          text-shadow: 0 0 10px rgba(0, 0, 251, 0.7);
+          text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 2px 4px rgba(0, 0, 0, 0.7);
         }
         
         .industry-grid-item span {
@@ -1976,12 +1980,13 @@
           transition: all 0.5s ease;
           position: relative;
           z-index: 3;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
         }
         
         .industry-grid-item:hover span {
           transform: translateZ(10px);
           letter-spacing: 0.5px;
-          text-shadow: 0 2px 8px rgba(0, 0, 251, 0.5);
+          text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 2px 8px rgba(0, 0, 0, 0.8);
         }
         
         .hover-details {
@@ -2662,7 +2667,7 @@
              </div>
              <div class="vl-blog-1-content">
               <div class="space14"></div>
-              <h4 class="vl-blog-1-title"><a href="#">Regional Medical Center: Healthcare IT Transformation</a></h4>
+              <h4 class="vl-blog-1-title"><a>Regional Medical Center: Healthcare IT Transformation</a></h4>
               <div class="space20"></div>
            </div>
           </div>
@@ -2678,7 +2683,7 @@
              </div>
              <div class="vl-blog-1-content">
                 <div class="space14"></div>
-                <h4 class="vl-blog-1-title"><a href="#">SecureBank: Financial Fraud Prevention & Compliance</a></h4>
+                <h4 class="vl-blog-1-title"><a>SecureBank: Financial Fraud Prevention & Compliance</a></h4>
                <div class="space20"></div>
              </div>
           </div>
@@ -2694,7 +2699,7 @@
            </div>
            <div class="vl-blog-1-content">
               <div class="space14"></div>
-              <h4 class="vl-blog-1-title"><a href="#">TechManufacturing Corp: Unified IT-OT Operations</a></h4>
+              <h4 class="vl-blog-1-title"><a>TechManufacturing Corp: Unified IT-OT Operations</a></h4>
               <div class="space20"></div>
            </div>
         </div>
@@ -2710,7 +2715,7 @@
            </div>
            <div class="vl-blog-1-content">
             <div class="space14"></div>
-            <h4 class="vl-blog-1-title"><a href="#">LegalPartners LLP: Document Management & E-Discovery</a></h4>
+            <h4 class="vl-blog-1-title"><a>LegalPartners LLP: Document Management & E-Discovery</a></h4>
             <div class="space20"></div>
          </div>
         </div>
@@ -2726,7 +2731,7 @@
            </div>
            <div class="vl-blog-1-content">
               <div class="space14"></div>
-              <h4 class="vl-blog-1-title"><a href="#">CityHealth Medical Network: Multi-Facility Integration</a></h4>
+              <h4 class="vl-blog-1-title"><a>CityHealth Medical Network: Multi-Facility Integration</a></h4>
              <div class="space20"></div>
            </div>
         </div>
@@ -2742,7 +2747,7 @@
          </div>
          <div class="vl-blog-1-content">
             <div class="space14"></div>
-            <h4 class="vl-blog-1-title"><a href="#">GlobalTrade Finance: International Banking Automation</a></h4>
+                <h4 class="vl-blog-1-title"><a>GlobalTrade Finance: International Banking Automation</a></h4>
             <div class="space20"></div>
          </div>
       </div>
