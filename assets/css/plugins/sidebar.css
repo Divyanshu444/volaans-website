@@ -405,8 +405,9 @@
   }
   
   .sidebar-info .sidebar-logo a img {
-    height: 40px !important;
+    height: 100px !important;
     width: auto !important;
+    margin-left: -12px !important;
   }
 }
 
@@ -434,8 +435,9 @@
   }
   
   .sidebar-info .sidebar-logo a img {
-    height: 35px !important;
+    height: 100px !important;
     width: auto !important;
+    margin-left: -12px !important;
   }
 }
 
@@ -463,8 +465,9 @@
   }
   
   .sidebar-info .sidebar-logo a img {
-    height: 30px !important;
+    height: 100px !important;
     width: auto !important;
+    margin-left: -12px !important;
   }
   
   .sidebar-content ul li a {

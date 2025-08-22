@@ -16684,7 +16684,7 @@ Location:
   width: 150px;
   -o-object-fit: cover;
      object-fit: cover;
-     margin-left: -18px;
+     margin-left: -15px;
 }
 .header-site-icon .slide-bar.slide-bar1 .sidebar-info .sidebar-logo .close-mobile-menu a {
   font-size: var(--ztc-font-size-font-s32);
