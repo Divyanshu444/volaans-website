@@ -443,6 +443,29 @@
           opacity: 0.9;
         }
         
+        /* Shiny sweep effect from left to right */
+        .industry-grid-item .shine-effect {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.4) 50%, 
+            transparent
+          );
+          border-radius: 16px;
+          transition: left 0.6s ease;
+          pointer-events: none;
+          z-index: 3;
+        }
+        
+        .industry-grid-item:hover .shine-effect {
+          left: 100%;
+        }
+        
         .card-content {
           position: relative;
           height: 100%;
@@ -1576,6 +1599,7 @@
           <!-- First row - left side -->
 
           <a href="service.html" class="industry-grid-item card-3d" data-industry="healthcare" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-hospital"></i>
@@ -1587,6 +1611,7 @@
           <!-- Center spanning two rows -->
            
           <a href="service.html" class="industry-grid-item card-3d" data-industry="realestate" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-building"></i>
@@ -1598,6 +1623,7 @@
           <!-- First row - right side -->
 
           <a href="service.html" class="industry-grid-item card-3d" data-industry="finance" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-chart-line"></i>
@@ -1608,6 +1634,7 @@
           
           <!-- Second row - left side -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="manufacturing" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-industry"></i>
@@ -1618,6 +1645,7 @@
           
           <!-- Second row - right side -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="edtech" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-graduation-cap"></i>
@@ -1628,6 +1656,7 @@
           
           <!-- Third row - left -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="it" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-laptop-code"></i>
@@ -1638,6 +1667,7 @@
           
           <!-- Third row - middle -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="ecommerce" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-shopping-cart"></i>
@@ -1648,6 +1678,7 @@
           
           <!-- Third row - right -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="media" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-film"></i>
@@ -1658,6 +1689,7 @@
           
           <!-- Fourth row - left -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="logistics" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-truck"></i>
@@ -1668,6 +1700,7 @@
           
           <!-- Fourth row - middle -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="smb" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-store"></i>
@@ -1678,6 +1711,7 @@
           
           <!-- Fourth row - right -->
           <a href="service.html" class="industry-grid-item card-3d" data-industry="pharma" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+            <div class="shine-effect"></div>
             <div class="card-content">
               <div class="icon-wrapper">
                 <i class="fa-solid fa-pills"></i>

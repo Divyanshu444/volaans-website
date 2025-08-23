@@ -12787,11 +12787,11 @@ Location:
 .vl-blog-1-area .vl-blog-1-item .vl-blog-1-content .vl-blog-1-title a {
   color: var(--ztc-text-text-1);
   font-family: var(--ztc-family-font1);
-  font-size: var(--ztc-font-size-font-s20);
+  font-size: var(--ztc-font-size-font-s18);
   font-style: normal;
   font-weight: var(--ztc-weight-bold);
   line-height: 28px;
-  letter-spacing: -0.4px;
+  letter-spacing: -0.2px;
   display: inline-block;
   transition: all 0.4s;
 }
@@ -16716,7 +16716,7 @@ Location:
   font-size: var(--ztc-font-size-font-s24);
   font-weight: var(--ztc-weight-bold);
   color: var(--ztc-text-text-1);
-  margin-bottom: 24px;
+  margin: 24px 0px 24px 0px;
   line-height: var(--ztc-font-size-font-s34);
 }
 .header-site-icon .slide-bar.slide-bar1 .social-link-area ul li a {
@@ -16741,7 +16741,7 @@ Location:
   font-size: var(--ztc-font-size-font-s24);
   font-weight: var(--ztc-weight-bold);
   color: var(--ztc-text-text-1);
-  margin-bottom: 24px;
+  margin: 24px 0px 24px 0px;
   line-height: var(--ztc-font-size-font-s34);
 }
 .header-site-icon .slide-bar.slide-bar1 .form-area form {

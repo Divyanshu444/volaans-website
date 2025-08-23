@@ -1585,7 +1585,7 @@
             <h2 class="text-anime-style-3">Simplify Operations with AI That Works</h2>
             <div class="space16"></div>
             <p data-aos="fade-left" data-aos-duration="900" style="text-align: justify;">Small and mid-sized businesses often waste time and resources on repetitive processes, delayed data reporting, and disconnected systems. Most SMBs operate without integrated automation, leaving a gap between potential growth and actual performance. We implemented AI powered operational frameworks including smart virtual agents, AIOps dashboards, and process automation,tailored to fit SMB workflows.</p>
-            <div class="space32"></div>
+            <div class="space44"></div>
             <div class="bg-progress" data-aos="fade-left" data-aos-duration="1000">
               <div class="progress-bar">
                 <label>Operational Costs Reduced <span>30%</span></label>
@@ -1708,6 +1708,7 @@
             <!-- First row - left side -->
 
             <a href="service.html" class="industry-grid-item card-3d" data-industry="healthcare" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-hospital"></i>
@@ -1719,6 +1720,7 @@
             <!-- Center spanning two rows -->
              
             <a href="service.html" class="industry-grid-item card-3d" data-industry="realestate" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-building"></i>
@@ -1730,6 +1732,7 @@
             <!-- First row - right side -->
 
             <a href="service.html" class="industry-grid-item card-3d" data-industry="finance" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-chart-line"></i>
@@ -1740,6 +1743,7 @@
             
             <!-- Second row - left side -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="manufacturing" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-industry"></i>
@@ -1750,6 +1754,7 @@
             
             <!-- Second row - right side -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="edtech" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-graduation-cap"></i>
@@ -1760,6 +1765,7 @@
             
             <!-- Third row - left -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="it" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-laptop-code"></i>
@@ -1770,6 +1776,7 @@
             
             <!-- Third row - middle -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="ecommerce" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-shopping-cart"></i>
@@ -1780,6 +1787,7 @@
             
             <!-- Third row - right -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="media" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-film"></i>
@@ -1790,6 +1798,7 @@
             
             <!-- Fourth row - left -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="logistics" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-truck"></i>
@@ -1800,6 +1809,7 @@
             
             <!-- Fourth row - middle -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="smb" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-store"></i>
@@ -1810,6 +1820,7 @@
             
             <!-- Fourth row - right -->
             <a href="service.html" class="industry-grid-item card-3d" data-industry="pharma" onclick="sessionStorage.setItem('from_industry_grid', 'true');">
+              <div class="shine-effect"></div>
               <div class="card-content">
                 <div class="icon-wrapper">
                   <i class="fa-solid fa-pills"></i>
@@ -1903,6 +1914,29 @@
         .industry-grid-item:hover::after {
           background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 251, 0.4) 80%);
           opacity: 0.9;
+        }
+        
+        /* Shiny sweep effect from left to right */
+        .industry-grid-item .shine-effect {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, 
+            transparent, 
+            rgba(255, 255, 255, 0.4) 50%, 
+            transparent
+          );
+          border-radius: 16px;
+          transition: left 0.6s ease;
+          pointer-events: none;
+          z-index: 3;
+        }
+        
+        .industry-grid-item:hover .shine-effect {
+          left: 100%;
         }
         
         .card-content {
@@ -3374,7 +3408,7 @@
                     <i class="fa-solid fa-star"></i>
                     <i class="fa-solid fa-star"></i>
                   </div>
-                  <p class="testimonial-text">"Alert fatigue was killing our IT team's productivity. We were getting over 500 alerts daily, with maybe 10 being truly critical. Volans Aquilae's alert noise reduction system has been a game-changer – we now see only the alerts that matter. Our response time to genuine emergencies has improved by 60%."</p>
+                  <p class="testimonial-text">"Alert fatigue was killing our IT team's productivity. We were getting over 500 alerts daily, with maybe 10 being truly critical. Volans Aquilae's alert noise reduction system has been a game changer, we now see only the alerts that matter. Our response time to genuine emergencies has improved by 60%."</p>
                 </div>
                 <div class="testimonial-footer">
                   <div class="author-image">
@@ -3382,7 +3416,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">Michael Chen</h4>
-                    <p class="author-designation">IT Director, Valley Health System</p>
+                    <p class="author-designation">IT Director, <br> Valley Health System</p>    
                   </div>
                 </div>
               </div>
@@ -3410,7 +3444,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">James Patterson</h4>
-                    <p class="author-designation">VP of Risk Management, Metro Trust & Financial</p>
+                    <p class="author-designation">VP of Risk Management,<br> Metro Trust & Financial</p>
                   </div>
                 </div>
               </div>
@@ -3438,7 +3472,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">Catherine Williams</h4>
-                    <p class="author-designation">Plant Operations Manager, Summit Industrial</p>
+                    <p class="author-designation">Plant Operations Manager,<br> Summit Industrial</p>
                   </div>
                 </div>
               </div>
@@ -3466,7 +3500,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">Victoria Bennett</h4>
-                    <p class="author-designation">Managing Partner, Bennett & Associates Law</p>
+                    <p class="author-designation">Managing Partner,<br> Bennett & Associates Law</p>
                   </div>
                 </div>
               </div>
@@ -3494,7 +3528,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">Sarah Rodriguez</h4>
-                    <p class="author-designation">Customer Experience Director, TechFlow Solutions</p>
+                    <p class="author-designation">Customer Experience Director,<br> TechFlow Solutions</p>
                   </div>
                 </div>
               </div>
@@ -3522,7 +3556,7 @@
                   </div>
                   <div class="author-info">
                     <h4 class="author-name">David Kim</h4>
-                    <p class="author-designation">Marketing Director, GrowthMax Digital</p>
+                    <p class="author-designation">Marketing Director,<br> GrowthMax Digital</p>
                   </div>
                 </div>
               </div>
