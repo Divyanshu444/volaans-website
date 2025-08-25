@@ -1241,7 +1241,7 @@ a.service1-section-area .service-branding-boxesarea::before {
 /* Simple About Image Box Styles */
 .about-img-box {
   position: relative;
-  padding: 20px 0;
+  padding: 15px 0;
   text-align: center;
 }
 
