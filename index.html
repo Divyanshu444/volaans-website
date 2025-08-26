@@ -1561,7 +1561,7 @@
 <!--===== HERO AREA ENDS =======-->
 
   <!--===== PARTNERS SECTION STARTS =======-->
-<div class="about1-section-area sp6" >
+<div class="about1-section-area sp6">
     <!-- <img src="assets/img/elements/elements9.png" alt="" class="elements9"> -->
     <div class="container">
       <div class="row align-items-center">
@@ -1569,11 +1569,11 @@
           <div class="about-header heading1">
             <!-- <h5 data-aos="fade-right" data-aos-duration="800">AI-powered automation tailored for growing businesses.</h5> -->
           <div class="space40"></div>
-            <h2 class="text-anime-style-3">Simplify Business Operations with AI That Truly Works</h2>
+            <h2 class="text-anime-style-3">Simplify Operations with AI That Works</h2>
             <div class="space20"></div>
-            <p data-aos="fade-right" data-aos-duration="900" style="text-align: justify;">Small and mid-sized businesses often waste there time and resources on repetitive processes, delayed data reporting, and disconnected systems. Most SMBs operate without integrated automation, leaving a gap between potential growth and actual performance. We implemented AI powered operational frameworks including smart virtual AI agents, AI Ops dashboards, and process automation to fit all .
+            <p data-aos="fade-right" data-aos-duration="900" style="text-align: justify;">Small & mid-sized businesses often waste their time & resources on repetitive processes, delayed data reporting, and disconnected systems. Most SMBs operate without integrated automation, leaving a gap between potential growth & actual performance. We implement AI-powered operational frameworks including smart virtual AI agents, AI Ops dashboards, and process automation to fit. These solutions enable seamless workflows, faster decision making, and growth. 
             <br><br>
-            Our comprehensive AI solutions transforms traditional businesses operations through intelligent automations, predictive analytics, & seamless digital system integrations. From automated customer service responses to real time performance monitoring, by eliminating the operational bottle necks while in actively reducing manual workload as. </p>
+            Our comprehensive AI solutions transforms traditional businesses operations through intelligent automations, predictive analytics, & seamless digital system integrations. From automated customer service responses to real time performance monitoring, by eliminating the operational bottle necks while in actively reducing manual workload as we drive innovation, enhance productivity, and create scalable solutions. This empowers businesses to stay competitive.</p>
           </div>
         </div>
 <style>
@@ -1582,50 +1582,235 @@
         padding: 60px 0 0px;
     }
   }
+  
+  .about1-section-area .about-header {
+    padding: 0;
+  }
+  
+  /* Fix layout distortion and zoom issues */
+  .about1-section-area {
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .about1-section-area .row {
+    margin: 0 -15px;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .about1-section-area .col-lg-6 {
+    padding: 0 15px;
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-height: 1px;
+  }
+  
+  /* Heading responsive styling */
+  .about1-section-area .about-header h2 {
+    word-break: break-word;
+    line-height: 1.2;
+    font-size: clamp(28px, 4vw, 52px);
+    margin-bottom: 0;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  
+  /* Paragraph styling */
+  .about1-section-area .about-header p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    font-size: clamp(14px, 1.2vw, 16px);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  /* Progress bars container fixes */
+  .about1-section-area .bg-progress {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .about1-section-area .progress-bar {
+    margin-bottom: clamp(15px, 2vw, 25px);
+    width: 100%;
+  }
+  
+  .about1-section-area .progress-bar label {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .about1-section-area .progress {
+    width: 100%;
+    max-width: 100%;
+    height: clamp(8px, 0.8vw, 12px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  
+  .about1-section-area .progress-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #0000FB 0%, #4169E1 100%);
+    border-radius: 6px;
+    width: 0%;
+    transition: width 2.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 251, 0.3);
+  }
+  
+  .about1-section-area .progress-inner.animate {
+    box-shadow: 0 2px 12px rgba(0, 0, 251, 0.5);
+  }
+  
+  .about1-section-area .progress-counter {
+    font-weight: 600;
+    color: #0000FB;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-width: 35px;
+    text-align: right;
+  }
+  
+  .about1-section-area .progress-counter.counting {
+    transform: scale(1.05);
+    color: #4169E1;
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 1200px) {
+    .about1-section-area .about-header h2 {
+      font-size: clamp(24px, 4.5vw, 42px);
+    }
+  }
+  
+  @media (max-width: 991px) {
+    .about1-section-area .row {
+      flex-direction: column;
+    }
+    
+    .about1-section-area .col-lg-6 {
+      flex: 0 0 100%;
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+    
+    .about1-section-area .col-lg-6:last-child {
+      margin-bottom: 0;
+    }
+    
+    .about1-section-area .about-header h2 {
+      font-size: clamp(26px, 5vw, 38px);
+      text-align: center;
+    }
+    
+    .about1-section-area .about-header p {
+      text-align: center;
+      font-size: clamp(14px, 1.3vw, 16px);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .about1-section-area {
+      padding: 40px 0;
+    }
+    
+    .about1-section-area .space40 {
+      height: 20px;
+    }
+    
+    .about1-section-area .space44 {
+      height: 20px;
+    }
+    
+    .about1-section-area .about-header h2 {
+      font-size: clamp(24px, 6vw, 32px);
+    }
+  }
+  
+  @media (max-width: 575px) {
+    .about1-section-area .about-header h2 {
+      font-size: clamp(22px, 7vw, 28px);
+      line-height: 1.1;
+    }
+    
+    .about1-section-area .about-header p {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    
+    .about1-section-area .progress-bar label {
+      font-size: 13px;
+    }
+    
+    .about1-section-area .progress {
+      height: 8px;
+    }
+  }
+  
+  /* Fix zoom stability */
+  @media (min-width: 1400px) {
+    .about1-section-area .container {
+      max-width: 1320px;
+    }
+  }
+  
+  /* High DPI display fixes */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .about1-section-area .progress-inner {
+      transform: translateZ(0);
+      will-change: width;
+    }
+  }
 </style>
         <div class="col-lg-6">
           <div class="about-header">
             <div class="space44"></div>
-            <div class="bg-progress" data-aos="fade-left" data-aos-duration="1000">
+            <div class="bg-progress progress-animation-container" data-aos="fade-left" data-aos-duration="1000">
               <div class="progress-bar">
-                <label>Operational Costs Reduced <span>30%</span></label>
+                <label>Operational Costs Reduced <span class="progress-counter" data-target="30">0%</span></label>
                 <div class="progress">
-                    <div class="progress-inner" style="width: 30%;"></div>
+                    <div class="progress-inner" data-width="30"></div>
                 </div>
               </div>
           
               <div class="progress-bar">
-                  <label>Administrative Workload Decreased <span>40%</span></label>
+                  <label>Administrative Workload Decreased <span class="progress-counter" data-target="40">0%</span></label>
                   <div class="progress">
-                      <div class="progress-inner" style="width: 40%;"></div>
+                      <div class="progress-inner" data-width="40"></div>
                   </div>
               </div>
               
               <div class="progress-bar">
-                <label>System Downtime Minimized <span>50%</span></label>
+                <label>System Downtime Minimized <span class="progress-counter" data-target="50">0%</span></label>
                 <div class="progress">
-                    <div class="progress-inner" style="width: 50%;"></div>
+                    <div class="progress-inner" data-width="50"></div>
                 </div>
               </div>
 
               <div class="progress-bar">
-                <label>Incident Response Time Improved <span>60%</span></label>
+                <label>Incident Response Time Improved <span class="progress-counter" data-target="60">0%</span></label>
                 <div class="progress">
-                    <div class="progress-inner" style="width: 60%;"></div>
+                    <div class="progress-inner" data-width="60"></div>
                 </div>
               </div>
 
               <div class="progress-bar">
-                <label>Data Reporting Speed Boosted <span>65%</span></label>
+                <label>Data Reporting Speed Boosted <span class="progress-counter" data-target="65">0%</span></label>
                 <div class="progress">
-                    <div class="progress-inner" style="width: 65%;"></div>
+                    <div class="progress-inner" data-width="65"></div>
                 </div>
               </div>
 
               <div class="progress-bar m-0">
-                <label>Decision-Making Efficiency <span>55%</span></label>
+                <label>Decision-Making Efficiency <span class="progress-counter" data-target="55">0%</span></label>
                 <div class="progress">
-                    <div class="progress-inner" style="width: 55%;"></div>
+                    <div class="progress-inner" data-width="55"></div>
                 </div>
               </div>
             </div>
@@ -3612,7 +3797,7 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 20px 0;
+    padding: 60px 0;
     width: 100%;
     max-width: 100%;
     margin: 0;
@@ -5136,6 +5321,81 @@
 
 <!-- Gesture Navigation -->
 <script src="assets/js/gesture-navigation.js"></script>
+
+<!-- Animated Progress Bars -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const progressContainer = document.querySelector('.progress-animation-container');
+    
+    if (!progressContainer) return;
+    
+    const progressBars = progressContainer.querySelectorAll('.progress-inner');
+    const progressCounters = progressContainer.querySelectorAll('.progress-counter');
+    
+    // Create intersection observer for smooth animation trigger
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    animateProgressBars();
+                }, 600); // Delay for AOS animation to complete
+                observer.disconnect(); // Animate only once
+            }
+        });
+    }, {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+    
+    observer.observe(progressContainer);
+    
+    function animateProgressBars() {
+        progressBars.forEach((bar, index) => {
+            const targetWidth = parseInt(bar.getAttribute('data-width'));
+            const counter = progressCounters[index];
+            const targetValue = parseInt(counter.getAttribute('data-target'));
+            
+            // Staggered animation with delay
+            setTimeout(() => {
+                bar.classList.add('animate');
+                bar.style.width = targetWidth + '%';
+                animateCounter(counter, targetValue);
+            }, index * 150); // 150ms delay between each bar
+        });
+    }
+    
+    function animateCounter(counter, target) {
+        counter.classList.add('counting');
+        let current = 0;
+        const duration = 2400; // Slightly less than CSS transition
+        const startTime = performance.now();
+        
+        function updateCounter(currentTime) {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Smooth easing
+            const easedProgress = easeOutCubic(progress);
+            current = Math.round(target * easedProgress);
+            
+            counter.textContent = current + '%';
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.classList.remove('counting');
+                counter.textContent = target + '%';
+            }
+        }
+        
+        requestAnimationFrame(updateCounter);
+    }
+    
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+});
+</script>
 </body>
 </html>
 

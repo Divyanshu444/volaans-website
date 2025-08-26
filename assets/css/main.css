@@ -16225,7 +16225,7 @@ Location:
   line-height: 20px; /* 100% */
 }
 .project-details-section-area .project-details-area .btn-area1 {
-  padding-bottom: 60px;
+  padding: 35px 0px 35px 0px;
   border-bottom: 1px solid #1C1F22;
 }
 .project-details-section-area .project-details-area .list-area li {
