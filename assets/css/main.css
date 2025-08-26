@@ -16663,7 +16663,7 @@ Location:
   background: var(--ztc-bg-bg-5);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
-  width: 450px;
+  width: 350px;
 }
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .header-site-icon .slide-bar.slide-bar1 {
@@ -16752,6 +16752,7 @@ Location:
   display: block;
   position: relative;
   border-radius: 4px;
+  margin-right: 70px;
 }
 .header-site-icon .slide-bar.slide-bar1 .form-area form input {
   width: 100%;
@@ -20403,5 +20404,57 @@ Location:
      object-fit: contain;
   display: inline-block;
 }
+
+/*============= ARROW BUTTON CSS AREA STARTS ===============*/
+.vl-arrow-btn {
+  background: linear-gradient(90deg, var(--ztc-bg-bg-10) 0%, var(--ztc-bg-bg-11) 100%);
+  border: none;
+  color: var(--ztc-text-text-4);
+  font-size: var(--ztc-font-size-font-s20);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.vl-arrow-btn:hover {
+  color: var(--ztc-text-text-4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.vl-arrow-btn:hover::after {
+  visibility: visible;
+  opacity: 1;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.4s;
+}
+
+.vl-arrow-btn::after {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, var(--ztc-bg-bg-11) 0%, var(--ztc-bg-bg-10) 100%);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  visibility: hidden;
+  opacity: 0;
+  z-index: -1;
+}
+
+/*============= ARROW BUTTON CSS AREA ENDS ===============*/
 
 /*============= ABOUT CSS AREA ENDS ===============*//*# sourceMappingURL=main.css.map */
