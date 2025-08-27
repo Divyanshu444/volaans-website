@@ -12787,7 +12787,7 @@ Location:
 .vl-blog-1-area .vl-blog-1-item .vl-blog-1-content .vl-blog-1-title a {
   color: var(--ztc-text-text-1);
   font-family: var(--ztc-family-font1);
-  font-size: var(--ztc-font-size-font-s18);
+  font-size: 19px;
   font-style: normal;
   font-weight: var(--ztc-weight-bold);
   line-height: 28px;
@@ -16663,7 +16663,12 @@ Location:
   background: var(--ztc-bg-bg-5);
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
-  width: 350px;
+  width: 308px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 @media only screen and (min-width: 1400px) and (max-width: 1599px) {
   .header-site-icon .slide-bar.slide-bar1 {
@@ -16752,7 +16757,7 @@ Location:
   display: block;
   position: relative;
   border-radius: 4px;
-  margin-right: 70px;
+  margin-right: 15px;
 }
 .header-site-icon .slide-bar.slide-bar1 .form-area form input {
   width: 100%;
@@ -16791,6 +16796,11 @@ Location:
   -webkit-backdrop-filter: blur(1px);
           backdrop-filter: blur(1px);
   width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 .homepage4 .header-site-icon .slide-bar.slide-bar1 .sidebar-info .sidebar-logo a img {
   height: 52px;

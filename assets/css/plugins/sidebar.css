@@ -226,7 +226,10 @@
     padding: 30px;
     height: 100vh;
     max-height: 100vh;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: var(--color-white);
     z-index: 1020;
     transition-duration: 500ms;
